@@ -1,0 +1,5 @@
+TÍTULO: The Nature of Procrastination: A Meta-Analytic and Theoretical Review
+AUTORES: Piers Steel (2007, Psychological Bulletin)
+TEMA: Teoria da Motivação Temporal (TMT) e Procrastinação
+
+A Teoria da Motivação Temporal define a utilidade de uma tarefa como uma equação matemática: Utilidade = (Expectativa x Valor) / (1 + Impulsividade x Atraso). Tarefas cujo resultado está distante no tempo (provas no fim do semestre, concursos) sofrem um desconto hiperbólico acentuado, perdendo apelo motivacional. Estudantes com alta impulsividade adiam o estudo em favor de recompensas de gratificação instantânea. Para neutralizar esse mecanismo, deve-se decompor metas longas em marcos semanais com feedback rápido.

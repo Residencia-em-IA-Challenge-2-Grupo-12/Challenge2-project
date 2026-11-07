@@ -1,0 +1,5 @@
+TÍTULO: The Critical Importance of Retrieval Practice in Long-Term Retention
+AUTORES: Jeffrey D. Karpicke, Henry L. Roediger III (2008, Science)
+TEMA: Efeito da Prática de Recuperação (Active Recall) vs. Estudo Passivo
+
+O estudo demonstra que a recuperação ativa de informações da memória produz efeitos substancialmente superiores na retenção de longo prazo quando comparada à releitura repetida. Estudantes que apenas leem e releem materiais experimentam uma falsa sensação de domínio (ilusão de competência), pois o reconhecimento passivo demanda baixo esforço neural. A prática de testes práticos, resolução de questões sem consulta imediata e a autoexplicação ativam vias de consolidação sináptica no hipocampo, garantindo que o conhecimento permaneça acessível por períodos prolongados. O esforço cognitivo despendido no resgate da informação é o motor primário da retenção mnêmica duradoura.

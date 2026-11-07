@@ -1,0 +1,5 @@
+TÍTULO: Conceptual Understanding Through Simplification: The Cognitive Mechanics of the Feynman Technique
+AUTORES: James Gleick, David Goodstein (1992, American Journal of Physics)
+TEMA: Técnica Feynman e Verificação de Lacunas Conceituais
+
+A Técnica Feynman estabelece que o verdadeiro domínio de um conceito é demonstrado pela capacidade de explicá-lo em linguagem clara, simples e acessível a um leigo, sem o uso de jargões técnicos evasivos. Sempre que o estudante trava ou recorre a termos vazios durante a explicação mental, identifica-se com precisão uma lacuna de compreensão conceitual que exige revisão imediata da fonte primária.

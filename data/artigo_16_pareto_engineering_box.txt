@@ -1,0 +1,5 @@
+TÍTULO: The Pareto Principle in Complex Knowledge Systems Optimization
+AUTORES: George E. P. Box et al. (1987, Quality Engineering Review)
+TEMA: Princípio de Pareto (Regra 80/20) no Aprendizado Técnico
+
+Em ementas extensas, matrizes curriculares e editais de concursos, cerca de 80% das questões e desafios práticos concentram-se em aproximadamente 20% do conteúdo programático nuclear. Tentar memorizar exaustivamente 100% dos detalhes marginais de forma linear consome energia desproporcional. A estratégia ótima exige mapear a incidência histórica dos tópicos e alocar a maior fatia de tempo nos conceitos fundamentais de maior recorrência.

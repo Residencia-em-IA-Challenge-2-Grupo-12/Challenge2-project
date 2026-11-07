@@ -1,0 +1,5 @@
+TÍTULO: A Review of Research on Project-Based Learning
+AUTORES: John W. Thomas (2000, The Autodesk Foundation)
+TEMA: Aprendizado Baseado em Projetos (PBL) em Engenharia e Computação
+
+O aprendizado autodidata de ciências exatas e tecnologia ganha eficácia superior quando ancorado na construção de projetos reais. A resolução de problemas autênticos estimula o raciocínio diagnóstico e a autonomia intelectual. O estudante passa da assimilação passiva de sintaxe para a aplicação contextualizada, construindo artefatos práticos verificáveis (código, modelos de machine learning, pipelines de dados) que validam o domínio conceitual.

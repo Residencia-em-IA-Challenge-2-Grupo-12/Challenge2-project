@@ -1,0 +1,5 @@
+TÍTULO: Implementation Intentions: Strong Effects of Simple Plans
+AUTORES: Peter M. Gollwitzer (1999, American Psychologist)
+TEMA: Intenções de Implementação e Planejamento 'Se-Então'
+
+Metas vagas como 'estudarei amanhã' falham devido à fadiga decisória diária. A formulação de intenções de implementação baseadas na estrutura 'Se a situação X ocorrer, então executarei a ação Y' automatiza o início da conduta. Definir com precisão 'Quando', 'Onde' e 'Como' uma ação será iniciada transfere o controle do comportamento para pistas ambientais, reduzindo a necessidade de força de vontade voluntária e acelerando a adesão à rotina.

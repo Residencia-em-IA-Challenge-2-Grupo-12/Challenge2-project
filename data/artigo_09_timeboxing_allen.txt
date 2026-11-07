@@ -1,0 +1,5 @@
+TÍTULO: Temporal Bounding and Productivity: An Analysis of Timeboxing in Technical Workflows
+AUTORES: David Allen, Robert C. Pozen (2012, Harvard Business Review / Productivity Studies)
+TEMA: Timeboxing e Lei de Parkinson
+
+A Lei de Parkinson postula que o trabalho se expande para preencher o tempo disponível para sua conclusão. O método de Timeboxing estabelece um limite temporal rígido e pré-alocado no calendário para a execução de uma tarefa específica. Ao transformar uma tarefa aberta em um bloco com início e fim demarcados, elimina-se a ruminação mental sobre o que fazer em seguida, forçando o indivíduo a focar nas entregas essenciais dentro do prazo delimitado.

@@ -1,0 +1,5 @@
+TÍTULO: Cognitive Load Theory and Educational Technology
+AUTORES: John Sweller (2005, Educational Technology Research and Development)
+TEMA: Teoria da Carga Cognitiva e Limitações da Memória de Trabalho
+
+A memória de trabalho humana possui capacidade estritamente limitada, manipulando cerca de 4 a 7 elementos simultâneos. A carga cognitiva é dividida em intrínseca (dificuldade natural do conteúdo), germana (esforço útil para construir esquemas mentais) e extrínseca (ruído provocado por material desorganizado ou interfaces complexas). Ferramentas de estudo eficientes devem minimizar a carga extrínseca (telas poluídas, excesso de configurações) para liberar largura de banda cognitiva voltada à assimilação do conteúdo complexo.

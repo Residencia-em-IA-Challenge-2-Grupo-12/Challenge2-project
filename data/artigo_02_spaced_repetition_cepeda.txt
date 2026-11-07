@@ -1,0 +1,5 @@
+TÍTULO: Distributed Practice in Verbal Recall Tasks: A Review and Quantitative Synthesis
+AUTORES: Nicholas J. Cepeda et al. (2006, Psychological Bulletin)
+TEMA: Efeito do Espaçamento e Prática Distribuída
+
+A prática distribuída (repetição espaçada) supera consistentemente a prática concentrada (estudo intensivo de última hora). O intervalo ideal entre sessões de estudo depende do intervalo de retenção desejado: quanto mais distante for o momento da avaliação final, maior deve ser o espaçamento temporal entre as revisões. Sessões de estudo espaçadas forçam o cérebro a reconstruir o traço de memória quase esquecido, o que fortalece a estabilidade do armazenamento a longo prazo. Sistemas de repetição espaçada devem priorizar itens com menor taxa de acerto recente, recalculando dinamicamente os intervalos de revisão.

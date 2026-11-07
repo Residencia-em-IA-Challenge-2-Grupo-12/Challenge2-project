@@ -1,0 +1,5 @@
+TÍTULO: The Pomodoro Technique: The Acclaimed Time-Management System
+AUTORES: Francesco Cirillo (2006, Technical Report / Monograph)
+TEMA: Intervalos Cronometrados e Mitigação da Ansiedade Temporal
+
+A Técnica Pomodoro utiliza intervalos de esforço sustentado (tradicionalmente 25 minutos) intercalados por pausas curtas (5 minutos) para aliviar a ansiedade associada à percepção contínua do tempo. Ao transformar o tempo em um aliado métrico de esforço concluído, e não em um fator de cobrança, a técnica reduz o atrito de inicialização da tarefa. O registro dos pomodoros finalizados provê feedback visual tangível de progresso diário.
