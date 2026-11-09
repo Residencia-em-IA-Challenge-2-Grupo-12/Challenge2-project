@@ -1,6 +1,6 @@
 """Carrega e valida o gabarito. Só biblioteca padrão (sem langchain).
 
-Uso (a partir de dev/): python -m metricas.dataset.loader
+Uso (a partir de pesquisa/): python -m metricas.dataset.loader
 """
 
 import json
@@ -11,7 +11,7 @@ from typing import List, Optional
 
 DATASET_DIR = Path(__file__).resolve().parent
 GABARITO_PATH = DATASET_DIR / "gabarito.json"
-DATA_DIR = DATASET_DIR.parents[1] / "data"  # dev/data
+DATA_DIR = DATASET_DIR.parents[2] / "dev" / "data"  # dev/data (base de conhecimento)
 
 TIPOS = {"direta", "parafraseada", "multi_fonte", "fora_de_escopo"}
 ORIGENS = {"notebook", "novo"}

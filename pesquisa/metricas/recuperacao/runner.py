@@ -1,10 +1,14 @@
 """Executa o retriever sobre o gabarito, calcula as métricas e salva os resultados.
 
-Uso (a partir de dev/):
+Uso (a partir de pesquisa/):
     python -m metricas.recuperacao.runner --nome baseline
     python -m metricas.recuperacao.runner --nome baseline --ks 1 3 5
 
+Depende do notebook pesquisa/rag_pipeline_semana2.ipynb (ver notebook_loader.py): ele é
+executado até a célula do índice, então esta execução já reindexa o ChromaDB.
+
 Fluxo, passo a passo:
+  0. Executa as células de índice do notebook e obtém o `vectorstore`.
   1. Carrega o gabarito (20 perguntas).
   2. Para cada pergunta, busca os `max(ks)` chunks mais próximos UMA vez (com distância L2).
   3. Reduz cada chunk ao nome do arquivo de origem (`nome_fonte`).
@@ -141,28 +145,26 @@ def imprimir(resultados: Sequence[ResultadoPergunta], resumo: Dict, ks: Sequence
     print(f"  fora de escopo   : {resumo['diagnostico_fora_de_escopo']}")
 
 
-def make_search_from_rag(provider: str = None) -> Tuple[SearchFn, Dict]:
-    """Liga o runner ao índice ChromaDB persistido (import tardio: exige langchain instalado)."""
-    from app.modules.rag.config import CHUNK_OVERLAP, CHUNK_SIZE, setup_environment
-    from app.modules.rag.embeddings import get_embedding_model
-    from app.modules.rag.vectorstore import open_vectorstore
+def make_search_from_notebook() -> Tuple[SearchFn, Dict]:
+    """Liga o runner ao notebook: executa suas células de índice e usa o `vectorstore` dele.
 
-    provider = provider or setup_environment()
-    emb = get_embedding_model(provider)
-    store = open_vectorstore(emb)
-    n_chunks = len(store.get().get("ids", []))
-    if n_chunks == 0:
-        raise RuntimeError("Índice vazio. Rode antes: python -m scripts.build_index")
+    Atenção: a célula do índice REINDEXA dev/chroma_db (apaga e recria a coleção).
+    Import tardio: exige langchain instalado.
+    """
+    from .notebook_loader import executar_notebook
+
+    ns = executar_notebook()
+    store = ns["vectorstore"]
 
     def search(pergunta: str, n: int) -> List[Tuple[str, float]]:
         return [(d.metadata.get("source", ""), s) for d, s in store.similarity_search_with_score(pergunta, k=n)]
 
     config = {
-        "provider": provider,
-        "embedding": type(emb).__name__,
-        "chunk_size": CHUNK_SIZE,
-        "chunk_overlap": CHUNK_OVERLAP,
-        "chunks_no_indice": n_chunks,
+        "provider": ns["ACTIVE_PROVIDER"],
+        "embedding": type(ns["embedding_model"]).__name__,
+        "chunk_size": ns["CHUNK_SIZE"],
+        "chunk_overlap": ns["CHUNK_OVERLAP"],
+        "chunks_no_indice": len(ns["document_chunks"]),
     }
     return search, config
 
@@ -173,7 +175,7 @@ def main() -> None:
     ap.add_argument("--ks", type=int, nargs="+", default=[1, 3, 5])
     args = ap.parse_args()
 
-    search, config = make_search_from_rag()
+    search, config = make_search_from_notebook()
     config["ks"] = args.ks
     perguntas = load_gabarito()
     resultados = avaliar(search, perguntas, args.ks)

@@ -1,6 +1,6 @@
 """Testes das fórmulas e do fluxo do runner com um retriever FALSO (sem langchain/API).
 
-Rodar (a partir de dev/): python -m metricas.recuperacao.test_metrics   (ou pytest)
+Rodar (a partir de pesquisa/): python -m metricas.recuperacao.test_metrics   (ou pytest)
 """
 
 import math
