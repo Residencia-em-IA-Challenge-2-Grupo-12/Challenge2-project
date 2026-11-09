@@ -1,28 +1,26 @@
-# Residência em IA — Semana 2: Base de Conhecimento e Protótipo RAG
+# Entrega 2 — Base de Conhecimento e Protótipo RAG
 
-Este repositório contém a implementação do primeiro mecanismo de **Retrieval-Augmented Generation (RAG)** da equipe, desenvolvido para fundamentar e orientar rotinas de estudo, produtividade e preparação técnica com base em evidências científicas.
+Resumo da entrega da Semana 2 da Residência em IA (Grupo 12): o primeiro mecanismo de **Retrieval-Augmented Generation (RAG)** do projeto, que fundamenta orientações de estudo e produtividade em evidências científicas.
 
----
+A especificação técnica completa vive no repositório de documentação, que é a fonte única:
+[Challenge2-documentation › Semana 2](https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/Challenge2-documentation/tree/main/docs/semana-2).
 
-## 1. Arquitetura da Solução
+## O que foi entregue
 
-O pipeline segue a arquitetura canónica de RAG, garantindo rastreabilidade desde a ingestão até à geração final da resposta:
+| Componente | Onde está |
+| :--- | :--- |
+| Base de conhecimento (20 artigos científicos, 4 blocos temáticos) | `dev/data/` |
+| Pipeline RAG (ingestão, chunking, embeddings, ChromaDB, chain LCEL) | `pesquisa/rag_pipeline_semana2.ipynb` |
+| Índice vetorial (gerado localmente, fora do git) | `dev/chroma_db/` |
+| Visão geral, decisões técnicas e como executar | [`README.md`](../README.md) |
 
-```mermaid
-flowchart TD
-    subgraph Ingestao [1. Ingestão e Indexação]
-        A[20 Artigos Científicos em ./data] --> B[TextLoader / PyPDFLoader]
-        B --> C[RecursiveCharacterTextSplitter<br>chunk_size=500 | chunk_overlap=50]
-        C --> D[Modelo de Embeddings<br>text-embedding-004]
-        D --> E[(ChromaDB: Coleção Local)]
-    end
+## Arquitetura em uma frase
 
-    subgraph Recuperacao [2. Recuperação e Geração Fundamentada]
-        F[Pergunta do Utilizador / Persona] --> G[Retriever Top-K=3]
-        E -.->|Busca por Proximidade L2| G
-        G --> H[Chunks Relevantes + Metadados]
-        H --> I[Prompt Estruturado com Regras Estritas]
-        F --> I
-        I --> J[LLM: Gemini / GPT-4o-mini<br>temperature=0.0]
-        J --> K[Resposta Fundamentada com Citação de Fontes]
-    end
+Ingestão em lote (`.txt`/`.pdf` → chunks de 500 caracteres com overlap de 50 → embeddings → ChromaDB) e consulta em tempo real (pergunta → Top-K=3 por distância L2 → prompt com *grounding* → LLM com `temperature=0.0` → resposta com citação de fonte).
+
+## Documentação detalhada
+
+- [Visão geral da Semana 2](https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/Challenge2-documentation/tree/main/docs/semana-2/index.md)
+- [Arquitetura da solução](https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/Challenge2-documentation/tree/main/docs/semana-2/arquitetura.md)
+- [Pipeline de ingestão](https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/Challenge2-documentation/tree/main/docs/semana-2/pipeline-ingestao.md)
+- [Estratégias de chunking e embeddings](https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/Challenge2-documentation/tree/main/docs/semana-2/estrategias-rag.md)
