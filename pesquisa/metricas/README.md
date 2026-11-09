@@ -2,9 +2,9 @@
 
 Localização: `pesquisa/metricas/`. Todos os comandos abaixo rodam a partir de `pesquisa/`.
 
-Avaliação do RAG em camadas. **Candidata a ir para a `main`.** O módulo `app/modules/rag/` é só andaime experimental (extraído do notebook) e não deve ser a base definitiva.
+Avaliação do RAG em camadas. **Candidata a ir para a `main`.**
 
-Para não acoplar as métricas ao andaime, tudo aqui consome o RAG por uma fronteira estreita: uma chain que recebe a pergunta e devolve `{"context_docs", "question", "answer"}`. Se o `rag/` for substituído, só o ponto de entrada muda.
+O RAG medido é o do notebook `rag_pipeline_semana2.ipynb`: o `recuperacao/notebook_loader.py` executa as células de índice dele e as métricas usam o `vectorstore` resultante. Não há módulo RAG separado em `dev/`.
 
 ## Camadas
 
