@@ -12,6 +12,7 @@ Este repositório contém a entrega da **Semana 2 da Residência em IA**, implem
 4. [Decisões Técnicas do Pipeline RAG](#4-decisões-técnicas-do-pipeline-rag)
 5. [Personas e Cenários de Validação](#5-personas-e-cenários-de-validação)
 6. [Como Configurar e Executar](#6-como-configurar-e-executar)
+7. [Documentação](#7-documentação)
 
 ---
 
@@ -156,3 +157,9 @@ cd web && npm install && npm run dev
 ```
 
 O notebook deve ser executado de dentro de `pesquisa/` (é o que o Jupyter e o VS Code fazem por padrão).
+
+---
+
+## 7. Documentação
+
+A documentação técnica do RAG (arquitetura, pipeline de ingestão, estratégias de chunking e embeddings, validação com as personas) fica no repositório [Challenge2-documentation](https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/Challenge2-documentation/tree/main/docs/semana-2). Este repositório guarda apenas o código e o resumo em [`pesquisa/Entrega2.md`](pesquisa/Entrega2.md).
