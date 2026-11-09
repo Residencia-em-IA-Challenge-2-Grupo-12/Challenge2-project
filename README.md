@@ -22,7 +22,7 @@ O sistema conecta uma base de conhecimento científica a um Grande Modelo de Lin
 ```mermaid
 flowchart TD
     subgraph Ingestao ["1. Pipeline de Ingestão e Indexação"]
-        A["20 Artigos Científicos em ./data"] --> B["TextLoader / PyPDFLoader"]
+        A["20 Artigos Científicos em dev/data"] --> B["TextLoader / PyPDFLoader"]
         B --> C["RecursiveCharacterTextSplitter (chunk_size=500, overlap=50)"]
         C --> D["Modelo de Embeddings (text-embedding-004 / 3-small)"]
         D --> E[("ChromaDB Local Persistente")]
@@ -45,19 +45,27 @@ flowchart TD
 
 ```text
 Challenge2-project/
-├── data/                           # 20 documentos científicos (.txt) gerados/ingeridos pelo pipeline
-├── chroma_db/                      # Persistência local do banco vetorial ChromaDB
-├── rag_pipeline_semana2.ipynb      # Notebook principal com as 5 etapas do pipeline RAG
-├── Entrega2.md                     # Documento de apoio da entrega da Semana 2
-├── .env                            # Variáveis de ambiente (OPENAI_API_KEY ou GOOGLE_API_KEY) [opcional]
+├── dev/                            # Backend (FastAPI, camadas por módulo)
+│   ├── app/                        # Código da API (core/, modules/)
+│   ├── data/                       # Base de conhecimento: 20 documentos científicos (.txt)
+│   ├── chroma_db/                  # Banco vetorial ChromaDB (gerado localmente, ignorado no git)
+│   ├── .env.example                # Variáveis de ambiente (copie para dev/.env)
+│   └── requirements.txt
+├── web/                            # Frontend (Next.js, módulos em src/modules/)
+├── pesquisa/
+│   ├── rag_pipeline_semana2.ipynb  # Notebook principal com as 5 etapas do pipeline RAG
+│   └── Entrega2.md                 # Documento de apoio da entrega da Semana 2
+├── .github/workflows/ci.yml        # CI: backend e frontend
 └── README.md                       # Documentação do repositório
 ```
+
+> O notebook lê `dev/data/` e grava o índice em `dev/chroma_db/`, que é o que a API consome.
 
 ---
 
 ## 3. Base de Conhecimento Curada (20 Artigos Científicos)
 
-A base de conhecimento em `./data/` é composta por **20 documentos baseados em literatura científica** de psicologia cognitiva, neurociência do aprendizado e engenharia de produtividade, organizados em **4 blocos temáticos**:
+A base de conhecimento em `dev/data/` é composta por **20 documentos baseados em literatura científica** de psicologia cognitiva, neurociência do aprendizado e engenharia de produtividade, organizados em **4 blocos temáticos**:
 
 | Bloco Temático | Documentos | Referências Principais |
 | :--- | :--- | :--- |
@@ -66,7 +74,7 @@ A base de conhecimento em `./data/` é composta por **20 documentos baseados em 
 | **3. Comportamento e Procrastinação** | Docs `11` a `15` | Teoria da Motivação Temporal (Steel, 2007), Perfeccionismo e *Overplanning* (Flett & Hewitt, 2002), Loop do Hábito (Wood & Rünger, 2016), Esgotamento do Ego/Fadiga Decisória (Baumeister et al., 1998) e Autoeficácia (Bandura, 1977). |
 | **4. Planejamento Autodidata e Editais** | Docs `16` a `20` | Princípio de Pareto 80/20 (Box et al., 1987), Ciclos de Estudo Flexíveis (Meirelles & Perez, 2015), *Project-Based Learning* (Thomas, 2000), Dupla Jornada CLT e Pobreza de Tempo (Martins & Silveira, 2020) e Técnica Feynman (Gleick & Goodstein, 1992). |
 
-> **Resiliência:** Caso a pasta `./data/` esteja vazia ou inacessível, o pipeline aciona automaticamente um *fallback* sintético em memória (`get_synthetic_fallback_documents()`).
+> **Resiliência:** Caso a pasta `dev/data/` esteja vazia ou inacessível, o pipeline aciona automaticamente um *fallback* sintético em memória (`get_synthetic_fallback_documents()`).
 
 ---
 
@@ -81,7 +89,7 @@ A base de conhecimento em `./data/` é composta por **20 documentos baseados em 
 3. **Vetorização e Persistência Idempotente (`ChromaDB`)**:
    - Suporte automático a `OpenAIEmbeddings` (`text-embedding-3-small`) e `GoogleGenerativeAIEmbeddings` (`models/text-embedding-004`).
    - **Modo Offline Integrado:** Inclui `LocalKeywordHashEmbeddings` (vetores de 256 dimensões normalizados em $L_2$) e `GroundedExtractiveFallbackLLM` para permitir a execução completa do notebook mesmo sem chave de API configurada.
-   - Persistência local em `./chroma_db` (coleção `residencia_ia_semana2`) com limpeza prévia de IDs para evitar duplicatas em reexecuções.
+   - Persistência local em `dev/chroma_db` (coleção `residencia_ia_semana2`) com limpeza prévia de IDs para evitar duplicatas em reexecuções.
 4. **Recuperação e Chain RAG (`LCEL`)**:
    - Busca semântica por Distância Euclidiana ($L_2$) com `Top-K = 3`.
    - Orquestração via `RunnableParallel` e `RunnablePassthrough`, preservando tanto os documentos recuperados (`context_docs`) quanto a resposta final (`answer`).
@@ -125,7 +133,7 @@ O pipeline é validado no final do notebook com **3 consultas reais** simulando 
    source .venv/bin/activate
    ```
 
-3. **(Opcional) Configure sua chave de API em um arquivo `.env` na raiz do projeto:**
+3. **(Opcional) Configure sua chave de API em um arquivo `dev/.env`:**
    ```env
    # Escolha um dos provedores abaixo:
    OPENAI_API_KEY="sua-chave-openai"
@@ -135,4 +143,16 @@ O pipeline é validado no final do notebook com **3 consultas reais** simulando 
    *Observação: Caso nenhum arquivo `.env` seja configurado, o notebook executará automaticamente em modo de demonstração offline utilizando os componentes determinísticos locais.*
 
 4. **Execute o Notebook:**
-   Abra o arquivo [`rag_pipeline_semana2.ipynb`](rag_pipeline_semana2.ipynb) e execute todas as células sequencialmente (*Run All*). As dependências necessárias serão instaladas automaticamente na Etapa 1.
+   Abra o arquivo [`pesquisa/rag_pipeline_semana2.ipynb`](pesquisa/rag_pipeline_semana2.ipynb) e execute todas as células sequencialmente (*Run All*). As dependências necessárias serão instaladas automaticamente na Etapa 1.
+
+### Rodando a API e o frontend
+
+```bash
+# Backend (http://localhost:8000/docs)
+cd dev && pip install -r requirements.txt && uvicorn app.main:app --reload
+
+# Frontend (http://localhost:3000)
+cd web && npm install && npm run dev
+```
+
+O notebook deve ser executado de dentro de `pesquisa/` (é o que o Jupyter e o VS Code fazem por padrão).

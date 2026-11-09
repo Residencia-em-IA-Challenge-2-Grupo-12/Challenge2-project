@@ -8,3 +8,9 @@ node_modules/
 .next/
 next-env.d.ts
 .env*.local
+
+# Banco vetorial local (regenerado pelo notebook em pesquisa/)
+dev/chroma_db/
+
+# Build / cache
+*.tsbuildinfo

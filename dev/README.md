@@ -15,3 +15,8 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 Docs: http://localhost:8000/docs
+
+## Dados e índice vetorial
+- `data/` → base de conhecimento (documentos-fonte `.txt`/`.pdf`), versionada.
+- `chroma_db/` → índice ChromaDB, **não versionado**. Gere/atualize rodando `pesquisa/rag_pipeline_semana2.ipynb`.
+- Variáveis de ambiente (`OPENAI_API_KEY` ou `GOOGLE_API_KEY`) ficam em `dev/.env` (veja `.env.example`).
