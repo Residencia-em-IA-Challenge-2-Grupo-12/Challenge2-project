@@ -1,0 +1,241 @@
+[
+  {
+    "id": "q01",
+    "pergunta": "Como organizar minha rotina de estudos trabalhando 8 horas por dia?",
+    "fontes_esperadas": ["artigo_19_dual_burden_clt_martins.txt", "artigo_14_willpower_depletion_baumeister.txt"],
+    "tipo": "multi_fonte",
+    "origem": "notebook",
+    "persona": null,
+    "pontos_chave": [
+      "Micro-blocos matinais protegidos de 45 a 60 minutos",
+      "Estudar antes do expediente, quando o autocontrole ainda não se esgotou",
+      "Fins de semana para blocos de aprofundamento prático"
+    ]
+  },
+  {
+    "id": "q02",
+    "pergunta": "Trabalho 8 horas por dia e sinto que não consigo render nos estudos. Como devo dividir meus blocos de estudo diários e cuidar do sono?",
+    "fontes_esperadas": ["artigo_19_dual_burden_clt_martins.txt", "artigo_14_willpower_depletion_baumeister.txt", "artigo_05_sleep_consolidation_walker.txt"],
+    "tipo": "multi_fonte",
+    "origem": "notebook",
+    "persona": "Lucas",
+    "pontos_chave": [
+      "Micro-blocos matinais de 45 a 60 minutos",
+      "Não reduzir o sono abaixo de 7 horas, pois ele consolida a memória",
+      "Evitar depender de decisões à noite, quando a força de vontade está esgotada"
+    ]
+  },
+  {
+    "id": "q03",
+    "pergunta": "Eu perco horas montando planilhas e cronogramas que sempre atrasam quando surge um imprevisto. Quais técnicas práticas posso aplicar para evitar o overplanning?",
+    "fontes_esperadas": ["artigo_12_perfectionism_flett.txt", "artigo_17_study_cycle_perez.txt"],
+    "tipo": "multi_fonte",
+    "origem": "notebook",
+    "persona": "Lisa",
+    "pontos_chave": [
+      "Ciclo de estudos em sequência circular com blocos de 60 a 90 minutos em vez de grade fixa",
+      "Retomar o ciclo de onde parou após um imprevisto, sem refazer o cronograma",
+      "Planejamento excessivo pode ser adiamento disfarçado, ligado ao perfeccionismo"
+    ]
+  },
+  {
+    "id": "q04",
+    "pergunta": "Como devo priorizar os tópicos de um edital extenso ou trilha autodidata em vez de estudar tudo de forma linear, e como validar meu aprendizado prático?",
+    "fontes_esperadas": ["artigo_16_pareto_engineering_box.txt", "artigo_18_project_based_learning_thomas.txt"],
+    "tipo": "multi_fonte",
+    "origem": "notebook",
+    "persona": "Bob",
+    "pontos_chave": [
+      "Pareto: cerca de 80% das questões vêm de 20% do conteúdo",
+      "Mapear a incidência histórica dos tópicos e alocar mais tempo nos de maior recorrência",
+      "Validar construindo projetos reais e artefatos práticos verificáveis"
+    ]
+  },
+  {
+    "id": "q05",
+    "pergunta": "Por que reler o material várias vezes não faz eu lembrar do conteúdo?",
+    "fontes_esperadas": ["artigo_01_active_recall_karpicke.txt"],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "A releitura gera ilusão de competência, pois o reconhecimento passivo exige pouco esforço",
+      "A recuperação ativa (testes, questões sem consulta) retém melhor a longo prazo"
+    ]
+  },
+  {
+    "id": "q06",
+    "pergunta": "Qual a melhor forma de espaçar as revisões antes de uma prova?",
+    "fontes_esperadas": ["artigo_02_spaced_repetition_cepeda.txt"],
+    "tipo": "direta",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Quanto mais distante a avaliação, maior o espaçamento entre as revisões",
+      "Priorizar itens com menor taxa de acerto recente"
+    ]
+  },
+  {
+    "id": "q07",
+    "pergunta": "Vale a pena resolver 30 exercícios do mesmo tipo seguidos?",
+    "fontes_esperadas": ["artigo_03_interleaving_rohwer.txt"],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Prática em blocos dá proficiência ilusória e fraco desempenho futuro",
+      "Alternar problemas de tópicos diferentes desenvolve a discriminação de estratégias"
+    ]
+  },
+  {
+    "id": "q08",
+    "pergunta": "Por que estudar com muitas abas, telas e configurações abertas atrapalha meu aprendizado?",
+    "fontes_esperadas": ["artigo_04_cognitive_load_sweller.txt"],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "A memória de trabalho comporta só cerca de 4 a 7 elementos",
+      "Material e interfaces desorganizados geram carga extrínseca que consome capacidade cognitiva"
+    ]
+  },
+  {
+    "id": "q09",
+    "pergunta": "Posso dormir 5 horas para ter mais tempo de estudar de madrugada?",
+    "fontes_esperadas": ["artigo_05_sleep_consolidation_walker.txt"],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Dormir menos de 7 horas deteriora foco e consolidação da memória",
+      "As horas de estudo na madrugada tornam-se ineficazes"
+    ]
+  },
+  {
+    "id": "q10",
+    "pergunta": "O que é deep work e quantas horas por dia consigo sustentar?",
+    "fontes_esperadas": ["artigo_06_deep_work_newport.txt"],
+    "tipo": "direta",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Atividade intelectual em foco ininterrupto, sem distrações",
+      "Capacidade de sustentar de 2 a 4 horas diárias de trabalho profundo"
+    ]
+  },
+  {
+    "id": "q11",
+    "pergunta": "Por que olhar o celular no meio do estudo prejudica meu raciocínio mesmo depois que eu volto à tarefa?",
+    "fontes_esperadas": ["artigo_07_attention_residue_leroy.txt"],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Resíduo de atenção: parte da atenção fica presa na tarefa anterior",
+      "O efeito é maior quando a tarefa foi interrompida antes de concluir"
+    ]
+  },
+  {
+    "id": "q12",
+    "pergunta": "Como transformar um 'vou estudar amanhã' vago em um plano que realmente funciona?",
+    "fontes_esperadas": ["artigo_08_implementation_intentions_gollwitzer.txt"],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Usar intenção de implementação no formato 'Se X ocorrer, então faço Y'",
+      "Definir quando, onde e como a ação será iniciada"
+    ]
+  },
+  {
+    "id": "q13",
+    "pergunta": "O que é a Lei de Parkinson e como o timeboxing ajuda a lidar com ela?",
+    "fontes_esperadas": ["artigo_09_timeboxing_allen.txt"],
+    "tipo": "direta",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "O trabalho se expande para preencher o tempo disponível",
+      "Timeboxing fixa um bloco com início e fim e elimina a ruminação sobre o que fazer em seguida"
+    ]
+  },
+  {
+    "id": "q14",
+    "pergunta": "Como funciona a técnica Pomodoro e quanto tempo dura cada intervalo?",
+    "fontes_esperadas": ["artigo_10_pomodoro_cirillo.txt"],
+    "tipo": "direta",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Intervalos de esforço de 25 minutos com pausas curtas de 5 minutos",
+      "Registrar os pomodoros dá feedback visual de progresso"
+    ]
+  },
+  {
+    "id": "q15",
+    "pergunta": "Por que eu adio estudar para uma prova que está muito longe e o que fazer a respeito?",
+    "fontes_esperadas": ["artigo_11_temporal_motivation_steel.txt"],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Metas distantes sofrem desconto hiperbólico e perdem apelo motivacional",
+      "Decompor metas longas em marcos semanais com feedback rápido"
+    ]
+  },
+  {
+    "id": "q16",
+    "pergunta": "Como criar o hábito de estudar todo dia sem depender de força de vontade?",
+    "fontes_esperadas": ["artigo_13_habit_loop_wood.txt", "artigo_08_implementation_intentions_gollwitzer.txt"],
+    "tipo": "multi_fonte",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Ancorar o estudo em pistas de contexto estáveis (mesmo horário e local)",
+      "Eliminar a fricção do ambiente",
+      "Automatizar o início com um plano 'Se-Então'"
+    ]
+  },
+  {
+    "id": "q17",
+    "pergunta": "Como aumentar minha confiança de que consigo concluir meus estudos mesmo diante de obstáculos?",
+    "fontes_esperadas": ["artigo_15_self_efficacy_bandura.txt"],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Acumular experiências de domínio em microtarefas",
+      "Registrar a progressão incremental para elevar a percepção de competência"
+    ]
+  },
+  {
+    "id": "q18",
+    "pergunta": "Como saber se eu realmente entendi um conceito ou só decorei?",
+    "fontes_esperadas": ["artigo_20_feynman_technique_gleick.txt"],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Explicar o conceito em linguagem simples, como para um leigo, sem jargões",
+      "Travar ou usar termos vazios revela a lacuna que exige revisão da fonte"
+    ]
+  },
+  {
+    "id": "q19",
+    "pergunta": "Qual a melhor estratégia para investir em ações na bolsa de valores?",
+    "fontes_esperadas": [],
+    "tipo": "fora_de_escopo",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": []
+  },
+  {
+    "id": "q20",
+    "pergunta": "Qual a dose recomendada de cafeína para melhorar a concentração nos estudos?",
+    "fontes_esperadas": [],
+    "tipo": "fora_de_escopo",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": []
+  }
+]
