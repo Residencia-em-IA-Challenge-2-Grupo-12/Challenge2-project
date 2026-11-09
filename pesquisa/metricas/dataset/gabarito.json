@@ -2,7 +2,10 @@
   {
     "id": "q01",
     "pergunta": "Como organizar minha rotina de estudos trabalhando 8 horas por dia?",
-    "fontes_esperadas": ["artigo_19_dual_burden_clt_martins.txt", "artigo_14_willpower_depletion_baumeister.txt"],
+    "fontes_esperadas": [
+      "artigo_19_dual_burden_clt_martins.txt",
+      "artigo_14_willpower_depletion_baumeister.txt"
+    ],
     "tipo": "multi_fonte",
     "origem": "notebook",
     "persona": null,
@@ -15,7 +18,11 @@
   {
     "id": "q02",
     "pergunta": "Trabalho 8 horas por dia e sinto que não consigo render nos estudos. Como devo dividir meus blocos de estudo diários e cuidar do sono?",
-    "fontes_esperadas": ["artigo_19_dual_burden_clt_martins.txt", "artigo_14_willpower_depletion_baumeister.txt", "artigo_05_sleep_consolidation_walker.txt"],
+    "fontes_esperadas": [
+      "artigo_19_dual_burden_clt_martins.txt",
+      "artigo_14_willpower_depletion_baumeister.txt",
+      "artigo_05_sleep_consolidation_walker.txt"
+    ],
     "tipo": "multi_fonte",
     "origem": "notebook",
     "persona": "Lucas",
@@ -28,7 +35,10 @@
   {
     "id": "q03",
     "pergunta": "Eu perco horas montando planilhas e cronogramas que sempre atrasam quando surge um imprevisto. Quais técnicas práticas posso aplicar para evitar o overplanning?",
-    "fontes_esperadas": ["artigo_12_perfectionism_flett.txt", "artigo_17_study_cycle_perez.txt"],
+    "fontes_esperadas": [
+      "artigo_12_perfectionism_flett.txt",
+      "artigo_17_study_cycle_perez.txt"
+    ],
     "tipo": "multi_fonte",
     "origem": "notebook",
     "persona": "Lisa",
@@ -41,7 +51,10 @@
   {
     "id": "q04",
     "pergunta": "Como devo priorizar os tópicos de um edital extenso ou trilha autodidata em vez de estudar tudo de forma linear, e como validar meu aprendizado prático?",
-    "fontes_esperadas": ["artigo_16_pareto_engineering_box.txt", "artigo_18_project_based_learning_thomas.txt"],
+    "fontes_esperadas": [
+      "artigo_16_pareto_engineering_box.txt",
+      "artigo_18_project_based_learning_thomas.txt"
+    ],
     "tipo": "multi_fonte",
     "origem": "notebook",
     "persona": "Bob",
@@ -53,8 +66,10 @@
   },
   {
     "id": "q05",
-    "pergunta": "Por que reler o material várias vezes não faz eu lembrar do conteúdo?",
-    "fontes_esperadas": ["artigo_01_active_recall_karpicke.txt"],
+    "pergunta": "Por que eu releio o material várias vezes e mesmo assim não consigo lembrar na hora da prova?",
+    "fontes_esperadas": [
+      "artigo_01_active_recall_karpicke.txt"
+    ],
     "tipo": "parafraseada",
     "origem": "novo",
     "persona": null,
@@ -65,8 +80,10 @@
   },
   {
     "id": "q06",
-    "pergunta": "Qual a melhor forma de espaçar as revisões antes de uma prova?",
-    "fontes_esperadas": ["artigo_02_spaced_repetition_cepeda.txt"],
+    "pergunta": "Como devo espaçar minhas revisões antes de uma prova?",
+    "fontes_esperadas": [
+      "artigo_02_spaced_repetition_cepeda.txt"
+    ],
     "tipo": "direta",
     "origem": "novo",
     "persona": null,
@@ -77,8 +94,10 @@
   },
   {
     "id": "q07",
-    "pergunta": "Vale a pena resolver 30 exercícios do mesmo tipo seguidos?",
-    "fontes_esperadas": ["artigo_03_interleaving_rohwer.txt"],
+    "pergunta": "Adianta resolver 30 exercícios do mesmo tipo de uma vez só?",
+    "fontes_esperadas": [
+      "artigo_03_interleaving_rohwer.txt"
+    ],
     "tipo": "parafraseada",
     "origem": "novo",
     "persona": null,
@@ -89,8 +108,10 @@
   },
   {
     "id": "q08",
-    "pergunta": "Por que estudar com muitas abas, telas e configurações abertas atrapalha meu aprendizado?",
-    "fontes_esperadas": ["artigo_04_cognitive_load_sweller.txt"],
+    "pergunta": "Estudar com um monte de abas e aplicativos abertos atrapalha o aprendizado?",
+    "fontes_esperadas": [
+      "artigo_04_cognitive_load_sweller.txt"
+    ],
     "tipo": "parafraseada",
     "origem": "novo",
     "persona": null,
@@ -101,8 +122,10 @@
   },
   {
     "id": "q09",
-    "pergunta": "Posso dormir 5 horas para ter mais tempo de estudar de madrugada?",
-    "fontes_esperadas": ["artigo_05_sleep_consolidation_walker.txt"],
+    "pergunta": "Dá para dormir só 5 horas para ter mais tempo de estudar de madrugada?",
+    "fontes_esperadas": [
+      "artigo_05_sleep_consolidation_walker.txt"
+    ],
     "tipo": "parafraseada",
     "origem": "novo",
     "persona": null,
@@ -113,8 +136,10 @@
   },
   {
     "id": "q10",
-    "pergunta": "O que é deep work e quantas horas por dia consigo sustentar?",
-    "fontes_esperadas": ["artigo_06_deep_work_newport.txt"],
+    "pergunta": "O que é trabalho profundo e quantas horas por dia consigo manter esse foco?",
+    "fontes_esperadas": [
+      "artigo_06_deep_work_newport.txt"
+    ],
     "tipo": "direta",
     "origem": "novo",
     "persona": null,
@@ -125,8 +150,10 @@
   },
   {
     "id": "q11",
-    "pergunta": "Por que olhar o celular no meio do estudo prejudica meu raciocínio mesmo depois que eu volto à tarefa?",
-    "fontes_esperadas": ["artigo_07_attention_residue_leroy.txt"],
+    "pergunta": "Por que, depois de olhar o celular no meio do estudo, eu demoro tanto para voltar a me concentrar?",
+    "fontes_esperadas": [
+      "artigo_07_attention_residue_leroy.txt"
+    ],
     "tipo": "parafraseada",
     "origem": "novo",
     "persona": null,
@@ -137,8 +164,10 @@
   },
   {
     "id": "q12",
-    "pergunta": "Como transformar um 'vou estudar amanhã' vago em um plano que realmente funciona?",
-    "fontes_esperadas": ["artigo_08_implementation_intentions_gollwitzer.txt"],
+    "pergunta": "Como faço para sair do \"vou estudar amanhã\" e realmente começar?",
+    "fontes_esperadas": [
+      "artigo_08_implementation_intentions_gollwitzer.txt"
+    ],
     "tipo": "parafraseada",
     "origem": "novo",
     "persona": null,
@@ -149,8 +178,10 @@
   },
   {
     "id": "q13",
-    "pergunta": "O que é a Lei de Parkinson e como o timeboxing ajuda a lidar com ela?",
-    "fontes_esperadas": ["artigo_09_timeboxing_allen.txt"],
+    "pergunta": "O que é a Lei de Parkinson e como definir um tempo fixo para cada tarefa me ajuda?",
+    "fontes_esperadas": [
+      "artigo_09_timeboxing_allen.txt"
+    ],
     "tipo": "direta",
     "origem": "novo",
     "persona": null,
@@ -161,8 +192,10 @@
   },
   {
     "id": "q14",
-    "pergunta": "Como funciona a técnica Pomodoro e quanto tempo dura cada intervalo?",
-    "fontes_esperadas": ["artigo_10_pomodoro_cirillo.txt"],
+    "pergunta": "Como funciona a técnica Pomodoro? Quanto tempo dura cada intervalo?",
+    "fontes_esperadas": [
+      "artigo_10_pomodoro_cirillo.txt"
+    ],
     "tipo": "direta",
     "origem": "novo",
     "persona": null,
@@ -173,8 +206,10 @@
   },
   {
     "id": "q15",
-    "pergunta": "Por que eu adio estudar para uma prova que está muito longe e o que fazer a respeito?",
-    "fontes_esperadas": ["artigo_11_temporal_motivation_steel.txt"],
+    "pergunta": "Por que eu vou empurrando o estudo quando a prova ainda está longe? Como resolver isso?",
+    "fontes_esperadas": [
+      "artigo_11_temporal_motivation_steel.txt"
+    ],
     "tipo": "parafraseada",
     "origem": "novo",
     "persona": null,
@@ -185,8 +220,11 @@
   },
   {
     "id": "q16",
-    "pergunta": "Como criar o hábito de estudar todo dia sem depender de força de vontade?",
-    "fontes_esperadas": ["artigo_13_habit_loop_wood.txt", "artigo_08_implementation_intentions_gollwitzer.txt"],
+    "pergunta": "Como criar o hábito de estudar todos os dias sem depender de força de vontade?",
+    "fontes_esperadas": [
+      "artigo_13_habit_loop_wood.txt",
+      "artigo_08_implementation_intentions_gollwitzer.txt"
+    ],
     "tipo": "multi_fonte",
     "origem": "novo",
     "persona": null,
@@ -198,8 +236,10 @@
   },
   {
     "id": "q17",
-    "pergunta": "Como aumentar minha confiança de que consigo concluir meus estudos mesmo diante de obstáculos?",
-    "fontes_esperadas": ["artigo_15_self_efficacy_bandura.txt"],
+    "pergunta": "Como ganho mais confiança de que vou conseguir terminar meus estudos, mesmo quando as coisas ficam difíceis?",
+    "fontes_esperadas": [
+      "artigo_15_self_efficacy_bandura.txt"
+    ],
     "tipo": "parafraseada",
     "origem": "novo",
     "persona": null,
@@ -210,8 +250,10 @@
   },
   {
     "id": "q18",
-    "pergunta": "Como saber se eu realmente entendi um conceito ou só decorei?",
-    "fontes_esperadas": ["artigo_20_feynman_technique_gleick.txt"],
+    "pergunta": "Como saber se eu realmente entendi um assunto ou só decorei?",
+    "fontes_esperadas": [
+      "artigo_20_feynman_technique_gleick.txt"
+    ],
     "tipo": "parafraseada",
     "origem": "novo",
     "persona": null,
@@ -222,7 +264,7 @@
   },
   {
     "id": "q19",
-    "pergunta": "Qual a melhor estratégia para investir em ações na bolsa de valores?",
+    "pergunta": "Qual a melhor forma de investir meu dinheiro em ações?",
     "fontes_esperadas": [],
     "tipo": "fora_de_escopo",
     "origem": "novo",
@@ -231,7 +273,7 @@
   },
   {
     "id": "q20",
-    "pergunta": "Qual a dose recomendada de cafeína para melhorar a concentração nos estudos?",
+    "pergunta": "Quanto café posso tomar para me concentrar melhor nos estudos?",
     "fontes_esperadas": [],
     "tipo": "fora_de_escopo",
     "origem": "novo",
