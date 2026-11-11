@@ -7,7 +7,7 @@ import json
 from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path, PureWindowsPath
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 DATASET_DIR = Path(__file__).resolve().parent
 GABARITO_PATH = DATASET_DIR / "gabarito.json"
@@ -26,10 +26,19 @@ class Pergunta:
     origem: str
     persona: Optional[str] = None
     pontos_chave: List[str] = field(default_factory=list)
+    # Artigos que ajudam, mas não são obrigatórios. Só entram no nDCG (peso 1); Hit/Recall/Precision usam só as esperadas.
+    fontes_complementares: List[str] = field(default_factory=list)
+    # Paráfrases da mesma pergunta, para medir robustez: devem recuperar os mesmos artigos.
+    variacoes: List[str] = field(default_factory=list)
 
     @property
     def fora_de_escopo(self) -> bool:
         return self.tipo == "fora_de_escopo"
+
+    @property
+    def relevancia(self) -> Dict[str, int]:
+        """Ganho por artigo para o nDCG: principal (esperada) = 2, complementar = 1."""
+        return {**{f: 1 for f in self.fontes_complementares}, **{f: 2 for f in self.fontes_esperadas}}
 
 
 def nome_fonte(source: str) -> str:
@@ -58,16 +67,20 @@ def validar(perguntas: List[Pergunta], data_dir: Path = DATA_DIR) -> List[str]:
         if not p.pergunta.strip():
             erros.append(f"{p.id}: pergunta vazia")
         if p.fora_de_escopo:
-            if p.fontes_esperadas:
-                erros.append(f"{p.id}: fora_de_escopo não deve ter fontes_esperadas")
+            if p.fontes_esperadas or p.fontes_complementares:
+                erros.append(f"{p.id}: fora_de_escopo não deve ter fontes")
         else:
             if not p.fontes_esperadas:
                 erros.append(f"{p.id}: sem fontes_esperadas")
             if not p.pontos_chave:
                 erros.append(f"{p.id}: sem pontos_chave")
+            if len(p.variacoes) < 2:
+                erros.append(f"{p.id}: robustez exige 2+ variacoes")
             if p.tipo == "multi_fonte" and len(p.fontes_esperadas) < 2:
                 erros.append(f"{p.id}: multi_fonte exige 2+ fontes")
-        for f in p.fontes_esperadas:
+        for f in set(p.fontes_esperadas) & set(p.fontes_complementares):
+            erros.append(f"{p.id}: {f} não pode ser esperada e complementar ao mesmo tempo")
+        for f in p.fontes_esperadas + p.fontes_complementares:
             if existentes and f not in existentes:
                 erros.append(f"{p.id}: fonte inexistente em data/: {f}")
     return erros

@@ -8,11 +8,12 @@ Células executadas (identificadas pelo conteúdo, não pelo índice, para sobre
   - ingestão               -> define raw_documents
   - chunking               -> define document_chunks, CHUNK_SIZE, CHUNK_OVERLAP
   - embeddings + ChromaDB  -> define embedding_model, vectorstore, TOP_K (REINDEXA dev/chroma_db)
+  - chain RAG (opcional)   -> define llm, rag_chain, RAG_SYSTEM_PROMPT (só com ate="geracao")
 
 Células ignoradas de propósito:
   - a que grava os 20 artigos em ../dev/data (sobrescreveria edições manuais da base)
   - a de `%pip install` (magic do Jupyter, e a instalação é feita fora)
-  - a da chain RAG (chama o LLM, e a recuperação não precisa dele)
+  - a da demonstração com as 3 personas (chama o LLM só para exibir respostas)
 """
 
 import contextlib
@@ -30,6 +31,7 @@ ETAPAS = [
     ("ingestao", "raw_documents = load_knowledge_base(", "raw_documents"),
     ("chunking", "document_chunks = split_documents(", "document_chunks"),
     ("indice", "vectorstore = build_or_update_vectorstore(", "vectorstore"),
+    ("geracao", "rag_chain = RunnableParallel(", "rag_chain"),
 ]
 
 
@@ -50,13 +52,16 @@ def selecionar_celulas(path: Path = NOTEBOOK_PATH) -> List[Dict[str, str]]:
     return selecionadas
 
 
-def executar_notebook(path: Path = NOTEBOOK_PATH, silencioso: bool = True) -> Dict[str, Any]:
+def executar_notebook(path: Path = NOTEBOOK_PATH, silencioso: bool = True, ate: str = "indice") -> Dict[str, Any]:
     """Executa as etapas num namespace único e devolve esse namespace.
 
     O notebook usa caminhos relativos a `pesquisa/` (ex.: ../dev/data), então o diretório
     de trabalho é trocado para lá durante a execução e restaurado depois.
+    `ate` para depois da etapa indicada (ex.: "chunking" devolve os chunks sem reindexar o ChromaDB).
     """
-    celulas = selecionar_celulas(path)
+    rotulos = [r for r, _, _ in ETAPAS]
+    etapas = ETAPAS[: rotulos.index(ate) + 1]
+    celulas = selecionar_celulas(path)[: len(etapas)]
     ns: Dict[str, Any] = {"__name__": "__notebook__"}
     cwd = os.getcwd()
     os.chdir(path.parent)
@@ -69,7 +74,7 @@ def executar_notebook(path: Path = NOTEBOOK_PATH, silencioso: bool = True) -> Di
     finally:
         os.chdir(cwd)
 
-    faltando = [nome for _, _, nome in ETAPAS if nome not in ns]
+    faltando = [nome for _, _, nome in etapas if nome not in ns]
     if faltando:
         raise RuntimeError(f"Notebook executado, mas não definiu: {faltando}")
     return ns
