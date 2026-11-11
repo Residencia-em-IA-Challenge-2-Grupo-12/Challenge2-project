@@ -31,13 +31,13 @@ cd pesquisa
 
 Sem argumentos, ele avalia só o que falta, na ordem T1 → T2 → T3 → T4 → k=3, e retoma o modo interrompido a partir da última pergunta salva. A primeira linha mostra o que já está pronto e o que falta.
 
-**Prioridade (estado em 11/11, 17h30):** T1 e T4 estão prontos. Rode primeiro o **T3**, que confirma a escolha do relatório (T3 + porteiro), e depois o resto:
+**Prioridade (estado em 11/11, 17h35):** T1 e T4 estão prontos. O **T3** está em andamento: 4 de 18 perguntas válidas avaliadas (q01 a q04, em `comparacao_rag_llm.parcial.json`), e ele retoma da q05. Rode o T3 primeiro, porque é ele que confirma a escolha do relatório (T3 + porteiro), e depois o resto:
 
 ```powershell
 ..\.venv\Scripts\python -m metricas.comparacao.avaliar rag_llm so_busca rag_llm_k3
 ```
 
-Tempo estimado no Mac M4: ~35 min para o T3, ~25 min para o T2 e ~30 min para a k=3.
+Tempo estimado no Mac M4: ~30 min para o resto do T3, ~25 min para o T2 e ~30 min para a k=3.
 
 Para parar, use `Ctrl+C` a qualquer momento. Nada do que já foi avaliado se perde.
 
