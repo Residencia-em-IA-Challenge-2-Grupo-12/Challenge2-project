@@ -6,22 +6,50 @@ A geração das respostas **já foi feita** (`relatorios/comparacao_respostas_*.
 
 ## 1. Uma vez só (PowerShell)
 
+**Pré-requisitos:**
+
+| O quê | Versão | Como conferir |
+| :-- | :-- | :-- |
+| Git | qualquer recente | `git --version` |
+| Python | 3.10 ou mais novo (no Mac foi usado o 3.14) | `python --version` |
+| Ollama | 0.30 ou mais novo (no Mac: 0.32.5) | `ollama --version` |
+| Espaço em disco | ~9 GB para o modelo do juiz | |
+
+Instale o Ollama por <https://ollama.com/download> e baixe o juiz, que é o **mesmo modelo** da rodada no Mac:
+
 ```powershell
-git clone git@github.com:Residencia-em-IA-Challenge-2-Grupo-12/studybuddy.git
+ollama pull gemma3:12b
+ollama list            # deve aparecer gemma3:12b (~8 GB)
+```
+
+Pegue o repositório na branch do experimento. **Se ainda não tem o repositório** no Book4 (por HTTPS, que não exige chave SSH):
+
+```powershell
+git clone https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/studybuddy.git
 cd studybuddy
 git checkout metricas-experimento
+```
 
+**Se já tem o repositório** (por exemplo, na `main`):
+
+```powershell
+cd studybuddy
+git fetch origin
+git checkout metricas-experimento
+```
+
+Crie o ambiente Python. Para o juiz, bastam duas bibliotecas:
+
+```powershell
 python -m venv .venv
 .\.venv\Scripts\python -m pip install langchain-ollama tiktoken
 ```
 
-Instale o Ollama (<https://ollama.com/download>) e baixe o juiz, que é o **mesmo modelo** da rodada no Mac:
-
-```powershell
-ollama pull gemma3:12b
-```
+> Se o PowerShell bloquear scripts, não é preciso ativar a venv: os comandos deste guia chamam `.venv\Scripts\python` diretamente.
 
 ## 2. Retomar
+
+Antes de rodar, **o Ollama precisa estar aberto** (ícone na bandeja do Windows; se não estiver, abra o app ou rode `ollama serve` num terminal separado).
 
 ```powershell
 git pull
