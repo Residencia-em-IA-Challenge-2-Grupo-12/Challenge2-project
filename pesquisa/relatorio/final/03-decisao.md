@@ -1,6 +1,6 @@
 # 3. Decisão para o produto
 
-> **⏳ Prévia (11/11, 15h).** A recomendação abaixo usa as métricas definitivas (recusa, citação, custo) e as medidas do juiz de rodadas anteriores. Ela será confirmada, ou revista, quando a avaliação final terminar.
+> **⏳ Parcial (11/11, 17h30).** T1 e T4 estão completos. A recomendação **mudou** em relação à prévia das 15h: o T4 perdeu completude (0,91 → 0,76), e a escolha passou a ser **T3 + porteiro**. Ela será confirmada quando a reavaliação do T3 terminar.
 
 ## O que o StudyBuddy precisa
 
@@ -25,29 +25,41 @@ A **taxa de sucesso** (ver [Metodologia](01-metodologia.md#métricas-novas)) jun
 | T3 · RAG + LLM | Não | Passa em tudo |
 | T4 · RAG + LLM otimizado | Não | Passa em tudo |
 
-## Recomendação (prévia): T4 · RAG + LLM otimizado
+## Recomendação: T3 + porteiro (RAG + LLM, k=5, prompt do notebook, com o porteiro de distância)
 
-**Entre T3 e T4**, o T4 ganha naquilo que já é definitivo e empata no resto:
+A prévia das 15h apontava o T4, **com uma condição**: a completude dele tinha de ficar no nível da do T3 (diferença menor que ~0,05). **A condição falhou:** a completude do T4 foi 0,76, contra 0,91 do T3, com 8 perguntas piores e 2 melhores ([Resultados › T4](02-resultados.md#t4--rag--llm-otimizado-o-que-mudou)). O prompt novo corrigiu a q12, mas custou mais do que resolveu.
 
-| | T3 | T4 |
+As duas mudanças do T4 tiveram efeitos opostos, e só uma delas fica:
+
+| Mudança do T4 | Efeito medido | Fica? |
 | :-- | :-- | :-- |
-| Recusa correta / indevida | 10/10 · 0/18 | 10/10 · 0/18 |
-| Citação | 100% | 100% |
-| Recusas sem chamar o LLM | 0 de 10 | **6 de 10** |
-| Tempo de uma recusa | 5,8 s | **0,14 s** |
-| Diluição da q12 | Perdeu o "quando, onde e como" | **Corrigida** |
-| Completude, fidelidade, relevância | 0,91† · 0,97† · ⏳ | ⏳ |
+| **Porteiro de distância** | Barra 6/10 fora de escopo sem chamar o LLM (0,14 s contra 5,8 s), sem recusar nenhuma válida | **Sim** |
+| **Prompt revisado** | Corrige a q12, mas a completude cai de 0,91 para 0,76 e a fidelidade de 0,97 para 0,86 | **Não** |
 
-**Condição para confirmar:** a completude e a fidelidade do T4 precisam ficar **no mesmo nível das do T3** (diferença menor que ~0,05, ou seja, menos de uma pergunta). Se o prompt novo tiver custado pontos-chave em outras perguntas, a escolha volta a ser o T3 com o porteiro, mas sem o prompt novo.
+| | T3 | T4 | **T3 + porteiro** |
+| :-- | :-- | :-- | :-- |
+| Completude | 0,91† | 0,76 | **0,91** |
+| Fidelidade ao contexto | 0,97† | 0,86 | **0,97** |
+| Recusa correta / indevida | 10/10 · 0/18 | 10/10 · 0/18 | **10/10 · 0/18** |
+| Citação de artigo correto | 100% | 100% | **100%** |
+| Chamadas ao LLM (de 28) | 28 | 22 | **22** |
+| Tempo de uma recusa | 5,8 s | 0,14 s | **0,14 s** |
 
-**E o T2?** Ele não serve como produto principal, mas os números mostram um uso: como **modo de contingência** quando o LLM estiver fora do ar (é o que o `GroundedExtractiveFallbackLLM` do notebook já faz). Ele é instantâneo, 100% fiel e sempre cita a fonte. Nesse modo, o porteiro é a única defesa contra perguntas fora de escopo, e isso precisa ficar claro para o estudante.
+O "T3 + porteiro" é **deduzido** de T3 e T4, não medido como um quinto teste. A dedução é válida porque o porteiro não recusou nenhuma pergunta válida: em escopo, o pipeline é idêntico ao do T3 ([Resultados › T3 + porteiro](02-resultados.md#t3--porteiro-a-combinação-que-sai-dos-dados)).
+
+† Avaliação do T3 da semana passada, com o mesmo juiz. A reavaliação na rodada atual está pendente: se ela confirmar ~0,9 de completude, a escolha está fechada.
+
+**E a diluição da q12?** Continua sendo um problema conhecido do k=5. Ela merece uma correção mais estreita que a do T4, por exemplo testar só a regra 3 do prompt novo, sem a regra 5, medindo de novo nas 18 perguntas.
+
+**E o T2?** Ele não serve como produto principal, mas os números mostram um uso: como **modo de contingência** quando o LLM estiver fora do ar (é o que o `GroundedExtractiveFallbackLLM` do notebook já faz). Ele é instantâneo, 100% fiel e sempre cita a fonte. Nesse modo, o porteiro é a única defesa contra perguntas fora de escopo (4 das 10 passaram, inclusive "remédio para dormir"), e isso precisa ficar claro para o estudante.
 
 ## Próximos passos
 
-1. **Levar o T4 para o notebook:** `TOP_K=5`, o porteiro com $\tau = 1{,}026$ e o prompt revisado.
-2. **Recalibrar o porteiro com perguntas reais** de estudantes, assim que houver uso.
-3. **Medir a latência T3 × T4 na mesma sessão**, para fechar a dúvida dos 21 s contra 29 s.
-4. **Testar um gerador via API** (ex.: GPT-4o-mini), com o mesmo gabarito e o mesmo juiz, para ver se a completude e a latência compensam o custo por token.
+1. **Levar o T3 + porteiro para o notebook:** `TOP_K=5`, o prompt atual e o porteiro com $\tau = 1{,}026$ antes da chamada ao LLM.
+2. **Atacar a diluição da q12 com uma mudança menor no prompt** (só a regra 3, sem a regra 5) e medir de novo.
+3. **Recalibrar o porteiro com perguntas reais** de estudantes, assim que houver uso.
+4. **Medir a latência T3 × T4 na mesma sessão**, para fechar a dúvida dos 21 s contra 29 s.
+5. **Testar um gerador via API** (ex.: GPT-4o-mini), com o mesmo gabarito e o mesmo juiz, para ver se a completude e a latência compensam o custo por token.
 
 ## Links
 
@@ -61,4 +73,4 @@ A **taxa de sucesso** (ver [Metodologia](01-metodologia.md#métricas-novas)) jun
 | Pipeline RAG (notebook) | [`pesquisa/rag_pipeline_semana2.ipynb`](https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/studybuddy/blob/metricas-experimento/pesquisa/rag_pipeline_semana2.ipynb) |
 | Documentação do projeto | <https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/Challenge2-documentation> |
 
-> As avaliações finais (`comparacao_<teste>.json` e `comparacao.md`) e a versão atual do juiz ainda não estão no GitHub. Elas entram num commit quando a rodada terminar.
+> As avaliações do T1 e do T4 já estão no GitHub. As do T2, do T3 e da Ref entram quando a avaliação terminar (ver `pesquisa/metricas/comparacao/RETOMAR.md`).

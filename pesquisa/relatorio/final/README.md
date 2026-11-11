@@ -1,6 +1,6 @@
 # Relatório final · Semana 3: LLM x RAG
 
-> **Status: ⏳ prévia (11/11, 15h).** A metodologia está completa. Nos resultados, as métricas de recusa, citação e custo são definitivas, e as do LLM-juiz serão preenchidas quando a avaliação final terminar.
+> **Status: ⏳ parcial (11/11, 17h30).** A metodologia está completa. T1 e T4 estão avaliados por completo. T2, T3 e Ref têm as métricas de recusa, citação e custo definitivas e aguardam o LLM-juiz (que continua no Galaxy Book4).
 
 ## A entrega
 
@@ -19,10 +19,11 @@
 
 | # | Teste | Resultado (prévia) |
 | :-- | :-- | :-- |
-| T1 | **Só LLM** (sem RAG) | ❌ Não cita fonte nenhuma vez, cobre menos (0,59 contra 0,91) e é o mais lento (55 s) |
+| T1 | **Só LLM** (sem RAG) | ❌ Taxa de sucesso 0,32: não cita fonte nenhuma vez, cobre menos (0,59 contra 0,91) e é o mais lento (55 s) |
 | T2 | **Só busca** (sem LLM) | ❌ como produto: instantâneo e fiel, mas entrega trechos sem relação para 4 das 10 perguntas fora de escopo |
-| T3 | **RAG + LLM** (k=5) | ✅ Passa em tudo. É a referência |
-| T4 | **RAG + LLM otimizado** (porteiro + prompt) | ✅ **Escolha provisória:** igual ao T3 em recusa e citação, recusa sem chamar o LLM em 6/10 e corrigiu a diluição da q12. ⏳ Falta confirmar a completude |
+| T3 | **RAG + LLM** (k=5) | ✅ Passa em tudo: completude 0,91†, fidelidade 0,97†, recusa 10/10 |
+| T4 | **RAG + LLM otimizado** (porteiro + prompt) | ⚠️ O porteiro funciona (6/10 recusas sem LLM), mas o prompt novo derrubou a completude para 0,76 |
+| **Escolha** | **T3 + porteiro** | ✅ A completude do T3 com a economia do porteiro do T4. ⏳ Falta confirmar com a reavaliação do T3 |
 
 ## Ordem de leitura
 

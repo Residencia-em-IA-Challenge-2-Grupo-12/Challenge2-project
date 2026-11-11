@@ -1,6 +1,6 @@
 # 2. LLM x RAG: resultados
 
-> **⏳ Prévia (11/11, 15h).** As métricas que não dependem do juiz (recusa, citação, latência, tokens, chamadas ao LLM) são **definitivas**. As do juiz (completude, fidelidade, relevância e taxa de sucesso) ainda estão rodando; as células com ⏳ serão preenchidas quando a rodada terminar. Onde já existe uma medida da mesma régua de uma rodada anterior, ela aparece marcada com †.
+> **⏳ Parcial (11/11, 17h30).** **T1 e T4 estão completos** (todas as métricas, avaliados no Mac). Para T2, T3 e Ref, as métricas que não dependem do juiz (recusa, citação, latência, tokens, chamadas ao LLM) são definitivas; as do juiz serão preenchidas quando a avaliação terminar (no Galaxy Book4). Onde já existe uma medida da mesma régua de uma rodada anterior, ela aparece marcada com †.
 
 Configuração e métricas: ver [Metodologia](01-metodologia.md). 28 perguntas: 18 em escopo (4 diretas, 9 parafraseadas, 5 multi-fonte) e 10 fora de escopo.
 
@@ -8,11 +8,11 @@ Configuração e métricas: ver [Metodologia](01-metodologia.md). 28 perguntas: 
 
 | Métrica | T1 · Só LLM | T2 · Só busca | T3 · RAG + LLM | T4 · RAG + LLM otimizado | Ref · k=3 |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| **Taxa de sucesso (28)** | ⏳ | ⏳ | ⏳ | ⏳ | ⏳ |
-| Completude | 0,59† | ⏳ | 0,91† | ⏳ | 0,81† |
-| Completude multi-fonte | 0,53† | ⏳ | 0,87† | ⏳ | 0,53† |
-| Fidelidade à base | ⏳ | 1,00 (construção) | 0,97† (pisvo) | ⏳ | 0,93† (piso) |
-| Relevância | ⏳ | ⏳ | ⏳ | ⏳ | ⏳ |
+| **Taxa de sucesso (28)** | **0,32** | ⏳ | ⏳ | **0,75** | ⏳ |
+| Completude | 0,59 | ⏳ | 0,91† | 0,76 | 0,81† |
+| Completude multi-fonte | 0,53 | ⏳ | 0,87† | 0,73 | 0,53† |
+| Fidelidade à base | 0,81 (juiz v3)‡ | 1,00 (construção) | 0,97† (piso) | 0,86 (piso) | 0,93† (piso) |
+| Relevância | 0,89 | ⏳ | ⏳ | 0,79 | ⏳ |
 | Cita a fonte | **0,00** | 1,00 | 1,00 | 1,00 | 1,00 |
 | Cita um artigo correto | **0,00** | 1,00 | 1,00 | 1,00 | 1,00 |
 | Precisão da citação | — | 1,00 | 1,00 | 1,00 | 1,00 |
@@ -28,6 +28,8 @@ Configuração e métricas: ver [Metodologia](01-metodologia.md). 28 perguntas: 
 
 \* Ver "Latência do T4" abaixo: a diferença para o T3 não vem do tamanho da resposta.
 
+‡ O juiz v3 tende a ser generoso em afirmações vagas (ver [Metodologia](01-metodologia.md#calibração-do-juiz-novo-três-versões-até-um-método-utilizável)): é um teto, não um piso.
+
 ## T1 · Só LLM: o que muda sem a base, e por quê
 
 **1. Cobre menos do que importa.** Completude de 0,59, contra 0,91 do RAG com k=5. O LLM escreve **quase 3 vezes mais** (844 tokens contra 315), mas com conselhos genéricos de produtividade, e não com o que os artigos dizem. Exemplo (q01, rotina de quem trabalha 8 h): a resposta do T1 traz "técnica SMART", "Matriz de Eisenhower" e "horário de pico entre 9h e 12h". Não fala dos **micro-blocos matinais de 45 a 60 min antes do expediente**, que é a recomendação do artigo 19.
@@ -40,7 +42,9 @@ Configuração e métricas: ver [Metodologia](01-metodologia.md). 28 perguntas: 
 
 **4. É o mais lento.** 54,7 s por resposta (p50), contra 20,8 s do T3. Mais texto gerado significa mais tempo: no LLM local, a latência é dominada pela escrita, não pela leitura do contexto.
 
-**5. Fidelidade à base: ⏳**
+**5. Fala coisas que estão na base, mas não as que importam.** Fidelidade à base de 0,81 (medida afirmação por afirmação, com um juiz que tende a ser generoso) e relevância de 0,89. Ou seja, boa parte do que o LLM diz tem algum respaldo nos artigos, porque a base trata de técnicas de estudo conhecidas (Pomodoro, repetição espaçada, sono). O problema não é inventar muito: é **deixar de fora o que a base recomenda especificamente** (completude 0,59) e **não deixar o estudante conferir** (0 citações). Nas multi-fonte, a fidelidade à base cai para 0,63: quanto mais específica a pergunta, mais ele preenche com conhecimento genérico.
+
+**6. Taxa de sucesso de 0,32.** São só as 9 recusas corretas. **Nenhuma** das 18 perguntas válidas passa na regra de sucesso, porque nenhuma resposta cita um artigo.
 
 ## T2 · Só busca: o que muda sem o LLM, e por quê
 
@@ -77,7 +81,33 @@ A q21 é o caso mais grave: uma pergunta sobre **medicamento** recebe trechos so
 
 > *"Para sair do 'vou estudar amanhã' e realmente começar, é essencial automatizar o início da conduta através da formulação de intenções de implementação [Fonte: artigo_08]. [...] 1. Defina com precisão 'Quando', 'Onde' e 'Como' você iniciará o estudo."*
 
-**3. Completude, fidelidade e relevância: ⏳.** É o que decide entre T3 e T4: o prompt novo não pode ter custado pontos-chave em outras perguntas.
+**3. Mas o prompt novo custou completude em outras perguntas.** A completude caiu de 0,91 (T3) para **0,76**, e a fidelidade ao contexto, de 0,97 para **0,86**. Pergunta a pergunta, contra a avaliação do T3 com a mesma régua:
+
+| | Perguntas |
+| :-- | :-- |
+| Completude **subiu** | q03 (0,67 → 1,00), **q12** (0,50 → 1,00) |
+| Completude **caiu** | q01, q04, q16 (1,00 → 0,67); q11, q13, q15, q18 (1,00 → 0,50); q08 (0,50 → 0,00) |
+| Igual | as outras 8 |
+
+O saldo é **2 perguntas melhores e 8 piores**. As respostas não ficaram mais curtas (310 contra 315 tokens), então o modelo não está escrevendo menos: está **escolhendo outros pontos**. A hipótese mais provável, **não testada**, é a regra 5 ("ignore os fragmentos que não tratam do que foi perguntado"): ela corrige a q12, mas faz o modelo descartar trechos que tinham pontos-chave em perguntas mais abertas. A regra 3 ("comece com 1 ou 2 frases que respondem diretamente") também gera sínteses que o juiz de fidelidade às vezes reprova (q09: fidelidade 0,67 → 0,00).
+
+> **Ressalva:** o T3 desta comparação foi avaliado na semana passada, com o mesmo juiz e os mesmos prompts de avaliação. A reavaliação do T3 na rodada atual (pendente) confirma, ou não, que a diferença é do prompt e não de variação do juiz.
+
+**4. Taxa de sucesso de 0,75.** As 10 recusas corretas mais 11 das 18 válidas. Das 7 que falham, 5 ficaram com completude abaixo de 2/3 (q08, q11, q13, q15, q18) e 2 com fidelidade abaixo de 0,8 (q09 e q17, que cobrem todos os pontos-chave, mas acrescentam sínteses que o juiz não encontrou no contexto).
+
+## T3 + porteiro: a combinação que sai dos dados
+
+O porteiro **não recusou nenhuma pergunta válida** (a maior $d_1$ em escopo é 0,901, e o corte é 1,026). Então, nas 18 perguntas em escopo, "T3 + porteiro" se comporta **exatamente** como o T3: busca igual, prompt igual, resposta igual. Nas 10 fora de escopo, se comporta **exatamente** como o T4: 6 barradas pelo porteiro e 4 recusadas pelo prompt do notebook, que também recusou as 10 no T3.
+
+| | T3 | T4 | **T3 + porteiro** |
+| :-- | :-- | :-- | :-- |
+| Completude | 0,91† | 0,76 | **0,91** (= T3) |
+| Fidelidade ao contexto | 0,97† | 0,86 | **0,97** (= T3) |
+| Recusa correta / indevida | 10/10 · 0/18 | 10/10 · 0/18 | **10/10 · 0/18** |
+| Recusas sem chamar o LLM | 0 | 6 | **6** (= T4) |
+| Diluição da q12 | sim | corrigida | sim (= T3) |
+
+Esta linha é **deduzida** dos testes T3 e T4, não medida como um quinto teste. A dedução vale porque as duas peças não interagem: o porteiro só age quando $d_1 > \tau$, o que não aconteceu em nenhuma pergunta válida.
 
 ### Latência do T4
 
