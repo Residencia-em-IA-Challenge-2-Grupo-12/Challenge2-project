@@ -1,0 +1,29 @@
+id,tipo,recusou,citados,precisao_citacao,tem_citacao,cita_esperada,fidelidade,completude,latencia_s,tokens_resposta
+q01,multi_fonte,False,"['17', '06', '19']",1.0,1.0,1.0,0.625,0.0,31.96,426
+q02,multi_fonte,False,"['17', '19', '05']",1.0,1.0,1.0,0.6,0.3333333333333333,20.16,318
+q03,multi_fonte,False,"['19', '12']",1.0,1.0,1.0,1.0,0.6666666666666666,22.58,326
+q04,multi_fonte,False,"['16', '18']",1.0,1.0,1.0,1.0,1.0,28.55,404
+q05,parafraseada,False,['01'],1.0,1.0,1.0,1.0,1.0,14.41,195
+q06,direta,False,['02'],1.0,1.0,1.0,1.0,1.0,19.19,263
+q07,parafraseada,False,['03'],1.0,1.0,1.0,0.75,1.0,15.75,193
+q08,parafraseada,False,"['07', '04']",1.0,1.0,1.0,1.0,0.5,17.3,217
+q09,parafraseada,False,['05'],1.0,1.0,1.0,0.8,1.0,10.03,114
+q10,direta,False,['06'],1.0,1.0,1.0,1.0,1.0,16.11,214
+q11,parafraseada,False,['07'],1.0,1.0,1.0,1.0,1.0,12.98,152
+q12,parafraseada,False,"['08', '13', '14']",1.0,1.0,1.0,1.0,1.0,35.48,500
+q13,direta,False,['09'],1.0,1.0,1.0,1.0,1.0,15.86,203
+q14,direta,False,['10'],1.0,1.0,1.0,1.0,1.0,18.99,238
+q15,parafraseada,False,"['11', '02', '03']",1.0,1.0,1.0,1.0,0.5,27.02,366
+q16,multi_fonte,False,"['13', '08', '17']",1.0,1.0,1.0,1.0,0.6666666666666666,29.62,383
+q17,parafraseada,False,"['15', '04']",1.0,1.0,1.0,1.0,1.0,23.85,312
+q18,parafraseada,False,"['20', '03', '06']",1.0,1.0,1.0,1.0,1.0,26.52,352
+q19,fora_de_escopo,True,[],,,,,,3.86,20
+q20,fora_de_escopo,True,[],,,,,,3.74,20
+q21,fora_de_escopo,True,[],,,,,,3.98,20
+q22,fora_de_escopo,True,[],,,,,,3.74,20
+q23,fora_de_escopo,True,[],,,,,,3.97,20
+q24,fora_de_escopo,True,[],,,,,,3.58,20
+q25,fora_de_escopo,True,[],,,,,,3.66,20
+q26,fora_de_escopo,True,[],,,,,,3.96,20
+q27,fora_de_escopo,True,[],,,,,,4.07,20
+q28,fora_de_escopo,True,[],,,,,,3.51,20

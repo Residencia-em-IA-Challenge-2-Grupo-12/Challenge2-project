@@ -1,0 +1,1335 @@
+{
+  "config": {
+    "provider": "unconfigured",
+    "embedding": "OllamaEmbeddings",
+    "embedding_model": "qwen3-embedding:0.6b",
+    "chunk_size": 500,
+    "chunk_overlap": 50,
+    "chunks_no_indice": 49,
+    "dimensao": 1024,
+    "indexacao_s": 2.53,
+    "vetores_kb": 196.0,
+    "ks": [
+      1,
+      3,
+      5
+    ]
+  },
+  "resumo": {
+    "n_em_escopo": 18,
+    "geral": {
+      "hit@1": 0.9444,
+      "rr@1": 0.9444,
+      "precision@1": 0.9444,
+      "recall@1": 0.7963,
+      "ndcg@1": 0.9444,
+      "distintas@1": 1.0,
+      "cobertura@1": 0.6296,
+      "tokens@1": 107.0556,
+      "hit@3": 0.9444,
+      "rr@3": 0.9444,
+      "precision@3": 0.4815,
+      "recall@3": 0.8426,
+      "ndcg@3": 0.7749,
+      "distintas@3": 2.6111,
+      "cobertura@3": 0.7222,
+      "tokens@3": 269.8333,
+      "hit@5": 1.0,
+      "rr@5": 0.9583,
+      "precision@5": 0.4,
+      "recall@5": 0.9537,
+      "ndcg@5": 0.8308,
+      "distintas@5": 4.0556,
+      "cobertura@5": 0.8611,
+      "tokens@5": 449.8333
+    },
+    "por_tipo": {
+      "direta": {
+        "n": 4,
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 1.0,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 0.875,
+        "tokens@1": 120.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.75,
+        "recall@3": 1.0,
+        "ndcg@3": 0.8801,
+        "distintas@3": 1.75,
+        "cobertura@3": 1.0,
+        "tokens@3": 264.75,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.5,
+        "recall@5": 1.0,
+        "ndcg@5": 0.9169,
+        "distintas@5": 3.5,
+        "cobertura@5": 1.0,
+        "tokens@5": 448.0
+      },
+      "multi_fonte": {
+        "n": 5,
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 0.4667,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 0.2667,
+        "tokens@1": 102.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.4667,
+        "recall@3": 0.6333,
+        "ndcg@3": 0.7199,
+        "distintas@3": 3.0,
+        "cobertura@3": 0.4,
+        "tokens@3": 284.4,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.44,
+        "recall@5": 0.8333,
+        "ndcg@5": 0.8057,
+        "distintas@5": 4.2,
+        "cobertura@5": 0.6,
+        "tokens@5": 455.2
+      },
+      "parafraseada": {
+        "n": 9,
+        "hit@1": 0.8889,
+        "rr@1": 0.8889,
+        "precision@1": 0.8889,
+        "recall@1": 0.8889,
+        "ndcg@1": 0.8889,
+        "distintas@1": 1.0,
+        "cobertura@1": 0.7222,
+        "tokens@1": 104.1111,
+        "hit@3": 0.8889,
+        "rr@3": 0.8889,
+        "precision@3": 0.3704,
+        "recall@3": 0.8889,
+        "ndcg@3": 0.7586,
+        "distintas@3": 2.7778,
+        "cobertura@3": 0.7778,
+        "tokens@3": 264.0,
+        "hit@5": 1.0,
+        "rr@5": 0.9167,
+        "precision@5": 0.3333,
+        "recall@5": 1.0,
+        "ndcg@5": 0.8065,
+        "distintas@5": 4.2222,
+        "cobertura@5": 0.9444,
+        "tokens@5": 447.6667
+      }
+    },
+    "diagnostico_fora_de_escopo": {
+      "q19": 1.5701,
+      "q20": 1.1503,
+      "q21": 1.072,
+      "q22": 1.4659,
+      "q23": 1.3417,
+      "q24": 1.4621,
+      "q25": 1.6477,
+      "q26": 1.1142,
+      "q27": 1.4775,
+      "q28": 1.1817
+    },
+    "distancia_top1_em_escopo_media": 0.82,
+    "distancia_top1_em_escopo_max": 1.0011,
+    "custo": {
+      "latencia_ms_p50": 89.53,
+      "latencia_ms_p95": 100.73
+    },
+    "auc_distancia": 1.0,
+    "recusa_sem_erro": 1.0,
+    "robustez": {
+      "k": 3,
+      "original": {
+        "hit": 0.9444,
+        "mrr": 0.9444
+      },
+      "ruido": {
+        "hit": 0.8889,
+        "mrr": 0.8611,
+        "queda_hit": 0.0555
+      },
+      "parafrases": {
+        "n": 36,
+        "hit": 0.8333,
+        "mrr": 0.7639,
+        "queda_hit": 0.1111,
+        "jaccard_medio": 0.4111
+      }
+    }
+  },
+  "perguntas": [
+    {
+      "id": "q01",
+      "tipo": "multi_fonte",
+      "pergunta": "Como organizar minha rotina de estudos trabalhando 8 horas por dia?",
+      "esperadas": [
+        "artigo_14_willpower_depletion_baumeister.txt",
+        "artigo_19_dual_burden_clt_martins.txt"
+      ],
+      "complementares": [
+        "artigo_17_study_cycle_perez.txt"
+      ],
+      "recuperadas": [
+        "artigo_19_dual_burden_clt_martins.txt",
+        "artigo_06_deep_work_newport.txt",
+        "artigo_17_study_cycle_perez.txt",
+        "artigo_17_study_cycle_perez.txt",
+        "artigo_17_study_cycle_perez.txt"
+      ],
+      "distancias": [
+        0.9332,
+        0.9634,
+        1.0119,
+        1.0244,
+        1.0541
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 0.5,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 0.0,
+        "tokens@1": 77.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "recall@3": 0.5,
+        "ndcg@3": 0.6645649565734895,
+        "distintas@3": 3.0,
+        "cobertura@3": 0.0,
+        "tokens@3": 184.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.2,
+        "recall@5": 0.5,
+        "ndcg@5": 0.6645649565734895,
+        "distintas@5": 3.0,
+        "cobertura@5": 0.0,
+        "tokens@5": 335.0
+      },
+      "latencia_ms": 90.32
+    },
+    {
+      "id": "q02",
+      "tipo": "multi_fonte",
+      "pergunta": "Trabalho 8 horas por dia e sinto que não consigo render nos estudos. Como devo dividir meus blocos de estudo diários e cuidar do sono?",
+      "esperadas": [
+        "artigo_05_sleep_consolidation_walker.txt",
+        "artigo_14_willpower_depletion_baumeister.txt",
+        "artigo_19_dual_burden_clt_martins.txt"
+      ],
+      "complementares": [
+        "artigo_17_study_cycle_perez.txt"
+      ],
+      "recuperadas": [
+        "artigo_19_dual_burden_clt_martins.txt",
+        "artigo_06_deep_work_newport.txt",
+        "artigo_05_sleep_consolidation_walker.txt",
+        "artigo_19_dual_burden_clt_martins.txt",
+        "artigo_17_study_cycle_perez.txt"
+      ],
+      "distancias": [
+        0.8501,
+        0.8551,
+        0.8566,
+        0.97,
+        0.9913
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 0.3333333333333333,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 0.0,
+        "tokens@1": 77.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.6666666666666666,
+        "recall@3": 0.6666666666666666,
+        "ndcg@3": 0.7039180890341347,
+        "distintas@3": 3.0,
+        "cobertura@3": 0.3333333333333333,
+        "tokens@3": 190.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.6,
+        "recall@5": 0.6666666666666666,
+        "ndcg@5": 0.7217531757165985,
+        "distintas@5": 4.0,
+        "cobertura@5": 0.3333333333333333,
+        "tokens@5": 323.0
+      },
+      "latencia_ms": 100.4
+    },
+    {
+      "id": "q03",
+      "tipo": "multi_fonte",
+      "pergunta": "Eu perco horas montando planilhas e cronogramas que sempre atrasam quando surge um imprevisto. Quais técnicas práticas posso aplicar para evitar o overplanning?",
+      "esperadas": [
+        "artigo_12_perfectionism_flett.txt",
+        "artigo_17_study_cycle_perez.txt"
+      ],
+      "complementares": [
+        "artigo_09_timeboxing_allen.txt"
+      ],
+      "recuperadas": [
+        "artigo_12_perfectionism_flett.txt",
+        "artigo_09_timeboxing_allen.txt",
+        "artigo_10_pomodoro_cirillo.txt",
+        "artigo_08_implementation_intentions_gollwitzer.txt",
+        "artigo_17_study_cycle_perez.txt"
+      ],
+      "distancias": [
+        0.7471,
+        0.9185,
+        0.978,
+        1.0524,
+        1.0543
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 0.5,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 0.0,
+        "tokens@1": 117.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "recall@3": 0.5,
+        "ndcg@3": 0.6993694869720469,
+        "distintas@3": 3.0,
+        "cobertura@3": 0.0,
+        "tokens@3": 362.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.4,
+        "recall@5": 1.0,
+        "ndcg@5": 0.9050405422041714,
+        "distintas@5": 5.0,
+        "cobertura@5": 0.6666666666666666,
+        "tokens@5": 583.0
+      },
+      "latencia_ms": 101.08
+    },
+    {
+      "id": "q04",
+      "tipo": "multi_fonte",
+      "pergunta": "Como devo priorizar os tópicos de um edital extenso ou trilha autodidata em vez de estudar tudo de forma linear, e como validar meu aprendizado prático?",
+      "esperadas": [
+        "artigo_16_pareto_engineering_box.txt",
+        "artigo_18_project_based_learning_thomas.txt"
+      ],
+      "complementares": [
+        "artigo_20_feynman_technique_gleick.txt"
+      ],
+      "recuperadas": [
+        "artigo_16_pareto_engineering_box.txt",
+        "artigo_17_study_cycle_perez.txt",
+        "artigo_02_spaced_repetition_cepeda.txt",
+        "artigo_03_interleaving_rohwer.txt",
+        "artigo_18_project_based_learning_thomas.txt"
+      ],
+      "distancias": [
+        0.8623,
+        0.8745,
+        0.9076,
+        0.9568,
+        1.0
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 0.5,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 0.6666666666666666,
+        "tokens@1": 123.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "recall@3": 0.5,
+        "ndcg@3": 0.5316519652587917,
+        "distintas@3": 3.0,
+        "cobertura@3": 0.6666666666666666,
+        "tokens@3": 314.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.4,
+        "recall@5": 1.0,
+        "ndcg@5": 0.7373230204909161,
+        "distintas@5": 5.0,
+        "cobertura@5": 1.0,
+        "tokens@5": 528.0
+      },
+      "latencia_ms": 100.9
+    },
+    {
+      "id": "q05",
+      "tipo": "parafraseada",
+      "pergunta": "Por que eu releio o material várias vezes e mesmo assim não consigo lembrar na hora da prova?",
+      "esperadas": [
+        "artigo_01_active_recall_karpicke.txt"
+      ],
+      "complementares": [
+        "artigo_02_spaced_repetition_cepeda.txt",
+        "artigo_20_feynman_technique_gleick.txt"
+      ],
+      "recuperadas": [
+        "artigo_01_active_recall_karpicke.txt",
+        "artigo_01_active_recall_karpicke.txt",
+        "artigo_02_spaced_repetition_cepeda.txt",
+        "artigo_01_active_recall_karpicke.txt",
+        "artigo_16_pareto_engineering_box.txt"
+      ],
+      "distancias": [
+        0.8479,
+        0.917,
+        0.9213,
+        0.9588,
+        1.083
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 1.0,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 0.5,
+        "tokens@1": 91.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.6666666666666666,
+        "recall@3": 1.0,
+        "ndcg@3": 0.7984848580994974,
+        "distintas@3": 2.0,
+        "cobertura@3": 1.0,
+        "tokens@3": 316.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.6,
+        "recall@5": 1.0,
+        "ndcg@5": 0.7984848580994974,
+        "distintas@5": 3.0,
+        "cobertura@5": 1.0,
+        "tokens@5": 505.0
+      },
+      "latencia_ms": 87.75
+    },
+    {
+      "id": "q06",
+      "tipo": "direta",
+      "pergunta": "Como devo espaçar minhas revisões antes de uma prova?",
+      "esperadas": [
+        "artigo_02_spaced_repetition_cepeda.txt"
+      ],
+      "complementares": [
+        "artigo_01_active_recall_karpicke.txt"
+      ],
+      "recuperadas": [
+        "artigo_02_spaced_repetition_cepeda.txt",
+        "artigo_02_spaced_repetition_cepeda.txt",
+        "artigo_02_spaced_repetition_cepeda.txt",
+        "artigo_17_study_cycle_perez.txt",
+        "artigo_19_dual_burden_clt_martins.txt"
+      ],
+      "distancias": [
+        0.7599,
+        1.0541,
+        1.076,
+        1.1532,
+        1.1615
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 1.0,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 0.5,
+        "tokens@1": 129.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 1.0,
+        "recall@3": 1.0,
+        "ndcg@3": 0.7601875334318685,
+        "distintas@3": 1.0,
+        "cobertura@3": 1.0,
+        "tokens@3": 223.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.6,
+        "recall@5": 1.0,
+        "ndcg@5": 0.7601875334318685,
+        "distintas@5": 3.0,
+        "cobertura@5": 1.0,
+        "tokens@5": 347.0
+      },
+      "latencia_ms": 92.32
+    },
+    {
+      "id": "q07",
+      "tipo": "parafraseada",
+      "pergunta": "Adianta resolver 30 exercícios do mesmo tipo de uma vez só?",
+      "esperadas": [
+        "artigo_03_interleaving_rohwer.txt"
+      ],
+      "complementares": [],
+      "recuperadas": [
+        "artigo_03_interleaving_rohwer.txt",
+        "artigo_02_spaced_repetition_cepeda.txt",
+        "artigo_13_habit_loop_wood.txt",
+        "artigo_16_pareto_engineering_box.txt",
+        "artigo_03_interleaving_rohwer.txt"
+      ],
+      "distancias": [
+        0.9242,
+        1.0912,
+        1.1112,
+        1.1521,
+        1.1587
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 1.0,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 1.0,
+        "tokens@1": 96.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "recall@3": 1.0,
+        "ndcg@3": 1.0,
+        "distintas@3": 3.0,
+        "cobertura@3": 1.0,
+        "tokens@3": 341.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.4,
+        "recall@5": 1.0,
+        "ndcg@5": 1.0,
+        "distintas@5": 4.0,
+        "cobertura@5": 1.0,
+        "tokens@5": 514.0
+      },
+      "latencia_ms": 90.66
+    },
+    {
+      "id": "q08",
+      "tipo": "parafraseada",
+      "pergunta": "Estudar com um monte de abas e aplicativos abertos atrapalha o aprendizado?",
+      "esperadas": [
+        "artigo_04_cognitive_load_sweller.txt"
+      ],
+      "complementares": [
+        "artigo_07_attention_residue_leroy.txt"
+      ],
+      "recuperadas": [
+        "artigo_04_cognitive_load_sweller.txt",
+        "artigo_06_deep_work_newport.txt",
+        "artigo_17_study_cycle_perez.txt",
+        "artigo_02_spaced_repetition_cepeda.txt",
+        "artigo_05_sleep_consolidation_walker.txt"
+      ],
+      "distancias": [
+        0.9402,
+        1.0975,
+        1.1137,
+        1.1158,
+        1.1274
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 1.0,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 0.0,
+        "tokens@1": 56.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "recall@3": 1.0,
+        "ndcg@3": 0.7601875334318685,
+        "distintas@3": 3.0,
+        "cobertura@3": 0.0,
+        "tokens@3": 162.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.2,
+        "recall@5": 1.0,
+        "ndcg@5": 0.7601875334318685,
+        "distintas@5": 5.0,
+        "cobertura@5": 1.0,
+        "tokens@5": 360.0
+      },
+      "latencia_ms": 87.82
+    },
+    {
+      "id": "q09",
+      "tipo": "parafraseada",
+      "pergunta": "Dá para dormir só 5 horas para ter mais tempo de estudar de madrugada?",
+      "esperadas": [
+        "artigo_05_sleep_consolidation_walker.txt"
+      ],
+      "complementares": [
+        "artigo_19_dual_burden_clt_martins.txt"
+      ],
+      "recuperadas": [
+        "artigo_05_sleep_consolidation_walker.txt",
+        "artigo_06_deep_work_newport.txt",
+        "artigo_19_dual_burden_clt_martins.txt",
+        "artigo_02_spaced_repetition_cepeda.txt",
+        "artigo_19_dual_burden_clt_martins.txt"
+      ],
+      "distancias": [
+        0.6991,
+        0.915,
+        0.9935,
+        1.0851,
+        1.107
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 1.0,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 1.0,
+        "tokens@1": 69.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "recall@3": 1.0,
+        "ndcg@3": 0.9502344167898356,
+        "distintas@3": 3.0,
+        "cobertura@3": 1.0,
+        "tokens@3": 190.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.2,
+        "recall@5": 1.0,
+        "ndcg@5": 0.9502344167898356,
+        "distintas@5": 4.0,
+        "cobertura@5": 1.0,
+        "tokens@5": 381.0
+      },
+      "latencia_ms": 88.23
+    },
+    {
+      "id": "q10",
+      "tipo": "direta",
+      "pergunta": "O que é trabalho profundo e quantas horas por dia consigo manter esse foco?",
+      "esperadas": [
+        "artigo_06_deep_work_newport.txt"
+      ],
+      "complementares": [
+        "artigo_07_attention_residue_leroy.txt"
+      ],
+      "recuperadas": [
+        "artigo_06_deep_work_newport.txt",
+        "artigo_06_deep_work_newport.txt",
+        "artigo_19_dual_burden_clt_martins.txt",
+        "artigo_06_deep_work_newport.txt",
+        "artigo_07_attention_residue_leroy.txt"
+      ],
+      "distancias": [
+        0.7906,
+        0.8134,
+        0.9501,
+        0.9698,
+        1.1118
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 1.0,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 1.0,
+        "tokens@1": 106.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.6666666666666666,
+        "recall@3": 1.0,
+        "ndcg@3": 0.7601875334318685,
+        "distintas@3": 2.0,
+        "cobertura@3": 1.0,
+        "tokens@3": 227.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.6,
+        "recall@5": 1.0,
+        "ndcg@5": 0.9072278740982787,
+        "distintas@5": 3.0,
+        "cobertura@5": 1.0,
+        "tokens@5": 342.0
+      },
+      "latencia_ms": 88.71
+    },
+    {
+      "id": "q11",
+      "tipo": "parafraseada",
+      "pergunta": "Por que, depois de olhar o celular no meio do estudo, eu demoro tanto para voltar a me concentrar?",
+      "esperadas": [
+        "artigo_07_attention_residue_leroy.txt"
+      ],
+      "complementares": [
+        "artigo_06_deep_work_newport.txt"
+      ],
+      "recuperadas": [
+        "artigo_07_attention_residue_leroy.txt",
+        "artigo_05_sleep_consolidation_walker.txt",
+        "artigo_02_spaced_repetition_cepeda.txt",
+        "artigo_14_willpower_depletion_baumeister.txt",
+        "artigo_07_attention_residue_leroy.txt"
+      ],
+      "distancias": [
+        0.8187,
+        1.0111,
+        1.0639,
+        1.0892,
+        1.101
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 1.0,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 1.0,
+        "tokens@1": 126.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "recall@3": 1.0,
+        "ndcg@3": 0.7601875334318685,
+        "distintas@3": 3.0,
+        "cobertura@3": 1.0,
+        "tokens@3": 324.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.4,
+        "recall@5": 1.0,
+        "ndcg@5": 0.7601875334318685,
+        "distintas@5": 4.0,
+        "cobertura@5": 1.0,
+        "tokens@5": 510.0
+      },
+      "latencia_ms": 89.29
+    },
+    {
+      "id": "q12",
+      "tipo": "parafraseada",
+      "pergunta": "Como faço para sair do \"vou estudar amanhã\" e realmente começar?",
+      "esperadas": [
+        "artigo_08_implementation_intentions_gollwitzer.txt"
+      ],
+      "complementares": [
+        "artigo_11_temporal_motivation_steel.txt",
+        "artigo_13_habit_loop_wood.txt"
+      ],
+      "recuperadas": [
+        "artigo_08_implementation_intentions_gollwitzer.txt",
+        "artigo_17_study_cycle_perez.txt",
+        "artigo_13_habit_loop_wood.txt",
+        "artigo_14_willpower_depletion_baumeister.txt",
+        "artigo_05_sleep_consolidation_walker.txt"
+      ],
+      "distancias": [
+        0.9916,
+        1.0992,
+        1.1374,
+        1.1724,
+        1.1996
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 1.0,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 1.0,
+        "tokens@1": 132.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "recall@3": 1.0,
+        "ndcg@3": 0.7984848580994974,
+        "distintas@3": 3.0,
+        "cobertura@3": 1.0,
+        "tokens@3": 311.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.2,
+        "recall@5": 1.0,
+        "ndcg@5": 0.7984848580994974,
+        "distintas@5": 5.0,
+        "cobertura@5": 1.0,
+        "tokens@5": 504.0
+      },
+      "latencia_ms": 87.92
+    },
+    {
+      "id": "q13",
+      "tipo": "direta",
+      "pergunta": "O que é a Lei de Parkinson e como definir um tempo fixo para cada tarefa me ajuda?",
+      "esperadas": [
+        "artigo_09_timeboxing_allen.txt"
+      ],
+      "complementares": [],
+      "recuperadas": [
+        "artigo_09_timeboxing_allen.txt",
+        "artigo_09_timeboxing_allen.txt",
+        "artigo_10_pomodoro_cirillo.txt",
+        "artigo_08_implementation_intentions_gollwitzer.txt",
+        "artigo_14_willpower_depletion_baumeister.txt"
+      ],
+      "distancias": [
+        0.5544,
+        0.8226,
+        1.0003,
+        1.0795,
+        1.1
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 1.0,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 1.0,
+        "tokens@1": 120.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.6666666666666666,
+        "recall@3": 1.0,
+        "ndcg@3": 1.0,
+        "distintas@3": 2.0,
+        "cobertura@3": 1.0,
+        "tokens@3": 301.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.4,
+        "recall@5": 1.0,
+        "ndcg@5": 1.0,
+        "distintas@5": 4.0,
+        "cobertura@5": 1.0,
+        "tokens@5": 557.0
+      },
+      "latencia_ms": 87.96
+    },
+    {
+      "id": "q14",
+      "tipo": "direta",
+      "pergunta": "Como funciona a técnica Pomodoro? Quanto tempo dura cada intervalo?",
+      "esperadas": [
+        "artigo_10_pomodoro_cirillo.txt"
+      ],
+      "complementares": [],
+      "recuperadas": [
+        "artigo_10_pomodoro_cirillo.txt",
+        "artigo_10_pomodoro_cirillo.txt",
+        "artigo_02_spaced_repetition_cepeda.txt",
+        "artigo_09_timeboxing_allen.txt",
+        "artigo_11_temporal_motivation_steel.txt"
+      ],
+      "distancias": [
+        0.515,
+        0.9156,
+        1.0327,
+        1.0365,
+        1.1365
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 1.0,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 1.0,
+        "tokens@1": 125.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.6666666666666666,
+        "recall@3": 1.0,
+        "ndcg@3": 1.0,
+        "distintas@3": 2.0,
+        "cobertura@3": 1.0,
+        "tokens@3": 308.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.4,
+        "recall@5": 1.0,
+        "ndcg@5": 1.0,
+        "distintas@5": 4.0,
+        "cobertura@5": 1.0,
+        "tokens@5": 546.0
+      },
+      "latencia_ms": 90.53
+    },
+    {
+      "id": "q15",
+      "tipo": "parafraseada",
+      "pergunta": "Por que eu vou empurrando o estudo quando a prova ainda está longe? Como resolver isso?",
+      "esperadas": [
+        "artigo_11_temporal_motivation_steel.txt"
+      ],
+      "complementares": [],
+      "recuperadas": [
+        "artigo_02_spaced_repetition_cepeda.txt",
+        "artigo_03_interleaving_rohwer.txt",
+        "artigo_17_study_cycle_perez.txt",
+        "artigo_11_temporal_motivation_steel.txt",
+        "artigo_01_active_recall_karpicke.txt"
+      ],
+      "distancias": [
+        0.9387,
+        1.0391,
+        1.0398,
+        1.059,
+        1.1224
+      ],
+      "metricas": {
+        "hit@1": 0.0,
+        "rr@1": 0.0,
+        "precision@1": 0.0,
+        "recall@1": 0.0,
+        "ndcg@1": 0.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 0.0,
+        "tokens@1": 129.0,
+        "hit@3": 0.0,
+        "rr@3": 0.0,
+        "precision@3": 0.0,
+        "recall@3": 0.0,
+        "ndcg@3": 0.0,
+        "distintas@3": 3.0,
+        "cobertura@3": 0.0,
+        "tokens@3": 233.0,
+        "hit@5": 1.0,
+        "rr@5": 0.25,
+        "precision@5": 0.2,
+        "recall@5": 1.0,
+        "ndcg@5": 0.43067655807339306,
+        "distintas@5": 5.0,
+        "cobertura@5": 0.5,
+        "tokens@5": 417.0
+      },
+      "latencia_ms": 85.06
+    },
+    {
+      "id": "q16",
+      "tipo": "multi_fonte",
+      "pergunta": "Como criar o hábito de estudar todos os dias sem depender de força de vontade?",
+      "esperadas": [
+        "artigo_08_implementation_intentions_gollwitzer.txt",
+        "artigo_13_habit_loop_wood.txt"
+      ],
+      "complementares": [
+        "artigo_14_willpower_depletion_baumeister.txt"
+      ],
+      "recuperadas": [
+        "artigo_13_habit_loop_wood.txt",
+        "artigo_08_implementation_intentions_gollwitzer.txt",
+        "artigo_14_willpower_depletion_baumeister.txt",
+        "artigo_13_habit_loop_wood.txt",
+        "artigo_19_dual_burden_clt_martins.txt"
+      ],
+      "distancias": [
+        0.5927,
+        1.013,
+        1.064,
+        1.0916,
+        1.1147
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 0.5,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 0.6666666666666666,
+        "tokens@1": 116.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.6666666666666666,
+        "recall@3": 1.0,
+        "ndcg@3": 1.0,
+        "distintas@3": 3.0,
+        "cobertura@3": 1.0,
+        "tokens@3": 372.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.6,
+        "recall@5": 1.0,
+        "ndcg@5": 1.0,
+        "distintas@5": 4.0,
+        "cobertura@5": 1.0,
+        "tokens@5": 507.0
+      },
+      "latencia_ms": 88.16
+    },
+    {
+      "id": "q17",
+      "tipo": "parafraseada",
+      "pergunta": "Como ganho mais confiança de que vou conseguir terminar meus estudos, mesmo quando as coisas ficam difíceis?",
+      "esperadas": [
+        "artigo_15_self_efficacy_bandura.txt"
+      ],
+      "complementares": [],
+      "recuperadas": [
+        "artigo_15_self_efficacy_bandura.txt",
+        "artigo_13_habit_loop_wood.txt",
+        "artigo_03_interleaving_rohwer.txt",
+        "artigo_15_self_efficacy_bandura.txt",
+        "artigo_02_spaced_repetition_cepeda.txt"
+      ],
+      "distancias": [
+        1.0011,
+        1.1774,
+        1.1963,
+        1.2094,
+        1.2099
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 1.0,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 1.0,
+        "tokens@1": 124.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "recall@3": 1.0,
+        "ndcg@3": 1.0,
+        "distintas@3": 3.0,
+        "cobertura@3": 1.0,
+        "tokens@3": 282.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.4,
+        "recall@5": 1.0,
+        "ndcg@5": 1.0,
+        "distintas@5": 4.0,
+        "cobertura@5": 1.0,
+        "tokens@5": 459.0
+      },
+      "latencia_ms": 87.97
+    },
+    {
+      "id": "q18",
+      "tipo": "parafraseada",
+      "pergunta": "Como saber se eu realmente entendi um assunto ou só decorei?",
+      "esperadas": [
+        "artigo_20_feynman_technique_gleick.txt"
+      ],
+      "complementares": [
+        "artigo_01_active_recall_karpicke.txt"
+      ],
+      "recuperadas": [
+        "artigo_20_feynman_technique_gleick.txt",
+        "artigo_20_feynman_technique_gleick.txt",
+        "artigo_03_interleaving_rohwer.txt",
+        "artigo_04_cognitive_load_sweller.txt",
+        "artigo_06_deep_work_newport.txt"
+      ],
+      "distancias": [
+        0.9929,
+        1.1637,
+        1.1908,
+        1.2196,
+        1.2479
+      ],
+      "metricas": {
+        "hit@1": 1.0,
+        "rr@1": 1.0,
+        "precision@1": 1.0,
+        "recall@1": 1.0,
+        "ndcg@1": 1.0,
+        "distintas@1": 1.0,
+        "cobertura@1": 1.0,
+        "tokens@1": 114.0,
+        "hit@3": 1.0,
+        "rr@3": 1.0,
+        "precision@3": 0.6666666666666666,
+        "recall@3": 1.0,
+        "ndcg@3": 0.7601875334318685,
+        "distintas@3": 2.0,
+        "cobertura@3": 1.0,
+        "tokens@3": 217.0,
+        "hit@5": 1.0,
+        "rr@5": 1.0,
+        "precision@5": 0.4,
+        "recall@5": 1.0,
+        "ndcg@5": 0.7601875334318685,
+        "distintas@5": 4.0,
+        "cobertura@5": 1.0,
+        "tokens@5": 379.0
+      },
+      "latencia_ms": 90.52
+    },
+    {
+      "id": "q19",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Qual a melhor forma de investir meu dinheiro em ações?",
+      "esperadas": [],
+      "complementares": [],
+      "recuperadas": [
+        "artigo_08_implementation_intentions_gollwitzer.txt",
+        "artigo_08_implementation_intentions_gollwitzer.txt",
+        "artigo_02_spaced_repetition_cepeda.txt",
+        "artigo_11_temporal_motivation_steel.txt",
+        "artigo_11_temporal_motivation_steel.txt"
+      ],
+      "distancias": [
+        1.5701,
+        1.6297,
+        1.6507,
+        1.6607,
+        1.6849
+      ],
+      "metricas": {},
+      "latencia_ms": 89.65
+    },
+    {
+      "id": "q20",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Quanto café posso tomar para me concentrar melhor nos estudos?",
+      "esperadas": [],
+      "complementares": [],
+      "recuperadas": [
+        "artigo_05_sleep_consolidation_walker.txt",
+        "artigo_02_spaced_repetition_cepeda.txt",
+        "artigo_06_deep_work_newport.txt",
+        "artigo_04_cognitive_load_sweller.txt",
+        "artigo_14_willpower_depletion_baumeister.txt"
+      ],
+      "distancias": [
+        1.1503,
+        1.163,
+        1.1819,
+        1.1922,
+        1.2428
+      ],
+      "metricas": {},
+      "latencia_ms": 90.93
+    },
+    {
+      "id": "q21",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Qual o melhor remédio para dormir quando estou ansioso antes da prova?",
+      "esperadas": [],
+      "complementares": [],
+      "recuperadas": [
+        "artigo_05_sleep_consolidation_walker.txt",
+        "artigo_05_sleep_consolidation_walker.txt",
+        "artigo_02_spaced_repetition_cepeda.txt",
+        "artigo_19_dual_burden_clt_martins.txt",
+        "artigo_10_pomodoro_cirillo.txt"
+      ],
+      "distancias": [
+        1.072,
+        1.1798,
+        1.2324,
+        1.2449,
+        1.2642
+      ],
+      "metricas": {},
+      "latencia_ms": 90.85
+    },
+    {
+      "id": "q22",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Quanto ganha um engenheiro de software no Brasil?",
+      "esperadas": [],
+      "complementares": [],
+      "recuperadas": [
+        "artigo_18_project_based_learning_thomas.txt",
+        "artigo_06_deep_work_newport.txt",
+        "artigo_10_pomodoro_cirillo.txt",
+        "artigo_18_project_based_learning_thomas.txt",
+        "artigo_03_interleaving_rohwer.txt"
+      ],
+      "distancias": [
+        1.4659,
+        1.5172,
+        1.5829,
+        1.6114,
+        1.6267
+      ],
+      "metricas": {},
+      "latencia_ms": 89.02
+    },
+    {
+      "id": "q23",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Qual é a fórmula de Bhaskara?",
+      "esperadas": [],
+      "complementares": [],
+      "recuperadas": [
+        "artigo_10_pomodoro_cirillo.txt",
+        "artigo_11_temporal_motivation_steel.txt",
+        "artigo_03_interleaving_rohwer.txt",
+        "artigo_03_interleaving_rohwer.txt",
+        "artigo_16_pareto_engineering_box.txt"
+      ],
+      "distancias": [
+        1.3417,
+        1.3967,
+        1.4221,
+        1.4271,
+        1.4381
+      ],
+      "metricas": {},
+      "latencia_ms": 89.4
+    },
+    {
+      "id": "q24",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Me ajuda a escrever um código em Python que ordena uma lista?",
+      "esperadas": [],
+      "complementares": [],
+      "recuperadas": [
+        "artigo_10_pomodoro_cirillo.txt",
+        "artigo_08_implementation_intentions_gollwitzer.txt",
+        "artigo_09_timeboxing_allen.txt",
+        "artigo_11_temporal_motivation_steel.txt",
+        "artigo_08_implementation_intentions_gollwitzer.txt"
+      ],
+      "distancias": [
+        1.4621,
+        1.4718,
+        1.4968,
+        1.5027,
+        1.5157
+      ],
+      "metricas": {},
+      "latencia_ms": 90.39
+    },
+    {
+      "id": "q25",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Qual a capital da Austrália?",
+      "esperadas": [],
+      "complementares": [],
+      "recuperadas": [
+        "artigo_07_attention_residue_leroy.txt",
+        "artigo_08_implementation_intentions_gollwitzer.txt",
+        "artigo_07_attention_residue_leroy.txt",
+        "artigo_10_pomodoro_cirillo.txt",
+        "artigo_03_interleaving_rohwer.txt"
+      ],
+      "distancias": [
+        1.6477,
+        1.653,
+        1.6851,
+        1.6919,
+        1.7016
+      ],
+      "metricas": {},
+      "latencia_ms": 88.81
+    },
+    {
+      "id": "q26",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Como faço para emagrecer mesmo passando o dia sentado estudando?",
+      "esperadas": [],
+      "complementares": [],
+      "recuperadas": [
+        "artigo_19_dual_burden_clt_martins.txt",
+        "artigo_06_deep_work_newport.txt",
+        "artigo_05_sleep_consolidation_walker.txt",
+        "artigo_14_willpower_depletion_baumeister.txt",
+        "artigo_17_study_cycle_perez.txt"
+      ],
+      "distancias": [
+        1.1142,
+        1.1735,
+        1.1738,
+        1.1952,
+        1.2144
+      ],
+      "metricas": {},
+      "latencia_ms": 91.72
+    },
+    {
+      "id": "q27",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Como pedir aumento para o meu chefe?",
+      "esperadas": [],
+      "complementares": [],
+      "recuperadas": [
+        "artigo_11_temporal_motivation_steel.txt",
+        "artigo_07_attention_residue_leroy.txt",
+        "artigo_08_implementation_intentions_gollwitzer.txt",
+        "artigo_11_temporal_motivation_steel.txt",
+        "artigo_08_implementation_intentions_gollwitzer.txt"
+      ],
+      "distancias": [
+        1.4775,
+        1.5817,
+        1.6037,
+        1.6298,
+        1.6525
+      ],
+      "metricas": {},
+      "latencia_ms": 87.97
+    },
+    {
+      "id": "q28",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Qual cadeira ergonômica é melhor para estudar muitas horas?",
+      "esperadas": [],
+      "complementares": [],
+      "recuperadas": [
+        "artigo_02_spaced_repetition_cepeda.txt",
+        "artigo_17_study_cycle_perez.txt",
+        "artigo_19_dual_burden_clt_martins.txt",
+        "artigo_05_sleep_consolidation_walker.txt",
+        "artigo_06_deep_work_newport.txt"
+      ],
+      "distancias": [
+        1.1817,
+        1.2033,
+        1.216,
+        1.2396,
+        1.2479
+      ],
+      "metricas": {},
+      "latencia_ms": 90.27
+    }
+  ]
+}
