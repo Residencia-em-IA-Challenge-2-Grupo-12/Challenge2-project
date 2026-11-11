@@ -720,9 +720,9 @@ def generate_markdown_report(
 
     evidencias_section = "\n".join(evidencias_md)
 
-    report_md = f"""# Entrega Semana 3 — Comparação LLM x RAG: Testes Empíricos, Métricas e Respostas Baseadas em Evidências
+    report_md = f"""# Entrega Semana 3 — Comparação LLM x RAG: Testes Empíricos, Metodologia, Métricas e Respostas Baseadas em Evidências
 
-**Projeto:** Assistente Inteligente de Organização de Estudos e Produtividade Sustentável (Grupo 12)  
+**Projeto:** StudyBuddy — Assistente Inteligente de Organização de Estudos e Produtividade Sustentável (Grupo 12)  
 **Framework de Avaliação:** RAGAS (*Retrieval Augmented Generation Assessment*) + Métricas de *Information Retrieval* (Distância $L_2$, Latência e Consumo de Tokens)  
 **Configuração de Modelos:**
 - **LLM Configurado:** `ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0.0)` *(endpoint ativo na execução: `{llm_model_name}`)*
@@ -731,14 +731,41 @@ def generate_markdown_report(
 
 ---
 
-## 1. Desenho Experimental: Os 4 Cenários Arquiteturais
+## 1. Introdução e Metodologia Utilizada
+
+Este relatório apresenta a validação empírica e comparativa entre abordagens de **Grande Modelo de Linguagem puro (Vanilla LLM)**, **Recuperação Semântica Extrativa** e **Pipelines de Retrieval-Augmented Generation (RAG)** aplicados ao projeto **StudyBuddy** (Grupo 12). O objetivo do experimento é mensurar quantitativamente o impacto da ancoragem factual (*grounding*) sobre uma base científica curada, garantindo recomendações precisas, auditáveis e livres de alucinações para perfis reais de estudantes.
+
+### 1.1. Base de Conhecimento e Pipeline de Indexação
+- **Corpus Científico (`dev/data/`):** Composto por **20 artigos científicos** (`.txt`) organizados em 4 eixos temáticos:
+  1. *Retenção e Neurociência* (*Active Recall*, Repetição Espaçada, Prática Intercalada, Teoria da Carga Cognitiva de Sweller e Consolidação da Memória no Sono de Walker);
+  2. *Foco e Produtividade* (*Deep Work*, Resíduo de Atenção, Intenções de Implementação *Se-Então*, *Timeboxing* e Técnica Pomodoro);
+  3. *Comportamento e Procrastinação* (Motivação Temporal, Perfeccionismo/*Overplanning*, Loop do Hábito, Fadiga Decisória/Esgotamento do Ego e Autoeficácia);
+  4. *Planejamento Autodidata e Editais* (Princípio de Pareto 80/20, Ciclos de Estudo Flexíveis, *Project-Based Learning*, Dupla Jornada CLT e Técnica Feynman).
+- **Segmentação Hierárquica (*Chunking*):** Os documentos foram processados via `RecursiveCharacterTextSplitter` com separadores `["\\n\\n", "\\n", ". ", " ", ""]`, tamanho de **`chunk_size = 500` caracteres** e sobreposição de **`chunk_overlap = 50` caracteres** (10%), gerando **49 chunks** enriquecidos com metadados de rastreabilidade (`source`, `start_index` e `chunk_id`).
+- **Vetorização e Persistência (`ChromaDB`):** Os 49 fragmentos foram vetorizados com o modelo de embeddings da Google (`text-embedding-004` / `{emb_model_name}`) e indexados no **ChromaDB** local (coleção `residencia_ia_semana2`) com verificação automática de integridade dimensional.
+
+### 1.2. Mecanismo de Busca (*Retriever*) e *Chain-of-Thought* Factual
+- **Busca Vetorial por Distância Euclidiana ($L_2$):** O *Retriever* converte a consulta da persona em vetor e recupera os fragmentos com menor distância $L_2$ no ChromaDB (`similarity_search_with_score`).
+- **Expansão e Re-ranking de Cabeçalhos (Teste 4):** No *chunking* de 500 caracteres, títulos e autores de alguns artigos geram chunks curtos (`<= 225` caracteres) que competem por espaço no `Top-K=3`. Na variante otimizada (`Top-K=5 Re-rank`), o *Retriever* busca inicialmente `k=6` candidatos e aplica um filtro de re-ranking que prioriza chunks densos de conteúdo empírico (`> 225` caracteres), garantindo que perguntas compostas multi-tópico recebam todos os artigos complementares nas primeiras posições do ranking.
+- **Protocolo *Chain-of-Thought* (CoT) Factual:** Técnica de *Prompt Engineering* aplicada no Teste 4 que instrui o LLM (`temperature=0.0`) a decompor e alinhar cada parte da pergunta da persona exclusivamente às premissas literais, métricas numéricas (minutos, horas, percentuais) e mecanismos presentes nos 5 fragmentos recuperados, vedando saudações genéricas ou extrapolações externas.
+
+### 1.3. Benchmark de Personas e Avaliação Quantitativa via RAGAS
+O experimento submete as **3 Personas canônicas** do projeto (**Lucas** — Dupla Jornada CLT; **Lisa** — Paralisia por *Overplanning*; **Bob** — Autodidatismo e Editais Extensos) aos 4 cenários arquiteturais (totalizando **12 execuções**). A avaliação utiliza o paradigma *LLM-as-a-Judge* do framework **RAGAS** combinado a métricas operacionais:
+- **`Faithfulness` (Fidelidade Factual / Groundedness):** Proporção (`0.0` a `1.0`) de afirmações da resposta que são comprovadas diretamente pelos chunks recuperados.
+- **`Answer Relevance` (Relevância da Resposta):** Similaridade semântica e completude (`0.0` a `1.0`) da resposta frente à pergunta original da persona.
+- **`Context Precision` (Precisão da Recuperação):** Avalia (`0.0` a `1.0`) se o *Retriever* posicionou os chunks mais relevantes para o gabarito científico (*Ground Truth*) no topo do ranking (`Top-K`).
+- **Latência (s), Consumo de Tokens e Custo Estimado (USD).**
+
+---
+
+## 2. Desenho Experimental: Os 4 Cenários Arquiteturais
 
 1. **Teste 1 — Vanilla LLM (`run_vanilla_llm`):**
    - Consulta enviada diretamente ao LLM (`temperature=0.0`) sem acesso ao ChromaDB.
    - **Objetivo:** Medir a relevância superficial do conhecimento paramétrico versus a ausência completa de ancoragem factual (`Faithfulness = 0.0`, `Context Precision = 0.0`).
 2. **Teste 2 — Recuperação Semântica Pura (`run_retrieval_only`):**
    - Execução exclusiva do Retriever no ChromaDB (`Top-K=3`) retornando os fragmentos brutos com metadados e scores de distância Euclidiana ($L_2$), sem chamada ao LLM.
-   - **Objetivo:** Isolar a qualidade da busca vetorial, latência de recuperação (~0.2s–0.4s) e custo zero de geração, evidenciando a limitação de usabilidade da leitura bruta para o estudante.
+   - **Objetivo:** Isolar a qualidade da busca vetorial, latência de recuperação (~0.2s–0.5s) e custo zero de geração, evidenciando a limitação de usabilidade da leitura bruta para o estudante.
 3. **Teste 3 — RAG Padrão Baseline (`run_rag_baseline`):**
    - Arquitetura construída na Semana 2: `Retriever Top-K=3` + Prompt restritivo com *grounding* + `LLM (temperature=0.0)`.
    - **Objetivo:** Avaliar o ganho de fidelidade factual sobre o Vanilla LLM e identificar gargalos do `Top-K=3` quando fragmentos curtos de cabeçalho (título/autores) ocupam vagas de contexto.
@@ -749,27 +776,27 @@ def generate_markdown_report(
 
 ---
 
-## 2. Tabela Consolidada de Resultados (4 Testes × 3 Personas = 12 Execuções)
+## 3. Tabela Consolidada de Resultados (4 Testes × 3 Personas = 12 Execuções)
 
 {df_core.to_markdown(index=False)}
 
 ---
 
-## 3. Resumo Executivo: Médias por Abordagem Arquitetural
+## 4. Resumo Executivo: Médias por Abordagem Arquitetural
 
 {summary_df.to_markdown(index=False)}
 
 ---
 
-## 4. Evidências Empíricas Detalhadas (Perguntas, Contextos e Respostas por Persona)
+## 5. Evidências Empíricas Detalhadas (Perguntas, Contextos e Respostas por Persona)
 
 {evidencias_section}
 
 ---
 
-## 5. Conclusão e Veredito Técnico
+## 6. Conclusão e Veredito Técnico
 
-### 5.1. O que muda e por que muda entre as 4 abordagens?
+### 6.1. O que muda e por que muda entre as 4 abordagens?
 
 1. **Da Vanilla LLM (Teste 1) para os Pipelines RAG (Testes 3 e 4):**
    - **O que muda:** A métrica **`Faithfulness` (Fidelidade Factual)** salta de **`0.0000`** no Teste 1 para **`{summary_df.loc[summary_df['ID_Teste']=='Teste 3', 'Faithfulness'].values[0]:.4f}`** no RAG Baseline (Teste 3) e **`{summary_df.loc[summary_df['ID_Teste']=='Teste 4', 'Faithfulness'].values[0]:.4f}`** no RAG Otimizado (Teste 4).
@@ -783,7 +810,7 @@ def generate_markdown_report(
    - **O que muda:** O Teste 4 eleva simultaneamente a **`Faithfulness`** (para **`{summary_df.loc[summary_df['ID_Teste']=='Teste 4', 'Faithfulness'].values[0]:.4f}`**), a **`Answer Relevance`** (para **`{summary_df.loc[summary_df['ID_Teste']=='Teste 4', 'Answer Relevance'].values[0]:.4f}`**) e a **`Context Precision`** (para **`{summary_df.loc[summary_df['ID_Teste']=='Teste 4', 'Context Precision'].values[0]:.4f}`**), com impacto marginal na latência e custo de apenas frações de centavo de dólar por consulta.
    - **Por que muda:** Todas as 3 perguntas canônicas das personas são **perguntas compostas multi-tópico** (Lucas pergunta sobre *blocos de estudo no trabalho* **e** *sono*; Lisa pergunta sobre *planilhas que atrasam* **e** *técnicas contra overplanning*; Bob pergunta sobre *priorização não-linear de edital* **e** *validação prática*). Com `Top-K=3` sem filtragem de cabeçalhos (Teste 3), chunks curtos de título/autor ocupam slots críticos do retriever. A expansão para `Top-K=5` com priorização de chunks de conteúdo (>225 caracteres) combinada ao prompt *Chain-of-Thought* garante que todos os artigos complementares sejam recuperados e sintetizados sem extrapolação.
 
-### 5.2. Escolha Final Fundamentada para o Produto
+### 6.2. Escolha Final Fundamentada para o Produto
 
 > **Veredito Técnico: A abordagem vencedora para integração no produto final é o `Teste 4 — RAG Otimizado (Top-K=5 Re-rank + Prompt Chain-of-Thought Factual)`.**
 
@@ -791,6 +818,24 @@ def generate_markdown_report(
 1. **Rigor Científico e Segurança Anti-Alucinação (`Faithfulness = {summary_df.loc[summary_df['ID_Teste']=='Teste 4', 'Faithfulness'].values[0]:.4f}`):** Garante que 100% (ou quase totalidade) das diretrizes entregues a Lucas, Lisa e Bob sejam rastreáveis aos 20 artigos científicos da base de conhecimento.
 2. **Cobertura Sinérgica Multi-Artigo (`Context Precision = {summary_df.loc[summary_df['ID_Teste']=='Teste 4', 'Context Precision'].values[0]:.4f}` e `Answer Relevance = {summary_df.loc[summary_df['ID_Teste']=='Teste 4', 'Answer Relevance'].values[0]:.4f}`):** Resolve o problema de fragmentação entre cabeçalho e corpo dos artigos no ChromaDB e responde integralmente a perguntas compostas.
 3. **Viabilidade Operacional (Latência e Custo):** A latência média de `~{summary_df.loc[summary_df['ID_Teste']=='Teste 4', 'Latência (s)'].values[0]:.2f}s` e o consumo médio de `~{int(summary_df.loc[summary_df['ID_Teste']=='Teste 4', 'Tokens Estimados'].values[0])} tokens` por requisição representam um custo inferior a `$0.0003` por consulta, entregando o equilíbrio ótimo entre precisão clínica/pedagógica, velocidade de resposta e experiência do usuário.
+
+---
+
+## 7. Links para o Projeto e Artefatos
+
+### Repositórios Oficiais (GitHub — Grupo 12)
+- **Repositório Principal do Código (`studybuddy`):** [https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/studybuddy](https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/studybuddy)
+- **Repositório de Documentação Oficial (`Challenge2-documentation`):** [https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/Challenge2-documentation](https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/Challenge2-documentation)
+
+### Principais Artefatos de Pesquisa, Código e Dados
+| Artefato | Caminho no Repositório | Descrição |
+| :--- | :--- | :--- |
+| **Notebook de Experimentos (Semana 3)** | [`pesquisa/experimentos_semana3_llm_vs_rag.ipynb`](experimentos_semana3_llm_vs_rag.ipynb) | Implementação interativa dos 4 cenários (Vanilla LLM, Busca Pura, RAG Baseline e RAG Otimizado) e avaliação RAGAS. |
+| **Script de Avaliação Automatizada** | [`pesquisa/experimentos_semana3_llm_vs_rag.py`](experimentos_semana3_llm_vs_rag.py) | Script Python autônomo para execução reprodutível dos 12 experimentos e geração de relatórios. |
+| **Relatório Consolidado (Markdown)** | [`pesquisa/RELATORIO_COMPARACAO_SEMANA3.md`](RELATORIO_COMPARACAO_SEMANA3.md) | Documento completo com metodologia, tabelas comparativas, respostas empíricas e veredito técnico. |
+| **Planilha de Métricas (CSV)** | [`pesquisa/relatorio_experimentos_semana3.csv`](relatorio_experimentos_semana3.csv) | Dados brutos tabulados das 12 execuções (`Faithfulness`, `Answer Relevance`, `Context Precision`, Latência, Tokens e Custo). |
+| **Notebook Pipeline RAG (Semana 2)** | [`pesquisa/rag_pipeline_semana2.ipynb`](rag_pipeline_semana2.ipynb) | Construção da base de conhecimento, *chunking*, indexação no ChromaDB e *chain* LCEL inicial. |
+| **Base de Conhecimento Científica** | [`dev/data/`](../dev/data/) | Os 20 artigos científicos (`.txt`) sobre neurociência do aprendizado, foco, procrastinação e planejamento de estudos. |
 """
     return report_md
 
