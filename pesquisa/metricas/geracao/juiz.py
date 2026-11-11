@@ -77,22 +77,37 @@ ESQUEMA_COMPLETUDE = {
 }
 
 
-PROMPT_BASE = """Você é um avaliador rigoroso de um assistente de estudos.
-
-Tarefa: avaliar cada afirmação da RESPOSTA contra a BASE DE CONHECIMENTO inteira e contra a PERGUNTA.
-1. Quebre a RESPOSTA em afirmações factuais curtas e independentes.
-   Ignore: saudações, frases de transição, as marcações [Fonte: ...] e frases dizendo que não há informação.
-2. Para cada afirmação, procure na BASE a frase que diz a mesma coisa e copie-a LITERALMENTE em "evidencia".
-   Se nenhuma frase da BASE diz isso, deixe "evidencia" vazio.
-3. "sustentada": true só se você copiou uma evidência que realmente diz a mesma coisa que a afirmação
-   (mesmo com outras palavras). Termos, técnicas, números ou horários que não aparecem na BASE contam como false,
-   mesmo que sejam verdade no mundo real. Tema parecido não basta.
-4. "relevante": true se a afirmação ajuda a responder o que a PERGUNTA pede;
-   false se é sobre outro assunto, genérica demais ou não tem relação com a pergunta.
-Não use conhecimento externo. Julgue apenas pela BASE.
+# Fidelidade à BASE: uma afirmação por chamada. Com a base inteira e ~15 afirmações numa chamada só,
+# o juiz de 12B errava para os dois lados (aprovava "Matriz de Eisenhower", reprovava o Pomodoro de
+# 25 min, que está no artigo 10). A base vem PRIMEIRO no prompt, então o Ollama reaproveita o cache
+# desse prefixo e cada chamada só processa a afirmação nova.
+PROMPT_BASE = """Você é um verificador rigoroso. Abaixo está a BASE DE CONHECIMENTO completa de um assistente de estudos.
 
 BASE DE CONHECIMENTO:
 {base}
+
+---
+Tarefa: decida se a AFIRMAÇÃO é sustentada pela BASE.
+1. Procure na BASE a frase que diz a mesma coisa que a afirmação e copie-a LITERALMENTE em "evidencia" (vazio se não houver).
+2. "sustentada": true se a evidência diz a mesma coisa (paráfrase vale). false se a BASE não diz isso, mesmo que seja verdade no mundo real. Técnicas, nomes, números ou horários ausentes da BASE contam como false.
+
+AFIRMAÇÃO: {afirmacao}"""
+
+ESQUEMA_BASE = {
+    "type": "object",
+    # evidência ANTES do veredito: achar o trecho antes de decidir
+    "properties": {"evidencia": {"type": "string"}, "sustentada": {"type": "boolean"}},
+    "required": ["evidencia", "sustentada"],
+}
+
+PROMPT_RELEVANCIA = """Você é um avaliador rigoroso de um assistente de estudos.
+
+Tarefa: verificar se a RESPOSTA se mantém no que a PERGUNTA pede.
+1. Quebre a RESPOSTA em afirmações curtas e independentes.
+   Ignore: saudações, frases de transição, as marcações [Fonte: ...] e frases dizendo que não há informação.
+2. Para cada afirmação, "relevante" é true só se ela ajuda DIRETAMENTE a responder o que a PERGUNTA pede.
+   É false se trata de outro assunto, se é um conselho genérico que serviria para qualquer pergunta,
+   ou se responde a uma pergunta parecida, mas diferente da que foi feita.
 
 PERGUNTA:
 {pergunta}
@@ -100,21 +115,15 @@ PERGUNTA:
 RESPOSTA:
 {resposta}"""
 
-ESQUEMA_BASE = {
+ESQUEMA_RELEVANCIA = {
     "type": "object",
     "properties": {
         "afirmacoes": {
             "type": "array",
             "items": {
                 "type": "object",
-                "properties": {
-                    "afirmacao": {"type": "string"},
-                    # evidência ANTES do veredito, como na completude: achar o trecho antes de decidir
-                    "evidencia": {"type": "string"},
-                    "sustentada": {"type": "boolean"},
-                    "relevante": {"type": "boolean"},
-                },
-                "required": ["afirmacao", "evidencia", "sustentada", "relevante"],
+                "properties": {"afirmacao": {"type": "string"}, "relevante": {"type": "boolean"}},
+                "required": ["afirmacao", "relevante"],
             },
         }
     },
@@ -129,22 +138,24 @@ class Juiz:
         self.modelo = modelo
         self._fid = ChatOllama(model=modelo, temperature=0, format=ESQUEMA_FIDELIDADE)
         self._comp = ChatOllama(model=modelo, temperature=0, format=ESQUEMA_COMPLETUDE)
+        self._rel = ChatOllama(model=modelo, temperature=0, format=ESQUEMA_RELEVANCIA)
         # A base inteira (~5 mil tokens) não cabe na janela padrão do Ollama: amplia só para esta tarefa
-        self._base = ChatOllama(model=modelo, temperature=0, format=ESQUEMA_BASE, num_ctx=16384)
+        self._base = ChatOllama(model=modelo, temperature=0, format=ESQUEMA_BASE, num_ctx=8192)
 
-    def base_e_relevancia(self, base: str, pergunta: str, resposta: str) -> List[Dict]:
-        """Lista de {"afirmacao", "sustentada", "relevante"}, julgada contra a base INTEIRA.
+    def relevancia(self, pergunta: str, resposta: str) -> List[Dict]:
+        """Lista de {"afirmacao", "relevante"}. A nota é relevantes / total (calculada no avaliador)."""
+        saida = self._rel.invoke(PROMPT_RELEVANCIA.format(pergunta=pergunta, resposta=resposta))
+        return json.loads(saida.content)["afirmacoes"]
 
-        Diferente de `fidelidade` (que julga contra o contexto recuperado), esta funciona para qualquer
-        modo, inclusive o LLM sem RAG, que não recebe contexto nenhum.
-        O veredito "sustentada" só vale se a evidência copiada existe mesmo na base (checagem em Python).
+    def sustentada_na_base(self, base: str, afirmacao: str) -> Dict:
+        """{"evidencia", "veredito_juiz", "sustentada"} para UMA afirmação, contra a base inteira.
+
+        "sustentada" só é true se o juiz aprovou E a evidência copiada existe mesmo na base (checagem em Python).
         """
-        saida = self._base.invoke(PROMPT_BASE.format(base=base, pergunta=pergunta, resposta=resposta))
-        afirmacoes = json.loads(saida.content)["afirmacoes"]
-        for a in afirmacoes:
-            a["veredito_juiz"] = bool(a["sustentada"])
-            a["sustentada"] = a["veredito_juiz"] and trecho_existe(a.get("evidencia", ""), base)
-        return afirmacoes
+        saida = json.loads(self._base.invoke(PROMPT_BASE.format(base=base, afirmacao=afirmacao)).content)
+        veredito = bool(saida["sustentada"])
+        return {"evidencia": saida.get("evidencia", ""), "veredito_juiz": veredito,
+                "sustentada": veredito and trecho_existe(saida.get("evidencia", ""), base)}
 
     def fidelidade(self, contexto: str, resposta: str) -> List[Dict]:
         """Lista de {"afirmacao", "sustentada"}. A nota é sustentadas / total (calculada no runner)."""

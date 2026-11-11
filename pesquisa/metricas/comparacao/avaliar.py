@@ -1,8 +1,10 @@
 """Avalia e compara as formas de usar o RAG com as MESMAS métricas e o MESMO juiz.
 
 Uso (a partir de pesquisa/):
-    python -m metricas.comparacao.avaliar llm_puro so_busca rag_llm rag_otimizado rag_llm_k3
+    python -m metricas.comparacao.avaliar                  # avalia o que falta (retoma de onde parou)
+    python -m metricas.comparacao.avaliar rag_otimizado    # só um modo
     python -m metricas.comparacao.avaliar --so-tabela      # só remonta a tabela com o que já foi avaliado
+    python -m metricas.comparacao.avaliar --refazer        # avalia tudo de novo
 
 Lê relatorios/comparacao_respostas_<modo>.json (gerado por metricas.comparacao.modos) e grava
 relatorios/comparacao_<modo>.json com o veredito por pergunta, mais relatorios/comparacao.csv e .md.
@@ -71,11 +73,25 @@ def avaliar_registro(r: Dict, juiz, base: str, modo: str) -> Dict:
             av["afirmacoes_contexto"] = afirm
             if afirm:
                 av["fidelidade"] = sum(a["sustentada"] for a in afirm) / len(afirm)
-        afirm = juiz.base_e_relevancia(base, r["pergunta"], r["resposta"])
-        av["afirmacoes_base"] = afirm
+
+        afirm = juiz.relevancia(r["pergunta"], r["resposta"])
+        av["afirmacoes_relevancia"] = afirm
         if afirm:
-            av["fidelidade_base"] = sum(a["sustentada"] for a in afirm) / len(afirm)
             av["relevancia"] = sum(a["relevante"] for a in afirm) / len(afirm)
+
+        # Fidelidade à base. Com contexto, ela já está medida: o contexto É um pedaço da base, então
+        # "sustentada pelo contexto" implica "sustentada pela base" (a fidelidade ao contexto é um piso).
+        # Sem contexto (T1), cada afirmação é verificada contra a base inteira, uma por chamada.
+        if modo == "so_busca":
+            av["fidelidade_base"], av["origem_fidelidade_base"] = 1.0, "por construção (trechos da base)"
+        elif r["contexto"]:
+            if "fidelidade" in av:
+                av["fidelidade_base"], av["origem_fidelidade_base"] = av["fidelidade"], "piso: fidelidade ao contexto"
+        elif afirm:
+            for a in afirm:
+                a.update(juiz.sustentada_na_base(base, a["afirmacao"]))
+            av["fidelidade_base"] = sum(a["sustentada"] for a in afirm) / len(afirm)
+            av["origem_fidelidade_base"] = "juiz, afirmação por afirmação contra a base inteira"
 
     if em_escopo:
         av["pontos_cobertos"] = [False] * len(r["pontos_chave"]) if recusou else juiz.completude(r["resposta"], r["pontos_chave"])
@@ -142,19 +158,52 @@ def agregar(regs: List[Dict]) -> Dict:
     return res
 
 
+def _avaliado_com_juiz_atual(r: Dict) -> bool:
+    """O registro foi avaliado pela versão atual do juiz (v3)? A v2 não tinha a chamada de relevância."""
+    av = r.get("avaliacao")
+    return bool(av) and (av["recusou"] or "afirmacoes_relevancia" in av)
+
+
+def modo_pronto(modo: str) -> bool:
+    p = RELATORIOS_DIR / f"comparacao_{modo}.json"
+    if not p.exists():
+        return False
+    regs = json.loads(p.read_text(encoding="utf-8"))["perguntas"]
+    return len(regs) == 28 and all(_avaliado_com_juiz_atual(r) for r in regs)
+
+
 def avaliar_modo(modo: str, juiz, base: str) -> Dict:
+    """Avalia um modo, gravando o progresso a cada pergunta em comparacao_<modo>.parcial.json.
+
+    Se a execução for interrompida (ou continuar em outra máquina), rodar de novo retoma do ponto
+    em que parou: as perguntas já avaliadas pelo juiz atual são lidas do arquivo parcial.
+    """
     with open(RELATORIOS_DIR / f"comparacao_respostas_{modo}.json", encoding="utf-8") as fh:
         dados = json.load(fh)
     if dados["config"].get("llm") == juiz.modelo:
         raise SystemExit(f"O juiz ({juiz.modelo}) não pode ser o mesmo modelo do gerador.")
+    parcial = RELATORIOS_DIR / f"comparacao_{modo}.parcial.json"
+    feitos: Dict[str, Dict] = {}
+    if parcial.exists():
+        feitos = {r["id"]: r["avaliacao"] for r in json.loads(parcial.read_text(encoding="utf-8"))
+                  if _avaliado_com_juiz_atual(r)}
+        print(f"  [{modo}] retomando: {len(feitos)} perguntas já avaliadas", flush=True)
+
     regs = dados["respostas"]
     for n, r in enumerate(regs, 1):
+        if r["id"] in feitos:
+            r["avaliacao"] = feitos[r["id"]]
+            continue
         print(f"  [{modo} {n}/{len(regs)}] {r['id']}", flush=True)
         r["avaliacao"] = avaliar_registro(r, juiz, base, modo)
+        prontos = [x for x in regs if "avaliacao" in x]
+        parcial.write_text(json.dumps(prontos, ensure_ascii=False, indent=2), encoding="utf-8")
+
     resumo = agregar(regs)
     saida = {"config": {**dados["config"], "juiz": juiz.modelo}, "resumo": resumo, "perguntas": regs}
     with open(RELATORIOS_DIR / f"comparacao_{modo}.json", "w", encoding="utf-8") as fh:
         json.dump(saida, fh, ensure_ascii=False, indent=2)
+    parcial.unlink(missing_ok=True)
     return saida
 
 
@@ -197,14 +246,18 @@ def tabela() -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("modos", nargs="*", default=[])
+    ap.add_argument("modos", nargs="*", default=[], help=f"padrão: os que faltam, na ordem {ORDEM}")
     ap.add_argument("--so-tabela", action="store_true")
+    ap.add_argument("--refazer", action="store_true", help="avalia de novo mesmo os modos já prontos")
     args = ap.parse_args()
     if not args.so_tabela:
         from metricas.geracao.juiz import Juiz
 
+        modos = args.modos or ORDEM
+        pendentes = [m for m in modos if args.refazer or not modo_pronto(m)]
+        print(f"Prontos: {[m for m in modos if m not in pendentes]} | a avaliar: {pendentes}", flush=True)
         juiz, base = Juiz(), texto_base()
-        for modo in args.modos:
+        for modo in pendentes:
             avaliar_modo(modo, juiz, base)
     tabela()
 
