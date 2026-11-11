@@ -12,7 +12,8 @@ O RAG medido é o do notebook `rag_pipeline_semana2.ipynb`: o `recuperacao/noteb
 | :--- | :--- | :--- |
 | `dataset/` | Gabarito: perguntas, fonte(s) esperada(s), perguntas fora de escopo | não |
 | `recuperacao/` | Hit Rate@K, MRR, Precision@K, Recall@K | não |
-| `geracao/` | Citação válida (regex), faithfulness e relevância (LLM-juiz) | parcial |
+| `geracao/` | Citação válida (regex), fidelidade, completude e fidelidade à base + relevância (LLM-juiz) | parcial |
+| `comparacao/` | Os 4 modos de uso (só LLM, só busca, RAG + LLM, RAG + LLM otimizado) avaliados com as mesmas métricas | parcial |
 | `relatorios/` | Saídas das execuções (CSV/JSON), para comparar configurações | não |
 
 ## Ordem sugerida
@@ -26,7 +27,10 @@ O RAG medido é o do notebook `rag_pipeline_semana2.ipynb`: o `recuperacao/noteb
 - `dataset/`: pronto. 20 perguntas em `gabarito.json`, validadas por `python -m metricas.dataset.loader` (só stdlib).
 - `recuperacao/`: `metrics.py` (fórmulas), `runner.py` (executa e salva em `relatorios/`), `test_metrics.py`.
   Rodar: `python -m metricas.recuperacao.runner --nome baseline`. O runner depende do notebook: executa as células de índice de `rag_pipeline_semana2.ipynb` (`notebook_loader.py`), o que **reindexa** `dev/chroma_db`. Requer as dependências da célula `%pip` instaladas.
-- `geracao/`: ainda vazio.
+- `geracao/`: `metrics.py` (regras: recusa e citação), `juiz.py` (LLM-juiz `gemma3:12b`: fidelidade, completude, fidelidade à base e relevância, sempre com evidência conferida em Python), `runner.py`.
+  Rodar: `python -m metricas.geracao.runner --nome qwen3_bge` (opcional `TOP_K=5`).
+- `comparacao/`: `modos.py` gera as respostas de cada modo (`calibrar`, `llm_puro`, `so_busca`, `rag_llm`, `rag_otimizado`, `rag_llm_k3`); `avaliar.py` avalia todos e monta `relatorios/comparacao.md`.
+  Rodar: `python -m metricas.comparacao.modos <modo>` e depois `python -m metricas.comparacao.avaliar <modos...>`.
 
 ## Notas sobre o gabarito
 
