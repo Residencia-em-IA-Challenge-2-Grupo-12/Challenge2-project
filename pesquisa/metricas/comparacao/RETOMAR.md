@@ -1,5 +1,7 @@
 # Retomar a avaliação em outra máquina (Windows)
 
+> **Atualização (12/11):** T3 e T2 foram concluídos numa máquina Linux. T1 a T4 estão completos. Só a variante `rag_llm_k3` (Ref) não foi reavaliada; este guia serve para rodá-la, se for preciso.
+
 A avaliação grava o progresso a cada pergunta (`relatorios/comparacao_<modo>.parcial.json`) e pula os modos já prontos. Para continuar em outra máquina, basta ter o repositório atualizado e o mesmo juiz.
 
 A geração das respostas **já foi feita** (`relatorios/comparacao_respostas_*.json`). A outra máquina só roda o juiz: **não precisa** de `qwen3:8b`, `bge-m3`, ChromaDB nem do notebook.

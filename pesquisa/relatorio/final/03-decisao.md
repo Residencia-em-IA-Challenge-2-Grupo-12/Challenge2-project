@@ -1,6 +1,6 @@
 # 3. Decisão para o produto
 
-> **⏳ Parcial (11/11, 17h30).** T1 e T4 estão completos. A recomendação **mudou** em relação à prévia das 15h: o T4 perdeu completude (0,91 → 0,76), e a escolha passou a ser **T3 + porteiro**. Ela será confirmada quando a reavaliação do T3 terminar.
+> **Final (12/11).** T1, T2, T3 e T4 estão completos. A reavaliação do T3 **confirmou** a escolha: **T3 + porteiro**, com taxa de sucesso de 0,93 (T4: 0,75; T2: 0,75; T1: 0,32). A Ref (k=3) não foi reavaliada.
 
 ## O que o StudyBuddy precisa
 
@@ -38,8 +38,8 @@ As duas mudanças do T4 tiveram efeitos opostos, e só uma delas fica:
 
 | | T3 | T4 | **T3 + porteiro** |
 | :-- | :-- | :-- | :-- |
-| Completude | 0,91† | 0,76 | **0,91** |
-| Fidelidade ao contexto | 0,97† | 0,86 | **0,97** |
+| Completude | 0,91 | 0,76 | **0,91** |
+| Fidelidade ao contexto | 0,98 | 0,86 | **0,98** |
 | Recusa correta / indevida | 10/10 · 0/18 | 10/10 · 0/18 | **10/10 · 0/18** |
 | Citação de artigo correto | 100% | 100% | **100%** |
 | Chamadas ao LLM (de 28) | 28 | 22 | **22** |
@@ -47,7 +47,7 @@ As duas mudanças do T4 tiveram efeitos opostos, e só uma delas fica:
 
 O "T3 + porteiro" é **deduzido** de T3 e T4, não medido como um quinto teste. A dedução é válida porque o porteiro não recusou nenhuma pergunta válida: em escopo, o pipeline é idêntico ao do T3 ([Resultados › T3 + porteiro](02-resultados.md#t3--porteiro-a-combinação-que-sai-dos-dados)).
 
-† Avaliação do T3 da semana passada, com o mesmo juiz. A reavaliação na rodada atual está pendente: se ela confirmar ~0,9 de completude, a escolha está fechada.
+Valores do T3 da reavaliação de 12/11 (mesmo juiz). Eles confirmam os da semana passada (completude ~0,9), e a escolha está fechada.
 
 **E a diluição da q12?** Continua sendo um problema conhecido do k=5. Ela merece uma correção mais estreita que a do T4, por exemplo testar só a regra 3 do prompt novo, sem a regra 5, medindo de novo nas 18 perguntas.
 
@@ -73,4 +73,4 @@ O "T3 + porteiro" é **deduzido** de T3 e T4, não medido como um quinto teste. 
 | Pipeline RAG (notebook) | [`pesquisa/rag_pipeline_semana2.ipynb`](https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/studybuddy/blob/metricas-experimento/pesquisa/rag_pipeline_semana2.ipynb) |
 | Documentação do projeto | <https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/Challenge2-documentation> |
 
-> As avaliações do T1 e do T4 já estão no GitHub. As do T2, do T3 e da Ref entram quando a avaliação terminar (ver `pesquisa/metricas/comparacao/RETOMAR.md`).
+> As avaliações de T1, T2, T3 e T4 estão no repositório. A da Ref (k=3) não foi refeita (ver `pesquisa/metricas/comparacao/RETOMAR.md`).

@@ -1,6 +1,6 @@
 # 2. LLM x RAG: resultados
 
-> **⏳ Parcial (11/11, 17h30).** **T1 e T4 estão completos** (todas as métricas, avaliados no Mac). Para T2, T3 e Ref, as métricas que não dependem do juiz (recusa, citação, latência, tokens, chamadas ao LLM) são definitivas; as do juiz serão preenchidas quando a avaliação terminar (no Galaxy Book4). Onde já existe uma medida da mesma régua de uma rodada anterior, ela aparece marcada com †.
+> **Final (12/11).** **T1, T2, T3 e T4 estão completos** (T1 e T4 avaliados no Mac; T2 e T3 numa máquina Linux com RTX 4070, mesmo juiz `gemma3:12b`). A **Ref (k=3) não foi reavaliada** nesta rodada: seus valores com † vêm da rodada da semana passada, com a mesma régua.
 
 Configuração e métricas: ver [Metodologia](01-metodologia.md). 28 perguntas: 18 em escopo (4 diretas, 9 parafraseadas, 5 multi-fonte) e 10 fora de escopo.
 
@@ -8,11 +8,11 @@ Configuração e métricas: ver [Metodologia](01-metodologia.md). 28 perguntas: 
 
 | Métrica | T1 · Só LLM | T2 · Só busca | T3 · RAG + LLM | T4 · RAG + LLM otimizado | Ref · k=3 |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| **Taxa de sucesso (28)** | **0,32** | ⏳ | ⏳ | **0,75** | ⏳ |
-| Completude | 0,59 | ⏳ | 0,91† | 0,76 | 0,81† |
-| Completude multi-fonte | 0,53 | ⏳ | 0,87† | 0,73 | 0,53† |
-| Fidelidade à base | 0,81 (juiz v3)‡ | 1,00 (construção) | 0,97† (piso) | 0,86 (piso) | 0,93† (piso) |
-| Relevância | 0,89 | ⏳ | ⏳ | 0,79 | ⏳ |
+| **Taxa de sucesso (28)** | **0,32** | 0,75 | **0,93** | 0,75 | — |
+| Completude | 0,59 | 0,87 | **0,91** | 0,76 | 0,81† |
+| Completude multi-fonte | 0,53 | 0,93 | 0,87 | 0,73 | 0,53† |
+| Fidelidade à base | 0,81 (juiz v3)‡ | 1,00 (construção) | 0,98 (piso) | 0,86 (piso) | 0,93† (piso) |
+| Relevância | 0,89 | 0,57 | **0,94** | 0,79 | — |
 | Cita a fonte | **0,00** | 1,00 | 1,00 | 1,00 | 1,00 |
 | Cita um artigo correto | **0,00** | 1,00 | 1,00 | 1,00 | 1,00 |
 | Precisão da citação | — | 1,00 | 1,00 | 1,00 | 1,00 |
@@ -24,7 +24,7 @@ Configuração e métricas: ver [Metodologia](01-metodologia.md). 28 perguntas: 
 | Tokens de contexto | 0 | 598 | 598 | 598 | 352 |
 | Chamadas ao LLM (de 28) | 28 | 0 | 28 | **22** | 28 |
 
-† Mesma régua (juiz `gemma3:12b`, mesmo prompt de completude e de fidelidade ao contexto), medida numa rodada anterior: a avaliação do T1 de hoje cedo e as rodadas k=5 e k=3 do [cap. 8](../08-geracao-e-llm-juiz.md). Serão substituídas pelos valores da rodada final.
+† Mesma régua (juiz `gemma3:12b`, mesmo prompt de completude e de fidelidade ao contexto), medida na rodada k=3 do [cap. 8](../08-geracao-e-llm-juiz.md). A Ref não foi reavaliada; T3 foi reavaliado e confirmou os valores da rodada k=5 (completude 0,91).
 
 \* Ver "Latência do T4" abaixo: a diferença para o T3 não vem do tamanho da resposta.
 
@@ -65,11 +65,13 @@ A q21 é o caso mais grave: uma pergunta sobre **medicamento** recebe trechos so
 
 **3. Não é uma resposta, são 5 recortes.** O estudante recebe ~540 tokens de trechos crus, cortados no meio da frase, na ordem da busca, e precisa juntar as peças sozinho. Numa pergunta multi-fonte (q01), os trechos dos artigos 19, 17, 06 e 14 chegam misturados, sem a síntese "estude antes do expediente, em blocos de 45 a 60 min".
 
-**4. Completude e relevância: ⏳.** A régua lexical da busca já sugeria que o conteúdo está lá: a **cobertura de pontos-chave@5 é 0,89** ([cap. 5](../05-resultados.md)). A dúvida é quanto disso é útil e quanto é ruído (relevância).
+**4. Completude alta, relevância baixa.** Completude de **0,87** (0,93 nas multi-fonte): o conteúdo certo está nos 5 trechos, como a cobertura de pontos-chave@5 de 0,89 já sugeria ([cap. 5](../05-resultados.md)). Mas a relevância é de só **0,57**, contra 0,94 do T3: boa parte do que chega ao estudante é ruído. Taxa de sucesso de 0,75, a mesma do T4, mas por motivos opostos: o T2 perde nas 4 recusas que não faz, e não na cobertura.
 
 ## T3 · RAG + LLM: a referência
 
-É a configuração escolhida na semana passada ([cap. 8](../08-geracao-e-llm-juiz.md)): completude 0,91, fidelidade ao contexto 0,97, recusa de 10/10 e citação de 100%. As métricas novas (relevância e taxa de sucesso) estão ⏳.
+É a configuração escolhida na semana passada ([cap. 8](../08-geracao-e-llm-juiz.md)), e a reavaliação desta rodada a confirmou: **taxa de sucesso 0,93** (a maior dos quatro), completude 0,91, fidelidade ao contexto 0,98, **relevância 0,94**, recusa de 10/10 e citação de 100%. A completude por tipo é 1,00 nas diretas, 0,89 nas parafraseadas e 0,87 nas multi-fonte.
+
+As duas perguntas válidas que falham na regra de sucesso são a **q08** (abas e aplicativos abertos) e a **q12** ('vou estudar amanhã'), ambas com completude de 0,5 e fidelidade 1,00: o problema é cobrir pontos-chave, e não inventar.
 
 **A comparação com o k=3 (Ref)** mostra de onde veio o ganho da semana passada: mais contexto (352 → 598 tokens) levou a completude multi-fonte de 0,53 para 0,87, com respostas quase do mesmo tamanho (288 → 315 tokens).
 
@@ -91,7 +93,7 @@ A q21 é o caso mais grave: uma pergunta sobre **medicamento** recebe trechos so
 
 O saldo é **2 perguntas melhores e 8 piores**. As respostas não ficaram mais curtas (310 contra 315 tokens), então o modelo não está escrevendo menos: está **escolhendo outros pontos**. A hipótese mais provável, **não testada**, é a regra 5 ("ignore os fragmentos que não tratam do que foi perguntado"): ela corrige a q12, mas faz o modelo descartar trechos que tinham pontos-chave em perguntas mais abertas. A regra 3 ("comece com 1 ou 2 frases que respondem diretamente") também gera sínteses que o juiz de fidelidade às vezes reprova (q09: fidelidade 0,67 → 0,00).
 
-> **Ressalva:** o T3 desta comparação foi avaliado na semana passada, com o mesmo juiz e os mesmos prompts de avaliação. A reavaliação do T3 na rodada atual (pendente) confirma, ou não, que a diferença é do prompt e não de variação do juiz.
+> **Confirmado na reavaliação:** o T3 foi reavaliado nesta rodada, com o mesmo juiz, e o saldo contra o T4 é o mesmo (2 perguntas melhores, 8 piores). A diferença vem do prompt, e não de variação do juiz.
 
 **4. Taxa de sucesso de 0,75.** As 10 recusas corretas mais 11 das 18 válidas. Das 7 que falham, 5 ficaram com completude abaixo de 2/3 (q08, q11, q13, q15, q18) e 2 com fidelidade abaixo de 0,8 (q09 e q17, que cobrem todos os pontos-chave, mas acrescentam sínteses que o juiz não encontrou no contexto).
 
@@ -101,8 +103,8 @@ O porteiro **não recusou nenhuma pergunta válida** (a maior $d_1$ em escopo é
 
 | | T3 | T4 | **T3 + porteiro** |
 | :-- | :-- | :-- | :-- |
-| Completude | 0,91† | 0,76 | **0,91** (= T3) |
-| Fidelidade ao contexto | 0,97† | 0,86 | **0,97** (= T3) |
+| Completude | 0,91 | 0,76 | **0,91** (= T3) |
+| Fidelidade ao contexto | 0,98 | 0,86 | **0,98** (= T3) |
 | Recusa correta / indevida | 10/10 · 0/18 | 10/10 · 0/18 | **10/10 · 0/18** |
 | Recusas sem chamar o LLM | 0 | 6 | **6** (= T4) |
 | Diluição da q12 | sim | corrigida | sim (= T3) |
@@ -111,11 +113,11 @@ Esta linha é **deduzida** dos testes T3 e T4, não medida como um quinto teste.
 
 ### Latência do T4
 
-As respostas do T4 levaram 29,3 s (p50), contra 20,8 s do T3, **com o mesmo tamanho** (310 contra 315 tokens). Então não é o prompt fazendo o modelo escrever mais. As respostas do T3 foram geradas em outro dia, com o Mac em outro estado (temperatura, outros programas abertos, modelo já carregado). **Tratamos essa diferença como inconclusiva:** para medi-la de verdade, os dois teriam de ser gerados em sequência, na mesma sessão.
+As respostas do T4 levaram 29,3 s (p50), contra 20,8 s do T3, **com o mesmo tamanho** (310 contra 315 tokens). Então não é o prompt fazendo o modelo escrever mais. As respostas do T3 foram geradas em outro dia (e o T3 foi reavaliado em outra máquina, sem alterar a latência registrada das respostas), com o Mac em outro estado (temperatura, outros programas abertos, modelo já carregado). **Tratamos essa diferença como inconclusiva:** para medi-la de verdade, os dois teriam de ser gerados em sequência, na mesma sessão.
 
 ## Conferência manual do juiz
 
-⏳ Amostra de afirmações do T1 conferida no texto dos artigos, para estimar quanto a v3 do juiz superestima a fidelidade (ver [Metodologia, calibração](01-metodologia.md#calibração-do-juiz-novo-três-versões-até-um-método-utilizável)).
+**Não feita.** Fica como próximo passo: amostra de afirmações do T1 conferida no texto dos artigos, para estimar quanto a v3 do juiz superestima a fidelidade (ver [Metodologia, calibração](01-metodologia.md#calibração-do-juiz-novo-três-versões-até-um-método-utilizável)).
 
 ## Limitações
 

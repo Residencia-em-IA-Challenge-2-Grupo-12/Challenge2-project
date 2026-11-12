@@ -1,6 +1,6 @@
 # Relatório final · Semana 3: LLM x RAG
 
-> **Status: ⏳ parcial (11/11, 17h30).** A metodologia está completa. T1 e T4 estão avaliados por completo. T2, T3 e Ref têm as métricas de recusa, citação e custo definitivas e aguardam o LLM-juiz (que continua no Galaxy Book4).
+> **Status: final (12/11).** Metodologia e os quatro testes (T1 a T4) estão avaliados por completo. A Ref (k=3) não foi reavaliada e usa os valores da semana passada.
 
 ## A entrega
 
@@ -23,7 +23,7 @@
 | T2 | **Só busca** (sem LLM) | ❌ como produto: instantâneo e fiel, mas entrega trechos sem relação para 4 das 10 perguntas fora de escopo |
 | T3 | **RAG + LLM** (k=5) | ✅ Passa em tudo: completude 0,91†, fidelidade 0,97†, recusa 10/10 |
 | T4 | **RAG + LLM otimizado** (porteiro + prompt) | ⚠️ O porteiro funciona (6/10 recusas sem LLM), mas o prompt novo derrubou a completude para 0,76 |
-| **Escolha** | **T3 + porteiro** | ✅ A completude do T3 com a economia do porteiro do T4. ⏳ Falta confirmar com a reavaliação do T3 |
+| **Escolha** | **T3 + porteiro** | ✅ A completude do T3 com a economia do porteiro do T4. Confirmado pela reavaliação do T3 (taxa de sucesso 0,93) |
 
 ## Ordem de leitura
 
