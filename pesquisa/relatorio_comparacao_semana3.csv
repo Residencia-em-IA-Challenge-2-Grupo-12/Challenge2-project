@@ -1,0 +1,7 @@
+﻿Persona,Pergunta,Modelo (RAG vs Vanilla),Faithfulness,Answer Relevance,Context Precision
+Persona 1 (Lucas / Dupla Jornada CLT),Trabalho 8 horas por dia e sinto que não consigo render nos estudos. Como devo dividir meus blocos de estudo diários e cuidar do sono?,Pipeline RAG (ChromaDB + Gemini),1.0,0.7815,0.5833
+Persona 1 (Lucas / Dupla Jornada CLT),Trabalho 8 horas por dia e sinto que não consigo render nos estudos. Como devo dividir meus blocos de estudo diários e cuidar do sono?,Vanilla LLM (Gemini sem Contexto),0.0,0.8136,0.0
+Persona 2 (Lisa / Paralisia por Overplanning),Eu perco horas montando planilhas e cronogramas que sempre atrasam quando surge um imprevisto. Quais técnicas práticas posso aplicar para evitar o overplanning?,Pipeline RAG (ChromaDB + Gemini),0.6667,0.7605,1.0
+Persona 2 (Lisa / Paralisia por Overplanning),Eu perco horas montando planilhas e cronogramas que sempre atrasam quando surge um imprevisto. Quais técnicas práticas posso aplicar para evitar o overplanning?,Vanilla LLM (Gemini sem Contexto),0.0,0.8011,0.0
+Persona 3 (Bob / Autodidatismo e Editais Extensos),"Como devo priorizar os tópicos de um edital extenso ou trilha autodidata em vez de estudar tudo de forma linear, e como validar meu aprendizado prático?",Pipeline RAG (ChromaDB + Gemini),1.0,0.782,0.5
+Persona 3 (Bob / Autodidatismo e Editais Extensos),"Como devo priorizar os tópicos de um edital extenso ou trilha autodidata em vez de estudar tudo de forma linear, e como validar meu aprendizado prático?",Vanilla LLM (Gemini sem Contexto),0.0,0.7883,0.0
