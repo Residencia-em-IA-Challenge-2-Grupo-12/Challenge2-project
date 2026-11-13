@@ -2,7 +2,7 @@
 
 Localização: `pesquisa/metricas/`. Todos os comandos abaixo rodam a partir de `pesquisa/`.
 
-Avaliação do RAG em camadas. **Candidata a ir para a `main`.**
+Avaliação do RAG em camadas, com modelos locais (Ollama). A avaliação da Semana 3 via API do Gemini (RAGAS) está em [`../RELATORIO_COMPARACAO_SEMANA3.md`](../RELATORIO_COMPARACAO_SEMANA3.md); a comparação entre as duas está em [`../relatorio/final/README.md`](../relatorio/final/README.md#duas-avaliações-da-semana-3).
 
 O RAG medido é o do notebook `rag_pipeline_semana2.ipynb`: o `recuperacao/notebook_loader.py` executa as células de índice dele e as métricas usam o `vectorstore` resultante. Não há módulo RAG separado em `dev/`.
 

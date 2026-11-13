@@ -32,3 +32,14 @@
 3. [Decisão](03-decisao.md): os critérios do produto, a escolha, os próximos passos e os links.
 
 Os capítulos de fundamentos e das semanas anteriores (o que é RAG, métricas da busca, LLM-juiz) estão na [pasta acima](../README.md).
+
+## Duas avaliações da Semana 3
+
+O repositório tem duas avaliações LLM x RAG da Semana 3, que se complementam: esta mede o pipeline com **modelos locais** (Ollama), e a outra, [`RELATORIO_COMPARACAO_SEMANA3.md`](../../RELATORIO_COMPARACAO_SEMANA3.md), mede com a **API do Gemini**. As duas usam os rótulos T1 a T4, mas **os testes não são os mesmos**:
+
+| | Esta avaliação (`relatorio/final/`) | Avaliação via API (`RELATORIO_COMPARACAO_SEMANA3.md`) |
+| :-- | :-- | :-- |
+| Modelos | `qwen3:8b` gerando e `bge-m3` na busca, locais (Ollama); juiz `gemma3:12b` | Gemini via API, embeddings do Gemini |
+| Avaliação | 28 perguntas com gabarito (18 em escopo, 10 fora), juiz próprio | 3 personas, RAGAS |
+| T3 | RAG + LLM com k=5 | RAG com k=3 (baseline da Semana 2) |
+| T4 | Porteiro de distância + prompt revisado | k=5 + re-rank de cabeçalhos + prompt CoT |

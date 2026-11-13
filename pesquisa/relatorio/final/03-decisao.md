@@ -73,4 +73,4 @@ Valores do T3 da reavaliação de 12/11 (mesmo juiz). Eles confirmam os da seman
 | Pipeline RAG (notebook) | [`pesquisa/rag_pipeline_semana2.ipynb`](https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/studybuddy/blob/metricas-experimento/pesquisa/rag_pipeline_semana2.ipynb) |
 | Documentação do projeto | <https://github.com/Residencia-em-IA-Challenge-2-Grupo-12/Challenge2-documentation> |
 
-> As avaliações de T1, T2, T3 e T4 estão no repositório. A da Ref (k=3) não foi refeita (ver `pesquisa/metricas/comparacao/RETOMAR.md`).
+> As avaliações de T1, T2, T3 e T4 estão no repositório. A da Ref (k=3) não foi refeita. Para rodá-la, a partir de `pesquisa/`: `python -m metricas.comparacao.avaliar rag_llm_k3`.
