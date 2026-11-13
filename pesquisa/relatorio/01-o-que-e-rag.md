@@ -22,7 +22,7 @@ pergunta ──► [1] RECUPERAÇÃO ──► trechos ──► [2] GERAÇÃO (
 
 ### Preparação (feita uma vez, antes das perguntas)
 
-1. **Ingestão:** carregar os documentos (aqui, 20 artigos em `dev/data/`).
+1. **Ingestão:** carregar os documentos (aqui, 20 artigos em `api/data/`).
 2. **Chunking:** cortar cada documento em pedaços menores (ex.: 500 caracteres com 50 de sobreposição).
    - Pedaço pequeno demais perde o contexto.
    - Pedaço grande demais mistura assuntos e "dilui" o significado.

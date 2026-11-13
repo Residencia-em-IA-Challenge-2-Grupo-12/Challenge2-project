@@ -4,10 +4,10 @@ Uso (a partir de pesquisa/):
     python -m metricas.recuperacao.comparar
     python -m metricas.recuperacao.comparar --modelos bge-m3 qwen3-embedding:0.6b --chunks 300 500 800
 
-Cada combinação reindexa dev/chroma_db (via notebook) e salva seu próprio JSON/CSV em relatorios/
+Cada combinação reindexa api/chroma_db (via notebook) e salva seu próprio JSON/CSV em relatorios/
 com o nome `<modelo>_c<chunk_size>`. No fim, imprime uma tabela e grava `comparativo.csv`.
 
-Os modelos são do Ollama (EMBEDDING_PROVIDER=ollama precisa estar no dev/.env).
+Os modelos são do Ollama (EMBEDDING_PROVIDER=ollama precisa estar no api/.env).
 O overlap acompanha o chunk (10%), como no notebook (500/50).
 """
 

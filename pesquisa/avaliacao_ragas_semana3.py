@@ -48,10 +48,10 @@ logger = logging.getLogger("RAGASEvaluationSemana3")
 # =====================================================================
 def load_api_environment() -> None:
     """Carrega a API Key via dotenv com load_dotenv(override=True)."""
-    # Carrega do diretório atual e garante fallback para a raiz ou ../dev/.env
+    # Carrega do diretório atual e garante fallback para a raiz ou ../api/.env
     load_dotenv(override=True)
     if not os.getenv("GOOGLE_API_KEY"):
-        for candidate in [Path(".env"), Path("../.env"), Path("../dev/.env"), Path("dev/.env")]:
+        for candidate in [Path(".env"), Path("../.env"), Path("../api/.env"), Path("api/.env")]:
             if candidate.exists():
                 load_dotenv(dotenv_path=candidate, override=True)
                 if os.getenv("GOOGLE_API_KEY"):
@@ -181,14 +181,14 @@ def get_benchmark_dataset() -> List[Dict[str, str]]:
 # 3. EXECUÇÃO COMPARATIVA LADO A LADO (VANILLA LLM vs. RAG)
 # =====================================================================
 def load_and_split_knowledge_base() -> List[Document]:
-    """Carrega os 20 artigos científicos de dev/data e divide em chunks (500 chars, overlap 50)."""
+    """Carrega os 20 artigos científicos de api/data e divide em chunks (500 chars, overlap 50)."""
     from langchain_community.document_loaders import TextLoader
     from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-    data_candidates = [Path("./dev/data"), Path("../dev/data"), Path("./data")]
+    data_candidates = [Path("./api/data"), Path("../api/data"), Path("./data")]
     data_dir = next((p for p in data_candidates if p.exists() and list(p.glob("*.txt"))), None)
     if data_dir is None:
-        raise FileNotFoundError("Diretório 'dev/data' com os artigos científicos não encontrado.")
+        raise FileNotFoundError("Diretório 'api/data' com os artigos científicos não encontrado.")
 
     raw_docs: List[Document] = []
     for txt_file in sorted(data_dir.glob("*.txt")):

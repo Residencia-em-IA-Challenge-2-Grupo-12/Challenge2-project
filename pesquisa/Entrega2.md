@@ -9,9 +9,9 @@ A especificação técnica completa vive no repositório de documentação, que 
 
 | Componente | Onde está |
 | :--- | :--- |
-| Base de conhecimento (20 artigos científicos, 4 blocos temáticos) | `dev/data/` |
+| Base de conhecimento (20 artigos científicos, 4 blocos temáticos) | `api/data/` |
 | Pipeline RAG (ingestão, chunking, embeddings, ChromaDB, chain LCEL) | `pesquisa/rag_pipeline_semana2.ipynb` |
-| Índice vetorial (gerado localmente, fora do git) | `dev/chroma_db/` |
+| Índice vetorial (gerado localmente, fora do git) | `api/chroma_db/` |
 | Visão geral, decisões técnicas e como executar | [`README.md`](../README.md) |
 
 ## Arquitetura em uma frase

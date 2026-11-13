@@ -16,7 +16,7 @@ def test_recusa_tolera_acento_e_caixa():
 
 
 def test_citacoes():
-    r = "Use 25 min [Fonte: ../dev/data/artigo_10_pomodoro.txt]. Limite o tempo [Fonte: artigo_09_x.txt; artigo_10_y.txt]."
+    r = "Use 25 min [Fonte: ../api/data/artigo_10_pomodoro.txt]. Limite o tempo [Fonte: artigo_09_x.txt; artigo_10_y.txt]."
     assert mg.citacoes(r) == ["10", "09"]  # sem repetição, na ordem
     assert mg.citacoes_brutas(r) == 2
     assert mg.citacoes("[Fonte: Técnica Pomodoro]") == []  # sem artigo_NN: não rastreável

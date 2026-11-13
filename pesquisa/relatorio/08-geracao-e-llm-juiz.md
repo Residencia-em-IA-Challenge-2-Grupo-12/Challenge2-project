@@ -319,7 +319,7 @@ Recomendações:
 
 ## Como rodar
 
-A partir de `studybuddy/pesquisa/`, com `LLM_PROVIDER=ollama` e `EMBEDDING_PROVIDER=ollama` no `dev/.env`:
+A partir de `studybuddy/pesquisa/`, com `LLM_PROVIDER=ollama` e `EMBEDDING_PROVIDER=ollama` no `api/.env`:
 
 ```bash
 # gera as respostas e avalia (~20 min para as 28 perguntas)

@@ -60,7 +60,7 @@ def setup_environment() -> None:
     """Carrega variáveis de ambiente via dotenv com load_dotenv(override=True)."""
     load_dotenv(override=True)
     if not os.getenv("GOOGLE_API_KEY"):
-        for candidate in [Path(".env"), Path("../.env"), Path("dev/.env"), Path("../dev/.env")]:
+        for candidate in [Path(".env"), Path("../.env"), Path("api/.env"), Path("../api/.env")]:
             if candidate.exists():
                 load_dotenv(dotenv_path=candidate, override=True)
                 if os.getenv("GOOGLE_API_KEY"):
@@ -139,11 +139,11 @@ def initialize_models() -> Tuple[ChatGoogleGenerativeAI, GoogleGenerativeAIEmbed
 
 
 def load_and_chunk_corpus(chunk_size: int = 500, chunk_overlap: int = 50) -> List[Document]:
-    """Carrega os 20 artigos científicos de dev/data e aplica chunking (500 chars, overlap 50)."""
-    data_candidates = [Path("./dev/data"), Path("../dev/data"), Path("./data")]
+    """Carrega os 20 artigos científicos de api/data e aplica chunking (500 chars, overlap 50)."""
+    data_candidates = [Path("./api/data"), Path("../api/data"), Path("./data")]
     data_dir = next((p for p in data_candidates if p.exists() and list(p.glob("*.txt"))), None)
     if data_dir is None:
-        raise FileNotFoundError("Diretório 'dev/data' com os 20 artigos não encontrado.")
+        raise FileNotFoundError("Diretório 'api/data' com os 20 artigos não encontrado.")
 
     raw_docs: List[Document] = []
     for file_path in sorted(data_dir.glob("*.txt")):
@@ -736,7 +736,7 @@ def generate_markdown_report(
 Este relatório apresenta a validação empírica e comparativa entre abordagens de **Grande Modelo de Linguagem puro (Vanilla LLM)**, **Recuperação Semântica Extrativa** e **Pipelines de Retrieval-Augmented Generation (RAG)** aplicados ao projeto **StudyBuddy** (Grupo 12). O objetivo do experimento é mensurar quantitativamente o impacto da ancoragem factual (*grounding*) sobre uma base científica curada, garantindo recomendações precisas, auditáveis e livres de alucinações para perfis reais de estudantes.
 
 ### 1.1. Base de Conhecimento e Pipeline de Indexação
-- **Corpus Científico (`dev/data/`):** Composto por **20 artigos científicos** (`.txt`) organizados em 4 eixos temáticos:
+- **Corpus Científico (`api/data/`):** Composto por **20 artigos científicos** (`.txt`) organizados em 4 eixos temáticos:
   1. *Retenção e Neurociência* (*Active Recall*, Repetição Espaçada, Prática Intercalada, Teoria da Carga Cognitiva de Sweller e Consolidação da Memória no Sono de Walker);
   2. *Foco e Produtividade* (*Deep Work*, Resíduo de Atenção, Intenções de Implementação *Se-Então*, *Timeboxing* e Técnica Pomodoro);
   3. *Comportamento e Procrastinação* (Motivação Temporal, Perfeccionismo/*Overplanning*, Loop do Hábito, Fadiga Decisória/Esgotamento do Ego e Autoeficácia);
@@ -835,7 +835,7 @@ O experimento submete as **3 Personas canônicas** do projeto (**Lucas** — Dup
 | **Relatório Consolidado (Markdown)** | [`pesquisa/RELATORIO_COMPARACAO_SEMANA3.md`](RELATORIO_COMPARACAO_SEMANA3.md) | Documento completo com metodologia, tabelas comparativas, respostas empíricas e veredito técnico. |
 | **Planilha de Métricas (CSV)** | [`pesquisa/relatorio_experimentos_semana3.csv`](relatorio_experimentos_semana3.csv) | Dados brutos tabulados das 12 execuções (`Faithfulness`, `Answer Relevance`, `Context Precision`, Latência, Tokens e Custo). |
 | **Notebook Pipeline RAG (Semana 2)** | [`pesquisa/rag_pipeline_semana2.ipynb`](rag_pipeline_semana2.ipynb) | Construção da base de conhecimento, *chunking*, indexação no ChromaDB e *chain* LCEL inicial. |
-| **Base de Conhecimento Científica** | [`dev/data/`](../dev/data/) | Os 20 artigos científicos (`.txt`) sobre neurociência do aprendizado, foco, procrastinação e planejamento de estudos. |
+| **Base de Conhecimento Científica** | [`api/data/`](../api/data/) | Os 20 artigos científicos (`.txt`) sobre neurociência do aprendizado, foco, procrastinação e planejamento de estudos. |
 """
     return report_md
 

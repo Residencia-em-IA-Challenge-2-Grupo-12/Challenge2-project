@@ -7,7 +7,7 @@ As métricas mostram **quanto** cada configuração acerta. O teste manual mostr
 O script `pesquisa/metricas/recuperacao/perguntar.py`, no repositório, faz uma pergunta e mostra, lado a lado, o que cada embedding recupera:
 
 - usa a mesma ingestão e o mesmo chunking do notebook;
-- monta um índice **em memória** para cada modelo, então não altera o `dev/chroma_db` nem os relatórios;
+- monta um índice **em memória** para cada modelo, então não altera o `api/chroma_db` nem os relatórios;
 - os modelos rodam localmente, via Ollama.
 
 ### Pré-requisitos
@@ -108,8 +108,8 @@ Depois de editar o gabarito, valide e rode as métricas de novo:
 
 ## Alternativa: pelo notebook
 
-1. No `dev/.env`, defina `OLLAMA_EMBEDDING_MODEL=qwen3-embedding:0.6b`, ou deixe a variável de fora para usar o `bge-m3`.
+1. No `api/.env`, defina `OLLAMA_EMBEDDING_MODEL=qwen3-embedding:0.6b`, ou deixe a variável de fora para usar o `bge-m3`.
 2. No `rag_pipeline_semana2.ipynb`, troque o texto de `sample_query` na seção 4.
 3. Rode as células até a seção 4.
 
-Esse caminho mostra **um modelo por vez** e **reindexa o `dev/chroma_db`**. Para comparar modelos lado a lado, o script é mais prático.
+Esse caminho mostra **um modelo por vez** e **reindexa o `api/chroma_db`**. Para comparar modelos lado a lado, o script é mais prático.

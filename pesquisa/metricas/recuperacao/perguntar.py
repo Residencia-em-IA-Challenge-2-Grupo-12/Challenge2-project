@@ -7,7 +7,7 @@ Uso (a partir de pesquisa/):
     python -m metricas.recuperacao.perguntar --chunk 300 --k 5 --modelos bge-m3
 
 Usa a ingestão e o chunking do notebook, mas monta um índice EM MEMÓRIA por modelo:
-não toca em dev/chroma_db nem em relatorios/. Modelos via Ollama.
+não toca em api/chroma_db nem em relatorios/. Modelos via Ollama.
 """
 
 import argparse

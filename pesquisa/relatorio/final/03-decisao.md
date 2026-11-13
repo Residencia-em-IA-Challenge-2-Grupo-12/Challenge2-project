@@ -55,7 +55,7 @@ Valores do T3 da reavaliação de 12/11 (mesmo juiz). Eles confirmam os da seman
 
 ## Próximos passos
 
-1. **Levar o T3 + porteiro para o notebook:** `TOP_K=5`, o prompt atual e o porteiro com $\tau = 1{,}026$ antes da chamada ao LLM.
+1. ~~**Levar o T3 + porteiro para o notebook**~~ **Feito (13/11):** `TOP_K=5`, o prompt atual e o porteiro com $\tau = 1{,}026$ antes da chamada ao LLM. Ver [Implementação](04-implementacao.md).
 2. **Atacar a diluição da q12 com uma mudança menor no prompt** (só a regra 3, sem a regra 5) e medir de novo.
 3. **Recalibrar o porteiro com perguntas reais** de estudantes, assim que houver uso.
 4. **Medir a latência T3 × T4 na mesma sessão**, para fechar a dúvida dos 21 s contra 29 s.

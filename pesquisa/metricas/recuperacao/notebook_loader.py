@@ -7,11 +7,11 @@ Células executadas (identificadas pelo conteúdo, não pelo índice, para sobre
   - setup do ambiente      -> define ACTIVE_PROVIDER
   - ingestão               -> define raw_documents
   - chunking               -> define document_chunks, CHUNK_SIZE, CHUNK_OVERLAP
-  - embeddings + ChromaDB  -> define embedding_model, vectorstore, TOP_K (REINDEXA dev/chroma_db)
-  - chain RAG (opcional)   -> define llm, rag_chain, RAG_SYSTEM_PROMPT (só com ate="geracao")
+  - embeddings + ChromaDB  -> define embedding_model, vectorstore, TOP_K (REINDEXA api/chroma_db)
+  - chain RAG (opcional)   -> define llm, rag_chain, RAG_SYSTEM_PROMPT, PORTEIRO_TAU (só com ate="geracao")
 
 Células ignoradas de propósito:
-  - a que grava os 20 artigos em ../dev/data (sobrescreveria edições manuais da base)
+  - a que grava os 20 artigos em ../api/data (sobrescreveria edições manuais da base)
   - a de `%pip install` (magic do Jupyter, e a instalação é feita fora)
   - a da demonstração com as 3 personas (chama o LLM só para exibir respostas)
 """
@@ -31,7 +31,7 @@ ETAPAS = [
     ("ingestao", "raw_documents = load_knowledge_base(", "raw_documents"),
     ("chunking", "document_chunks = split_documents(", "document_chunks"),
     ("indice", "vectorstore = build_or_update_vectorstore(", "vectorstore"),
-    ("geracao", "rag_chain = RunnableParallel(", "rag_chain"),
+    ("geracao", "rag_chain = RunnableLambda(recuperar_com_porteiro)", "rag_chain"),
 ]
 
 
@@ -55,7 +55,7 @@ def selecionar_celulas(path: Path = NOTEBOOK_PATH) -> List[Dict[str, str]]:
 def executar_notebook(path: Path = NOTEBOOK_PATH, silencioso: bool = True, ate: str = "indice") -> Dict[str, Any]:
     """Executa as etapas num namespace único e devolve esse namespace.
 
-    O notebook usa caminhos relativos a `pesquisa/` (ex.: ../dev/data), então o diretório
+    O notebook usa caminhos relativos a `pesquisa/` (ex.: ../api/data), então o diretório
     de trabalho é trocado para lá durante a execução e restaurado depois.
     `ate` para depois da etapa indicada (ex.: "chunking" devolve os chunks sem reindexar o ChromaDB).
     """

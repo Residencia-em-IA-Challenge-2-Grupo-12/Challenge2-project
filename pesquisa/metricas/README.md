@@ -4,7 +4,7 @@ Localização: `pesquisa/metricas/`. Todos os comandos abaixo rodam a partir de 
 
 Avaliação do RAG em camadas, com modelos locais (Ollama). A avaliação da Semana 3 via API do Gemini (RAGAS) está em [`../RELATORIO_COMPARACAO_SEMANA3.md`](../RELATORIO_COMPARACAO_SEMANA3.md); a comparação entre as duas está em [`../relatorio/final/README.md`](../relatorio/final/README.md#duas-avaliações-da-semana-3).
 
-O RAG medido é o do notebook `rag_pipeline_semana2.ipynb`: o `recuperacao/notebook_loader.py` executa as células de índice dele e as métricas usam o `vectorstore` resultante. Não há módulo RAG separado em `dev/`.
+O RAG medido é o do notebook `rag_pipeline_semana2.ipynb`: o `recuperacao/notebook_loader.py` executa as células de índice dele e as métricas usam o `vectorstore` resultante. Não há módulo RAG separado em `api/`.
 
 ## Camadas
 
@@ -18,7 +18,7 @@ O RAG medido é o do notebook `rag_pipeline_semana2.ipynb`: o `recuperacao/noteb
 
 ## Ordem sugerida
 
-1. `dataset/`: ~20 perguntas, com `source` esperado igual ao nome do arquivo em `dev/data/`.
+1. `dataset/`: ~20 perguntas, com `source` esperado igual ao nome do arquivo em `api/data/`.
 2. `recuperacao/`: roda sem custo de API e já permite comparar `chunk_size` e `K`.
 3. `geracao/`: checagens determinísticas primeiro, juiz LLM depois (modelo diferente do gerador).
 
@@ -26,9 +26,9 @@ O RAG medido é o do notebook `rag_pipeline_semana2.ipynb`: o `recuperacao/noteb
 
 - `dataset/`: pronto. 20 perguntas em `gabarito.json`, validadas por `python -m metricas.dataset.loader` (só stdlib).
 - `recuperacao/`: `metrics.py` (fórmulas), `runner.py` (executa e salva em `relatorios/`), `test_metrics.py`.
-  Rodar: `python -m metricas.recuperacao.runner --nome baseline`. O runner depende do notebook: executa as células de índice de `rag_pipeline_semana2.ipynb` (`notebook_loader.py`), o que **reindexa** `dev/chroma_db`. Requer as dependências da célula `%pip` instaladas.
+  Rodar: `python -m metricas.recuperacao.runner --nome baseline`. O runner depende do notebook: executa as células de índice de `rag_pipeline_semana2.ipynb` (`notebook_loader.py`), o que **reindexa** `api/chroma_db`. Requer as dependências da célula `%pip` instaladas.
 - `geracao/`: `metrics.py` (regras: recusa e citação), `juiz.py` (LLM-juiz `gemma3:12b`: fidelidade, completude, fidelidade à base e relevância, sempre com evidência conferida em Python), `runner.py`.
-  Rodar: `python -m metricas.geracao.runner --nome qwen3_bge` (opcional `TOP_K=5`).
+  Rodar: `python -m metricas.geracao.runner --nome qwen3_bge`. Usa a chain do notebook, que desde a Semana 3 tem `TOP_K=5` e o porteiro de distância (`TOP_K=3 PORTEIRO_TAU=desligado` reproduz as rodadas antigas; ver `relatorio/final/04-implementacao.md`).
 - `comparacao/`: `modos.py` gera as respostas de cada modo (`calibrar`, `llm_puro`, `so_busca`, `rag_llm`, `rag_otimizado`, `rag_llm_k3`); `avaliar.py` avalia todos e monta `relatorios/comparacao.md`.
   Rodar: `python -m metricas.comparacao.modos <modo>` e depois `python -m metricas.comparacao.avaliar <modos...>`.
 

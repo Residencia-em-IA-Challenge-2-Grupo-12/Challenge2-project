@@ -890,7 +890,18 @@ S.append(P("<b>Essa combinação não foi medida como um quinto teste: ela é de
            "fatos que conferimos nos dados: (1) os trechos entregues ao LLM são idênticos no T3 e no T4, nas 28 "
            "perguntas; (2) o porteiro não barrou nenhuma pergunta válida, então nelas o T3 + porteiro é exatamente o "
            "T3; (3) as 4 perguntas fora do assunto que passam pelo porteiro já foram recusadas pelo LLM no T3. "
-           "Ainda assim, vale rodá-la de verdade antes de levá-la ao produto."))
+           "Ela já foi levada ao notebook; medi-la como um teste próprio é um dos próximos passos."))
+S.append(CondPageBreak(7 * cm))
+S.append(P("Como ficou no notebook", "h3"))
+S.append(P("O <i>rag_pipeline_semana2.ipynb</i> agora entrega <b>5 trechos</b> ao LLM (antes eram 3) e tem o <b>porteiro</b> "
+           "antes da chamada ao LLM. As instruções do LLM não mudaram. Na verificação, “Qual a capital da Austrália?” foi "
+           "barrada em 0,12 s; “Quanto café posso tomar?” passou pelo porteiro e foi recusada pelo LLM; e as perguntas "
+           "válidas seguiram normalmente."))
+S.append(caixa("<b>O corte só vale para o bge-m3.</b> Cada modelo de embedding mede distância numa escala própria, como "
+               "réguas em unidades diferentes. Por isso, o porteiro só liga quando o embedding ativo é o bge-m3. Com os "
+               "embeddings do Gemini, da OpenAI ou o offline, ele fica desligado e a recusa continua só com as "
+               "instruções do LLM, como antes. Para usá-lo com outro modelo, é preciso recalibrar o corte.",
+               fundo=WARN_BG, borda=WARN))
 S.append(P("E o T2? Vira o plano B", "h3"))
 S.append(P("Quando o LLM estiver fora do ar, mostrar os trechos é melhor do que nada: é instantâneo, fiel e sempre "
            "cita a fonte. O notebook já faz isso (o modo <i>GroundedExtractiveFallbackLLM</i>). Nesse modo, o porteiro é "
@@ -914,7 +925,8 @@ S += bullets([
 ])
 S.append(P("Próximos passos", "h2"))
 S += bullets([
-    "<b>1.</b> Levar o T3 + porteiro para o notebook: k = 5, as instruções atuais e o porteiro com corte 1,026.",
+    "<b>1. Feito:</b> o T3 + porteiro já está no notebook (k = 5, as instruções atuais e o porteiro com corte 1,026). "
+    "Falta medi-lo como um teste próprio, com a mesma prova e o mesmo juiz.",
     "<b>2.</b> Atacar a diluição da q12 com uma mudança menor nas instruções (só a regra 3, sem a regra 5) e medir de novo.",
     "<b>3.</b> Fazer a conferência manual por amostragem do juiz, para saber quanto o 0,81 do T1 está inflado.",
     "<b>4.</b> Medir o tempo de T3 e T4 na mesma sessão.",

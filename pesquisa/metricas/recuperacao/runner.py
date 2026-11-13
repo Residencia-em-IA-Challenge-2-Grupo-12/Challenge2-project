@@ -198,7 +198,7 @@ def imprimir(resultados: Sequence[ResultadoPergunta], resumo: Dict, ks: Sequence
 def make_search_from_notebook() -> Tuple[SearchFn, Dict]:
     """Liga o runner ao notebook: executa suas células de índice e usa o `vectorstore` dele.
 
-    Atenção: a célula do índice REINDEXA dev/chroma_db (apaga e recria a coleção).
+    Atenção: a célula do índice REINDEXA api/chroma_db (apaga e recria a coleção).
     Import tardio: exige langchain instalado.
     """
     from .notebook_loader import executar_notebook

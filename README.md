@@ -23,7 +23,7 @@ O sistema conecta uma base de conhecimento científica a um Grande Modelo de Lin
 ```mermaid
 flowchart TD
     subgraph Ingestao ["1. Pipeline de Ingestão e Indexação"]
-        A["20 Artigos Científicos em dev/data"] --> B["TextLoader / PyPDFLoader"]
+        A["20 Artigos Científicos em api/data"] --> B["TextLoader / PyPDFLoader"]
         B --> C["RecursiveCharacterTextSplitter (chunk_size=500, overlap=50)"]
         C --> D["Modelo de Embeddings (text-embedding-004 / 3-small)"]
         D --> E[("ChromaDB Local Persistente")]
@@ -46,11 +46,11 @@ flowchart TD
 
 ```text
 Challenge2-project/
-├── dev/                            # Backend (FastAPI, camadas por módulo)
+├── api/                            # Backend (FastAPI, camadas por módulo)
 │   ├── app/                        # Código da API (core/, modules/)
 │   ├── data/                       # Base de conhecimento: 20 documentos científicos (.txt)
 │   ├── chroma_db/                  # Banco vetorial ChromaDB (gerado localmente, ignorado no git)
-│   ├── .env.example                # Variáveis de ambiente (copie para dev/.env)
+│   ├── .env.example                # Variáveis de ambiente (copie para api/.env)
 │   └── requirements.txt
 ├── web/                            # Frontend (Next.js, módulos em src/modules/)
 ├── pesquisa/
@@ -60,13 +60,13 @@ Challenge2-project/
 └── README.md                       # Documentação do repositório
 ```
 
-> O notebook lê `dev/data/` e grava o índice em `dev/chroma_db/`, que é o que a API consome.
+> O notebook lê `api/data/` e grava o índice em `api/chroma_db/`, que é o que a API consome.
 
 ---
 
 ## 3. Base de Conhecimento Curada (20 Artigos Científicos)
 
-A base de conhecimento em `dev/data/` é composta por **20 documentos baseados em literatura científica** de psicologia cognitiva, neurociência do aprendizado e engenharia de produtividade, organizados em **4 blocos temáticos**:
+A base de conhecimento em `api/data/` é composta por **20 documentos baseados em literatura científica** de psicologia cognitiva, neurociência do aprendizado e engenharia de produtividade, organizados em **4 blocos temáticos**:
 
 | Bloco Temático | Documentos | Referências Principais |
 | :--- | :--- | :--- |
@@ -75,7 +75,7 @@ A base de conhecimento em `dev/data/` é composta por **20 documentos baseados e
 | **3. Comportamento e Procrastinação** | Docs `11` a `15` | Teoria da Motivação Temporal (Steel, 2007), Perfeccionismo e *Overplanning* (Flett & Hewitt, 2002), Loop do Hábito (Wood & Rünger, 2016), Esgotamento do Ego/Fadiga Decisória (Baumeister et al., 1998) e Autoeficácia (Bandura, 1977). |
 | **4. Planejamento Autodidata e Editais** | Docs `16` a `20` | Princípio de Pareto 80/20 (Box et al., 1987), Ciclos de Estudo Flexíveis (Meirelles & Perez, 2015), *Project-Based Learning* (Thomas, 2000), Dupla Jornada CLT e Pobreza de Tempo (Martins & Silveira, 2020) e Técnica Feynman (Gleick & Goodstein, 1992). |
 
-> **Resiliência:** Caso a pasta `dev/data/` esteja vazia ou inacessível, o pipeline aciona automaticamente um *fallback* sintético em memória (`get_synthetic_fallback_documents()`).
+> **Resiliência:** Caso a pasta `api/data/` esteja vazia ou inacessível, o pipeline aciona automaticamente um *fallback* sintético em memória (`get_synthetic_fallback_documents()`).
 
 ---
 
@@ -90,7 +90,7 @@ A base de conhecimento em `dev/data/` é composta por **20 documentos baseados e
 3. **Vetorização e Persistência Idempotente (`ChromaDB`)**:
    - Suporte automático a `OpenAIEmbeddings` (`text-embedding-3-small`) e `GoogleGenerativeAIEmbeddings` (`models/text-embedding-004`).
    - **Modo Offline Integrado:** Inclui `LocalKeywordHashEmbeddings` (vetores de 256 dimensões normalizados em $L_2$) e `GroundedExtractiveFallbackLLM` para permitir a execução completa do notebook mesmo sem chave de API configurada.
-   - Persistência local em `dev/chroma_db` (coleção `residencia_ia_semana2`) com limpeza prévia de IDs para evitar duplicatas em reexecuções.
+   - Persistência local em `api/chroma_db` (coleção `residencia_ia_semana2`) com limpeza prévia de IDs para evitar duplicatas em reexecuções.
 4. **Recuperação e Chain RAG (`LCEL`)**:
    - Busca semântica por Distância Euclidiana ($L_2$) com `Top-K = 3`.
    - Orquestração via `RunnableParallel` e `RunnablePassthrough`, preservando tanto os documentos recuperados (`context_docs`) quanto a resposta final (`answer`).
@@ -134,7 +134,7 @@ O pipeline é validado no final do notebook com **3 consultas reais** simulando 
    source .venv/bin/activate
    ```
 
-3. **(Opcional) Configure sua chave de API em um arquivo `dev/.env`:**
+3. **(Opcional) Configure sua chave de API em um arquivo `api/.env`:**
    ```env
    # Escolha um dos provedores abaixo:
    OPENAI_API_KEY="sua-chave-openai"
@@ -150,7 +150,7 @@ O pipeline é validado no final do notebook com **3 consultas reais** simulando 
 
 ```bash
 # Backend (http://localhost:8000/docs)
-cd dev && pip install -r requirements.txt && uvicorn app.main:app --reload
+cd api && pip install -r requirements.txt && uvicorn app.main:app --reload
 
 # Frontend (http://localhost:3000)
 cd web && npm install && npm run dev

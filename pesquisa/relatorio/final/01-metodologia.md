@@ -20,7 +20,7 @@ Para os testes serem comparáveis, **mudamos uma peça por vez** e mantivemos fi
 
 | Item fixo | Valor |
 | :-- | :-- |
-| Base | Os 20 artigos de `dev/data/` (~14 mil caracteres, ~4 mil tokens) |
+| Base | Os 20 artigos de `api/data/` (~14 mil caracteres, ~4 mil tokens) |
 | Gabarito | As mesmas 28 perguntas: 4 diretas, 9 parafraseadas, 5 multi-fonte, 10 fora de escopo |
 | Chunking | 500 caracteres, overlap 50 (o do notebook) |
 | Gerador | `qwen3:8b` via Ollama, `temperature=0`, sem modo pensamento |
@@ -147,7 +147,7 @@ O arquivo de cada rodada guarda, para cada afirmação, o veredito original do j
 
 ## Como reproduzir
 
-A partir de `studybuddy/pesquisa/`, com o Ollama aberto e `LLM_PROVIDER=ollama` / `EMBEDDING_PROVIDER=ollama` no `dev/.env`:
+A partir de `studybuddy/pesquisa/`, com o Ollama aberto e `LLM_PROVIDER=ollama` / `EMBEDDING_PROVIDER=ollama` no `api/.env`:
 
 ```bash
 # corte do porteiro (calibrado nas paráfrases)

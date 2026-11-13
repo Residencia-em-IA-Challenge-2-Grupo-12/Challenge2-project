@@ -6,7 +6,7 @@ Comparativo de **modelos de embedding** e **tamanhos de chunk** na etapa de recu
 
 | Item | Valor |
 | :-- | :-- |
-| Base | 20 artigos (`dev/data/`) |
+| Base | 20 artigos (`api/data/`) |
 | Gabarito | 28 perguntas: 4 diretas, 9 parafraseadas, 5 multi-fonte, 10 fora de escopo. Cada pergunta em escopo tem ainda 2 paráfrases (36 no total) e artigos complementares para o nDCG |
 | Perguntas nas médias | 18 (as fora de escopo entram só nas métricas de recusa) |
 | Banco vetorial | ChromaDB, distância L2 |
@@ -22,7 +22,7 @@ Modelos comparados:
 | **bge-m3** | ~570M parâmetros, 1,2 GB | 1024 | Multilíngue, forte em busca |
 | **qwen3-embedding:0.6b** | ~600M parâmetros, 640 MB | 1024 | Multilíngue. Testado **sem** o prefixo de instrução recomendado (ver Limitações) |
 
-Para reproduzir (a partir de `pesquisa/`, com `EMBEDDING_PROVIDER=ollama` no `dev/.env`):
+Para reproduzir (a partir de `pesquisa/`, com `EMBEDDING_PROVIDER=ollama` no `api/.env`):
 
 ```
 python -m metricas.recuperacao.comparar --modelos bge-m3 qwen3-embedding:0.6b --chunks 300 500 800

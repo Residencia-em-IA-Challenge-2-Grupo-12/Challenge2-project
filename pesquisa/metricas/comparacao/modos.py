@@ -62,7 +62,7 @@ Regras obrigatórias:
 # ------------------------------------------------------------------------------------------
 
 def carregar_pipeline(ate: str = "geracao") -> Dict:
-    """Executa o notebook (reindexa dev/chroma_db com a config padrão: bge-m3, chunk 500)."""
+    """Executa o notebook (reindexa api/chroma_db com a config padrão: bge-m3, chunk 500)."""
     from metricas.recuperacao.notebook_loader import executar_notebook
 
     os.environ["TOP_K"] = str(K)

@@ -6,7 +6,7 @@ Uso (a partir de pesquisa/):
     python -m metricas.geracao.runner --nome qwen3_bge --so-avaliar    # reavalia respostas já geradas
     python -m metricas.geracao.runner --nome teste --limite 3          # rodada rápida com 3 perguntas
 
-Fase 1 (gerar): executa o notebook até a chain RAG (reindexa dev/chroma_db) e responde todas as
+Fase 1 (gerar): executa o notebook até a chain RAG (reindexa api/chroma_db) e responde todas as
 perguntas do gabarito. Salva pergunta, chunks recuperados, contexto exato enviado ao LLM e resposta
 em relatorios/geracao_respostas_<nome>.json.
 
@@ -15,7 +15,7 @@ Fase 2 (avaliar): sobre esse arquivo, calcula
   - com juiz: fidelidade (afirmações sustentadas pelo contexto) e completude (pontos-chave cobertos).
 Salva em relatorios/geracao_<nome>.json e .csv.
 
-LLM gerador: LLM_PROVIDER / OLLAMA_LLM_MODEL no dev/.env (padrão qwen3:8b).
+LLM gerador: LLM_PROVIDER / OLLAMA_LLM_MODEL no api/.env (padrão qwen3:8b).
 Juiz: OLLAMA_JUIZ_MODEL (padrão gemma3:12b), sempre diferente do gerador.
 """
 
@@ -42,6 +42,7 @@ def gerar(nome: str, limite: Optional[int] = None) -> List[Dict]:
         "embedding": getattr(ns["embedding_model"], "model", type(ns["embedding_model"]).__name__),
         "chunk_size": ns["CHUNK_SIZE"],
         "top_k": ns["TOP_K"],
+        "porteiro_tau": ns.get("PORTEIRO_TAU"),
     }
     perguntas = load_gabarito()[:limite] if limite else load_gabarito()
 
