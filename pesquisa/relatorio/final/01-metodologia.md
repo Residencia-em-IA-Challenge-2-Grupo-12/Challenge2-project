@@ -139,7 +139,7 @@ O juiz é um instrumento de medida e foi conferido à mão antes de entrar na ta
 | v2 | Igual à v1, mas exigindo a frase da base copiada como `evidencia`, conferida em Python | **Severo demais:** com ~15 afirmações e 4 mil tokens de base numa chamada, o modelo de 12B parava de procurar e reprovava sem evidência | Na q10, reprovou *"2 a 4 horas de trabalho profundo"* (artigo 06) e *"Pomodoro de 25 + 5 min"* (artigo 10), que estão literalmente na base. O T1 deu 0,195, número descartado |
 | **v3 (usada)** | **Uma afirmação por chamada**, base no início do prompt, ainda exigindo evidência conferida em Python | **Um pouco generoso** em afirmações vagas | Na q10, aprovou *"Exemplos: escrever, programar..."* citando um trecho sobre prática intercalada, sem relação |
 
-A v3 acerta os casos que derrubaram as versões anteriores (reprova SMART e Eisenhower, aprova o Pomodoro e as "2 a 4 horas"), mas pode superestimar um pouco a fidelidade do T1 em afirmações genéricas. Por isso, o relatório traz junto uma **conferência manual por amostragem** (ver [Resultados](02-resultados.md)).
+A v3 acerta os casos que derrubaram as versões anteriores (reprova SMART e Eisenhower, aprova o Pomodoro e as "2 a 4 horas"), mas pode superestimar um pouco a fidelidade do T1 em afirmações genéricas. Por isso, está prevista uma **conferência manual por amostragem**, que **ainda não foi feita** (ver [Resultados › Conferência manual do juiz](02-resultados.md#conferência-manual-do-juiz)). Até lá, a fidelidade do T1 deve ser lida como um teto.
 
 O arquivo de cada rodada guarda, para cada afirmação, o veredito original do juiz (`veredito_juiz`), a evidência copiada e o veredito final. Assim, qualquer número pode ser auditado.
 

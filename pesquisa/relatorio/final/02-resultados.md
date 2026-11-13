@@ -83,7 +83,7 @@ As duas perguntas válidas que falham na regra de sucesso são a **q08** (abas e
 
 > *"Para sair do 'vou estudar amanhã' e realmente começar, é essencial automatizar o início da conduta através da formulação de intenções de implementação [Fonte: artigo_08]. [...] 1. Defina com precisão 'Quando', 'Onde' e 'Como' você iniciará o estudo."*
 
-**3. Mas o prompt novo custou completude em outras perguntas.** A completude caiu de 0,91 (T3) para **0,76**, e a fidelidade ao contexto, de 0,97 para **0,86**. Pergunta a pergunta, contra a avaliação do T3 com a mesma régua:
+**3. Mas o prompt novo custou completude em outras perguntas.** A completude caiu de 0,91 (T3) para **0,76**, e a fidelidade ao contexto, de 0,98 para **0,86**. Pergunta a pergunta, contra a avaliação do T3 com a mesma régua:
 
 | | Perguntas |
 | :-- | :-- |
@@ -93,7 +93,7 @@ As duas perguntas válidas que falham na regra de sucesso são a **q08** (abas e
 
 O saldo é **2 perguntas melhores e 8 piores**. As respostas não ficaram mais curtas (310 contra 315 tokens), então o modelo não está escrevendo menos: está **escolhendo outros pontos**. A hipótese mais provável, **não testada**, é a regra 5 ("ignore os fragmentos que não tratam do que foi perguntado"): ela corrige a q12, mas faz o modelo descartar trechos que tinham pontos-chave em perguntas mais abertas. A regra 3 ("comece com 1 ou 2 frases que respondem diretamente") também gera sínteses que o juiz de fidelidade às vezes reprova (q09: fidelidade 0,67 → 0,00).
 
-> **Confirmado na reavaliação:** o T3 foi reavaliado nesta rodada, com o mesmo juiz, e o saldo contra o T4 é o mesmo (2 perguntas melhores, 8 piores). A diferença vem do prompt, e não de variação do juiz.
+> **Direção confirmada, sem significância estatística com 18 perguntas:** o T3 foi reavaliado nesta rodada, com o mesmo juiz, e o saldo contra o T4 é o mesmo (2 perguntas melhores, 8 piores). Como as respostas são geradas com `temperature=0` e o juiz é o mesmo, a diferença aponta para o prompt, e não para variação do juiz. Mas a amostra é pequena: o teste do sinal para 8 piores contra 2 melhores dá p ≈ 0,11, e o McNemar na taxa de sucesso em escopo (6 perguntas só o T3 acerta, 1 só o T4) dá p ≈ 0,125. Ficar com o prompt do T3 é a escolha conservadora: não há evidência de que o prompt novo seja melhor, e a tendência é de que seja pior.
 
 **4. Taxa de sucesso de 0,75.** As 10 recusas corretas mais 11 das 18 válidas. Das 7 que falham, 5 ficaram com completude abaixo de 2/3 (q08, q11, q13, q15, q18) e 2 com fidelidade abaixo de 0,8 (q09 e q17, que cobrem todos os pontos-chave, mas acrescentam sínteses que o juiz não encontrou no contexto).
 

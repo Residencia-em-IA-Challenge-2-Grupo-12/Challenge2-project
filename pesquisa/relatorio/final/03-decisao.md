@@ -34,7 +34,7 @@ As duas mudanças do T4 tiveram efeitos opostos, e só uma delas fica:
 | Mudança do T4 | Efeito medido | Fica? |
 | :-- | :-- | :-- |
 | **Porteiro de distância** | Barra 6/10 fora de escopo sem chamar o LLM (0,14 s contra 5,8 s), sem recusar nenhuma válida | **Sim** |
-| **Prompt revisado** | Corrige a q12, mas a completude cai de 0,91 para 0,76 e a fidelidade de 0,97 para 0,86 | **Não** |
+| **Prompt revisado** | Corrige a q12, mas a completude cai de 0,91 para 0,76 e a fidelidade de 0,98 para 0,86 | **Não** |
 
 | | T3 | T4 | **T3 + porteiro** |
 | :-- | :-- | :-- | :-- |

@@ -8,7 +8,8 @@
 | Cita artigo correto | 0.00 | 1.00 | 1.00 | 1.00 |
 | Recusa correta (10) | 0.90 | 0.60 | 1.00 | 1.00 |
 | Recusa indevida (18) | 0.00 | 0.00 | 0.00 | 0.00 |
-| Latência p50 (s) | 44.04 | 0.15 | 14.61 | 24.92 |
+| Latência p50, todas as 28 (s) | 44.04 | 0.15 | 14.61 | 24.92 |
+| Latência p50, só respostas (s) | 54.74 | 0.15 | 20.79 | 29.27 |
 | Tokens por resposta | 844 | 542 | 315 | 310 |
 | Tokens de contexto | 0 | 598 | 598 | 598 |
 | Chamadas ao LLM (28) | 28 | 0 | 28 | 22 |
