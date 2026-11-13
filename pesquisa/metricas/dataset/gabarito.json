@@ -1,0 +1,493 @@
+[
+  {
+    "id": "q01",
+    "pergunta": "Como organizar minha rotina de estudos trabalhando 8 horas por dia?",
+    "fontes_esperadas": [
+      "artigo_19_dual_burden_clt_martins.txt",
+      "artigo_14_willpower_depletion_baumeister.txt"
+    ],
+    "fontes_complementares": [
+      "artigo_17_study_cycle_perez.txt"
+    ],
+    "tipo": "multi_fonte",
+    "origem": "notebook",
+    "persona": null,
+    "pontos_chave": [
+      "Micro-blocos matinais protegidos de 45 a 60 minutos",
+      "Estudar antes do expediente, quando o autocontrole ainda não se esgotou",
+      "Fins de semana para blocos de aprofundamento prático"
+    ],
+    "variacoes": [
+      "Trabalho CLT o dia todo, como encaixo os estudos na semana?",
+      "tenho emprego de horário integral, qual a melhor rotina pra estudar?"
+    ]
+  },
+  {
+    "id": "q02",
+    "pergunta": "Trabalho 8 horas por dia e sinto que não consigo render nos estudos. Como devo dividir meus blocos de estudo diários e cuidar do sono?",
+    "fontes_esperadas": [
+      "artigo_19_dual_burden_clt_martins.txt",
+      "artigo_14_willpower_depletion_baumeister.txt",
+      "artigo_05_sleep_consolidation_walker.txt"
+    ],
+    "fontes_complementares": [
+      "artigo_17_study_cycle_perez.txt"
+    ],
+    "tipo": "multi_fonte",
+    "origem": "notebook",
+    "persona": "Lucas",
+    "pontos_chave": [
+      "Micro-blocos matinais de 45 a 60 minutos",
+      "Não reduzir o sono abaixo de 7 horas, pois ele consolida a memória",
+      "Evitar depender de decisões à noite, quando a força de vontade está esgotada"
+    ],
+    "variacoes": [
+      "Chego cansado do trabalho e não rendo estudando; como divido o estudo e ainda durmo direito?",
+      "trampo 8h por dia, como organizar os horários de estudo sem perder sono?"
+    ]
+  },
+  {
+    "id": "q03",
+    "pergunta": "Eu perco horas montando planilhas e cronogramas que sempre atrasam quando surge um imprevisto. Quais técnicas práticas posso aplicar para evitar o overplanning?",
+    "fontes_esperadas": [
+      "artigo_12_perfectionism_flett.txt",
+      "artigo_17_study_cycle_perez.txt"
+    ],
+    "fontes_complementares": [
+      "artigo_09_timeboxing_allen.txt"
+    ],
+    "tipo": "multi_fonte",
+    "origem": "notebook",
+    "persona": "Lisa",
+    "pontos_chave": [
+      "Ciclo de estudos em sequência circular com blocos de 60 a 90 minutos em vez de grade fixa",
+      "Retomar o ciclo de onde parou após um imprevisto, sem refazer o cronograma",
+      "Planejamento excessivo pode ser adiamento disfarçado, ligado ao perfeccionismo"
+    ],
+    "variacoes": [
+      "Passo mais tempo organizando o cronograma do que estudando, o que eu faço?",
+      "meu planejamento de estudos sempre quebra quando aparece um imprevisto, como evitar isso?"
+    ]
+  },
+  {
+    "id": "q04",
+    "pergunta": "Como devo priorizar os tópicos de um edital extenso ou trilha autodidata em vez de estudar tudo de forma linear, e como validar meu aprendizado prático?",
+    "fontes_esperadas": [
+      "artigo_16_pareto_engineering_box.txt",
+      "artigo_18_project_based_learning_thomas.txt"
+    ],
+    "fontes_complementares": [
+      "artigo_20_feynman_technique_gleick.txt"
+    ],
+    "tipo": "multi_fonte",
+    "origem": "notebook",
+    "persona": "Bob",
+    "pontos_chave": [
+      "Pareto: cerca de 80% das questões vêm de 20% do conteúdo",
+      "Mapear a incidência histórica dos tópicos e alocar mais tempo nos de maior recorrência",
+      "Validar construindo projetos reais e artefatos práticos verificáveis"
+    ],
+    "variacoes": [
+      "O edital é enorme, por onde começo sem estudar tudo na ordem?",
+      "como escolher o que estudar primeiro numa trilha autodidata e provar que aprendi mesmo?"
+    ]
+  },
+  {
+    "id": "q05",
+    "pergunta": "Por que eu releio o material várias vezes e mesmo assim não consigo lembrar na hora da prova?",
+    "fontes_esperadas": [
+      "artigo_01_active_recall_karpicke.txt"
+    ],
+    "fontes_complementares": [
+      "artigo_02_spaced_repetition_cepeda.txt",
+      "artigo_20_feynman_technique_gleick.txt"
+    ],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "A releitura gera ilusão de competência, pois o reconhecimento passivo exige pouco esforço",
+      "A recuperação ativa (testes, questões sem consulta) retém melhor a longo prazo"
+    ],
+    "variacoes": [
+      "Leio a matéria várias vezes, mas na prova dá branco. Por quê?",
+      "reler o resumo várias vezes funciona pra memorizar?"
+    ]
+  },
+  {
+    "id": "q06",
+    "pergunta": "Como devo espaçar minhas revisões antes de uma prova?",
+    "fontes_esperadas": [
+      "artigo_02_spaced_repetition_cepeda.txt"
+    ],
+    "fontes_complementares": [
+      "artigo_01_active_recall_karpicke.txt"
+    ],
+    "tipo": "direta",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Quanto mais distante a avaliação, maior o espaçamento entre as revisões",
+      "Priorizar itens com menor taxa de acerto recente"
+    ],
+    "variacoes": [
+      "De quanto em quanto tempo devo revisar a matéria pra prova?",
+      "qual o intervalo certo entre uma revisão e outra?"
+    ]
+  },
+  {
+    "id": "q07",
+    "pergunta": "Adianta resolver 30 exercícios do mesmo tipo de uma vez só?",
+    "fontes_esperadas": [
+      "artigo_03_interleaving_rohwer.txt"
+    ],
+    "fontes_complementares": [],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Prática em blocos dá proficiência ilusória e fraco desempenho futuro",
+      "Alternar problemas de tópicos diferentes desenvolve a discriminação de estratégias"
+    ],
+    "variacoes": [
+      "Fazer uma lista enorme de exercícios iguais ajuda a aprender?",
+      "é melhor misturar exercícios de assuntos diferentes ou fazer um tipo de cada vez?"
+    ]
+  },
+  {
+    "id": "q08",
+    "pergunta": "Estudar com um monte de abas e aplicativos abertos atrapalha o aprendizado?",
+    "fontes_esperadas": [
+      "artigo_04_cognitive_load_sweller.txt"
+    ],
+    "fontes_complementares": [
+      "artigo_07_attention_residue_leroy.txt"
+    ],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "A memória de trabalho comporta só cerca de 4 a 7 elementos",
+      "Material e interfaces desorganizados geram carga extrínseca que consome capacidade cognitiva"
+    ],
+    "variacoes": [
+      "Estudar com várias janelas e notificações abertas prejudica?",
+      "deixar o computador cheio de coisa aberta atrapalha a cabeça na hora de estudar?"
+    ]
+  },
+  {
+    "id": "q09",
+    "pergunta": "Dá para dormir só 5 horas para ter mais tempo de estudar de madrugada?",
+    "fontes_esperadas": [
+      "artigo_05_sleep_consolidation_walker.txt"
+    ],
+    "fontes_complementares": [
+      "artigo_19_dual_burden_clt_martins.txt"
+    ],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Dormir menos de 7 horas deteriora foco e consolidação da memória",
+      "As horas de estudo na madrugada tornam-se ineficazes"
+    ],
+    "variacoes": [
+      "Vale a pena virar a noite estudando antes da prova?",
+      "posso cortar horas de sono pra estudar mais?"
+    ]
+  },
+  {
+    "id": "q10",
+    "pergunta": "O que é trabalho profundo e quantas horas por dia consigo manter esse foco?",
+    "fontes_esperadas": [
+      "artigo_06_deep_work_newport.txt"
+    ],
+    "fontes_complementares": [
+      "artigo_07_attention_residue_leroy.txt"
+    ],
+    "tipo": "direta",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Atividade intelectual em foco ininterrupto, sem distrações",
+      "Capacidade de sustentar de 2 a 4 horas diárias de trabalho profundo"
+    ],
+    "variacoes": [
+      "Quanto tempo de foco total uma pessoa aguenta por dia?",
+      "o que significa deep work?"
+    ]
+  },
+  {
+    "id": "q11",
+    "pergunta": "Por que, depois de olhar o celular no meio do estudo, eu demoro tanto para voltar a me concentrar?",
+    "fontes_esperadas": [
+      "artigo_07_attention_residue_leroy.txt"
+    ],
+    "fontes_complementares": [
+      "artigo_06_deep_work_newport.txt"
+    ],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Resíduo de atenção: parte da atenção fica presa na tarefa anterior",
+      "O efeito é maior quando a tarefa foi interrompida antes de concluir"
+    ],
+    "variacoes": [
+      "Toda vez que vejo uma notificação eu perco a concentração, por quê?",
+      "por que é tão difícil voltar a estudar depois de responder mensagem?"
+    ]
+  },
+  {
+    "id": "q12",
+    "pergunta": "Como faço para sair do \"vou estudar amanhã\" e realmente começar?",
+    "fontes_esperadas": [
+      "artigo_08_implementation_intentions_gollwitzer.txt"
+    ],
+    "fontes_complementares": [
+      "artigo_11_temporal_motivation_steel.txt",
+      "artigo_13_habit_loop_wood.txt"
+    ],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Usar intenção de implementação no formato 'Se X ocorrer, então faço Y'",
+      "Definir quando, onde e como a ação será iniciada"
+    ],
+    "variacoes": [
+      "Sempre deixo pra começar a estudar amanhã, como mudo isso?",
+      "como transformar a vontade de estudar em ação de verdade?"
+    ]
+  },
+  {
+    "id": "q13",
+    "pergunta": "O que é a Lei de Parkinson e como definir um tempo fixo para cada tarefa me ajuda?",
+    "fontes_esperadas": [
+      "artigo_09_timeboxing_allen.txt"
+    ],
+    "fontes_complementares": [],
+    "tipo": "direta",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "O trabalho se expande para preencher o tempo disponível",
+      "Timeboxing fixa um bloco com início e fim e elimina a ruminação sobre o que fazer em seguida"
+    ],
+    "variacoes": [
+      "Por que a tarefa sempre ocupa todo o tempo que eu tenho disponível?",
+      "definir um horário limite para cada atividade ajuda a render?"
+    ]
+  },
+  {
+    "id": "q14",
+    "pergunta": "Como funciona a técnica Pomodoro? Quanto tempo dura cada intervalo?",
+    "fontes_esperadas": [
+      "artigo_10_pomodoro_cirillo.txt"
+    ],
+    "fontes_complementares": [],
+    "tipo": "direta",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Intervalos de esforço de 25 minutos com pausas curtas de 5 minutos",
+      "Registrar os pomodoros dá feedback visual de progresso"
+    ],
+    "variacoes": [
+      "Como é aquele método de estudar 25 minutos e descansar um pouco?",
+      "quanto tempo dura cada pomodoro e cada pausa?"
+    ]
+  },
+  {
+    "id": "q15",
+    "pergunta": "Por que eu vou empurrando o estudo quando a prova ainda está longe? Como resolver isso?",
+    "fontes_esperadas": [
+      "artigo_11_temporal_motivation_steel.txt"
+    ],
+    "fontes_complementares": [],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Metas distantes sofrem desconto hiperbólico e perdem apelo motivacional",
+      "Decompor metas longas em marcos semanais com feedback rápido"
+    ],
+    "variacoes": [
+      "Só começo a estudar quando a prova está chegando, como evitar?",
+      "por que eu procrastino quando o prazo ainda está longe?"
+    ]
+  },
+  {
+    "id": "q16",
+    "pergunta": "Como criar o hábito de estudar todos os dias sem depender de força de vontade?",
+    "fontes_esperadas": [
+      "artigo_13_habit_loop_wood.txt",
+      "artigo_08_implementation_intentions_gollwitzer.txt"
+    ],
+    "fontes_complementares": [
+      "artigo_14_willpower_depletion_baumeister.txt"
+    ],
+    "tipo": "multi_fonte",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Ancorar o estudo em pistas de contexto estáveis (mesmo horário e local)",
+      "Eliminar a fricção do ambiente",
+      "Automatizar o início com um plano 'Se-Então'"
+    ],
+    "variacoes": [
+      "Como fazer o estudo virar uma rotina automática?",
+      "quero estudar todo dia sem precisar me forçar, tem jeito?"
+    ]
+  },
+  {
+    "id": "q17",
+    "pergunta": "Como ganho mais confiança de que vou conseguir terminar meus estudos, mesmo quando as coisas ficam difíceis?",
+    "fontes_esperadas": [
+      "artigo_15_self_efficacy_bandura.txt"
+    ],
+    "fontes_complementares": [],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Acumular experiências de domínio em microtarefas",
+      "Registrar a progressão incremental para elevar a percepção de competência"
+    ],
+    "variacoes": [
+      "Como acreditar mais em mim para não desistir dos estudos?",
+      "sinto que não sou capaz de terminar o curso, o que pode ajudar?"
+    ]
+  },
+  {
+    "id": "q18",
+    "pergunta": "Como saber se eu realmente entendi um assunto ou só decorei?",
+    "fontes_esperadas": [
+      "artigo_20_feynman_technique_gleick.txt"
+    ],
+    "fontes_complementares": [
+      "artigo_01_active_recall_karpicke.txt"
+    ],
+    "tipo": "parafraseada",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [
+      "Explicar o conceito em linguagem simples, como para um leigo, sem jargões",
+      "Travar ou usar termos vazios revela a lacuna que exige revisão da fonte"
+    ],
+    "variacoes": [
+      "Como testar se eu aprendi de verdade?",
+      "decorei a matéria, mas não sei se entendi. Como checar?"
+    ]
+  },
+  {
+    "id": "q19",
+    "pergunta": "Qual a melhor forma de investir meu dinheiro em ações?",
+    "fontes_esperadas": [],
+    "fontes_complementares": [],
+    "tipo": "fora_de_escopo",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [],
+    "variacoes": []
+  },
+  {
+    "id": "q20",
+    "pergunta": "Quanto café posso tomar para me concentrar melhor nos estudos?",
+    "fontes_esperadas": [],
+    "fontes_complementares": [],
+    "tipo": "fora_de_escopo",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [],
+    "variacoes": []
+  },
+  {
+    "id": "q21",
+    "pergunta": "Qual o melhor remédio para dormir quando estou ansioso antes da prova?",
+    "fontes_esperadas": [],
+    "fontes_complementares": [],
+    "tipo": "fora_de_escopo",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [],
+    "variacoes": []
+  },
+  {
+    "id": "q22",
+    "pergunta": "Quanto ganha um engenheiro de software no Brasil?",
+    "fontes_esperadas": [],
+    "fontes_complementares": [],
+    "tipo": "fora_de_escopo",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [],
+    "variacoes": []
+  },
+  {
+    "id": "q23",
+    "pergunta": "Qual é a fórmula de Bhaskara?",
+    "fontes_esperadas": [],
+    "fontes_complementares": [],
+    "tipo": "fora_de_escopo",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [],
+    "variacoes": []
+  },
+  {
+    "id": "q24",
+    "pergunta": "Me ajuda a escrever um código em Python que ordena uma lista?",
+    "fontes_esperadas": [],
+    "fontes_complementares": [],
+    "tipo": "fora_de_escopo",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [],
+    "variacoes": []
+  },
+  {
+    "id": "q25",
+    "pergunta": "Qual a capital da Austrália?",
+    "fontes_esperadas": [],
+    "fontes_complementares": [],
+    "tipo": "fora_de_escopo",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [],
+    "variacoes": []
+  },
+  {
+    "id": "q26",
+    "pergunta": "Como faço para emagrecer mesmo passando o dia sentado estudando?",
+    "fontes_esperadas": [],
+    "fontes_complementares": [],
+    "tipo": "fora_de_escopo",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [],
+    "variacoes": []
+  },
+  {
+    "id": "q27",
+    "pergunta": "Como pedir aumento para o meu chefe?",
+    "fontes_esperadas": [],
+    "fontes_complementares": [],
+    "tipo": "fora_de_escopo",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [],
+    "variacoes": []
+  },
+  {
+    "id": "q28",
+    "pergunta": "Qual cadeira ergonômica é melhor para estudar muitas horas?",
+    "fontes_esperadas": [],
+    "fontes_complementares": [],
+    "tipo": "fora_de_escopo",
+    "origem": "novo",
+    "persona": null,
+    "pontos_chave": [],
+    "variacoes": []
+  }
+]

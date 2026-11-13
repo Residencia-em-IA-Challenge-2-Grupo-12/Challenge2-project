@@ -1,0 +1,532 @@
+{
+  "config": {
+    "llm": "qwen3:8b",
+    "embedding": null,
+    "top_k": 0,
+    "prompt": "PROMPT_LLM_PURO",
+    "modo": "llm_puro"
+  },
+  "respostas": [
+    {
+      "id": "q01",
+      "tipo": "multi_fonte",
+      "pergunta": "Como organizar minha rotina de estudos trabalhando 8 horas por dia?",
+      "esperadas": [
+        "artigo_19_dual_burden_clt_martins.txt",
+        "artigo_14_willpower_depletion_baumeister.txt"
+      ],
+      "pontos_chave": [
+        "Micro-blocos matinais protegidos de 45 a 60 minutos",
+        "Estudar antes do expediente, quando o autocontrole ainda não se esgotou",
+        "Fins de semana para blocos de aprofundamento prático"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "Organizar sua rotina de estudos enquanto trabalha 8 horas por dia exige planejamento estratégico, gestão do tempo e equilíbrio entre produtividade e descanso. Abaixo estão técnicas e estratégias que podem ajudar:\n\n---\n\n### 1. **Defina Prioridades e Metas Claras**\n- **Estabeleça objetivos de curto e longo prazo** para seus estudos. Exemplo: \"Concluir um capítulo da disciplina até o final da semana\" ou \"Aprovar uma prova em 30 dias\".\n- **Use a técnica SMART** (Específico, Mensurável, Alcançável, Relevante, Temporizado) para definir metas.\n- **Priorize tarefas** com base em importância e urgência (Matriz de Eisenhower).\n\n[Fonte: Técnicas de Gestão de Tempo e Metas SMART]\n\n---\n\n### 2. **Divida o Dia em Blocos de Estudo e Trabalho**\n- **Trabalhe em blocos de 90 minutos** (técnica Pomodoro: 25 minutos de estudo + 5 minutos de pausa). Após 4 blocos, faça uma pausa mais longa (15–30 minutos).\n- **Evite multitarefas**. Foque em uma atividade por vez para aumentar a concentração.\n- **Use o horário de pico de produtividade** (geralmente entre 9h e 12h ou 15h e 18h) para tarefas mais complexas.\n\n[Fonte: Técnica Pomodoro e Gestão de Produtividade]\n\n---\n\n### 3. **Planeje a Rotina Diária com Antecedência**\n- **Crie um cronograma semanal** com blocos de estudo, horários de trabalho e pausas.\n- **Reserve 1–2 horas por dia** para estudos, preferencialmente após o trabalho ou em horários de maior concentração.\n- **Use ferramentas de planejamento** como agendas digitais, aplicativos de produtividade (Notion, Trello, Google Calendar) ou planilhas.\n\n[Fonte: Planejamento Diário e Ferramentas de Produtividade]\n\n---\n\n### 4. **Inclua Pausas e Descanso Ativo**\n- **Faça pausas curtas** a cada 45–60 minutos de estudo para evitar fadiga mental.\n- **Inclua atividades físicas leves** (exercícios, alongamento) durante as pausas para melhorar a circulação e a concentração.\n- **Dorma 7–8 horas por noite** para manter o foco e a energia durante o dia.\n\n[Fonte: Gestão do Estresse e Saúde Mental]\n\n---\n\n### 5. **Use Técnicas de Estudo Eficientes**\n- **Revisão ativa** (exercícios, resumos, flashcards) em vez de apenas ler.\n- **Estude em ambientes livres de distrações** (desligue notificações, use apps de bloqueio de redes sociais).\n- **Aprenda em pequenos intervalos** (spaced repetition) para reforçar o conteúdo.\n\n[Fonte: Técnicas de Aprendizagem Ativa e Repetição Espaçada]\n\n---\n\n### 6. **Avalie e Ajuste Regularmente**\n- **Revise seu progresso** semanalmente para identificar o que está funcionando e o que precisa ser ajustado.\n- **Seja flexível** com sua rotina, mas mantenha a consistência. A regularidade é mais importante que a perfeição.\n\n[Fonte: Avaliação Contínua e Ajuste de Estratégias]\n\n---\n\n### 7. **Evite o Burnout**\n- **Não estude em excesso**. A sobrecarga mental pode prejudicar sua produtividade e saúde.\n- **Reserve tempo para hobbies, lazer e descanso** para manter o equilíbrio emocional.\n\n[Fonte: Saúde Mental e Equilíbrio de Vida]\n\n---\n\n### Resumo da Rotina Sugerida (Exemplo):\n| Horário       | Atividade                     |\n|---------------|------------------------------|\n| 7h–8h         | Acordar, café da manhã        |\n| 8h–12h        | Trabalho                     |\n| 12h–13h       | Almoço e pausa                |\n| 13h–15h       | Trabalho                     |\n| 15h–16h       | Estudo (Pomodoro)             |\n| 16h–17h       | Trabalho                     |\n| 17h–18h       | Estudo (Pomodoro)             |\n| 18h–19h       | Pausa e atividade física      |\n| 19h–21h       | Estudo (Pomodoro)             |\n| 21h–22h       | Revisão e preparação para o dia seguinte |\n| 22h–23h       | Descanso e sono              |\n\n---\n\nSe quiser, posso ajudar a personalizar essa rotina com base em suas metas, horários e estilo de estudo.",
+      "latencia_s": 81.13,
+      "tokens_resposta": 1179,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q02",
+      "tipo": "multi_fonte",
+      "pergunta": "Trabalho 8 horas por dia e sinto que não consigo render nos estudos. Como devo dividir meus blocos de estudo diários e cuidar do sono?",
+      "esperadas": [
+        "artigo_19_dual_burden_clt_martins.txt",
+        "artigo_14_willpower_depletion_baumeister.txt",
+        "artigo_05_sleep_consolidation_walker.txt"
+      ],
+      "pontos_chave": [
+        "Micro-blocos matinais de 45 a 60 minutos",
+        "Não reduzir o sono abaixo de 7 horas, pois ele consolida a memória",
+        "Evitar depender de decisões à noite, quando a força de vontade está esgotada"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "### 1. **Divisão dos Blocos de Estudo Diários**\n\nCom 8 horas de trabalho, é essencial organizar o tempo de estudo de forma eficiente e sustentável. Aqui está uma sugestão de como dividir seus blocos de estudo:\n\n#### a) **Estudo Pós-Trabalho (1–2 horas)**\n- **Horário ideal:** Entre 18h e 20h ou 20h e 22h.\n- **Duração:** 1 a 2 horas, com pausas curtas (10–15 minutos a cada 45 minutos).\n- **Foco:** Priorize tarefas que exigem concentração e memorização, como revisão de conteúdos, resolução de exercícios ou estudo de novos temas.\n- **Técnica recomendada:** Método Pomodoro (25 minutos de estudo + 5 minutos de pausa).\n\n#### b) **Estudo Matinal (1–1,5 horas)**\n- **Horário ideal:** Entre 6h e 8h.\n- **Duração:** 1 a 1,5 horas, com pausas curtas.\n- **Foco:** Estudo de conteúdos mais teóricos ou leitura de materiais.\n- **Técnica recomendada:** Estudo em blocos de 45–60 minutos com pausas para evitar fadiga mental.\n\n#### c) **Estudo em Intervalos (1–2 horas por semana)**\n- **Horário ideal:** Durante o fim de semana ou em dias de folga.\n- **Duração:** 1–2 horas, com foco em revisão e reforço de conteúdos.\n- **Foco:** Revisar o que foi estudado no dia anterior, preparar para provas ou testes.\n\n#### d) **Estudo em Horários Flexíveis (se houver tempo)**\n- **Horário ideal:** Durante o almoço ou em intervalos entre tarefas de trabalho.\n- **Duração:** 20–30 minutos.\n- **Foco:** Revisar anotações, fazer exercícios rápidos ou ler artigos curtos.\n\n---\n\n### 2. **Cuidados com o Sono**\n\nO sono é fundamental para a produtividade e a capacidade de aprender. Aqui estão algumas recomendações:\n\n#### a) **Horário de Dormir**\n- **Ideal:** Entre 22h e 23h, para garantir 7–8 horas de sono.\n- **Recomendação:** Se for dormir às 23h, acorde às 7h. Se for dormir às 22h, acorde às 6h30.\n\n#### b) **Rotina de Higiene do Sono**\n- **Evite telas 1 hora antes de dormir:** A luz azul dos dispositivos pode interferir na produção de melatonina.\n- **Evite cafeína após 15h:** A cafeína pode afetar a qualidade do sono.\n- **Crie um ambiente de sono adequado:** Quarto escuro, silencioso e fresco.\n\n#### c) **Técnicas para Melhorar o Sono**\n- **Meditação ou respiração consciente:** 10–15 minutos antes de dormir.\n- **Exercícios leves:** Caminhada ou alongamento antes de dormir.\n- **Evite refeições pesadas antes de dormir:** Opte por lanches leves, como frutas ou iogurte.\n\n---\n\n### 3. **Dicas Gerais para Melhorar a Produtividade**\n\n- **Use um planner ou app de produtividade:** Como Todoist, Notion ou Google Calendar.\n- **Estabeleça metas diárias e semanais:** Pequenas metas são mais motivadoras.\n- **Evite multitarefas:** Foque em uma tarefa por vez para melhorar a qualidade do estudo.\n- **Recompense-se:** Após concluir uma tarefa, dê-se uma pequena recompensa (ex.: um intervalo de 15 minutos para relaxar).\n\n---\n\n### 4. **Revisão e Ajuste da Rotina**\n\n- **Avalie semanalmente:** Verifique se a rotina está funcionando e ajuste conforme necessário.\n- **Priorize o que é mais importante:** Foque em tópicos que exigem mais atenção e revisão.\n- **Evite a procrastinação:** Use técnicas como a \"Regra dos 2 minutos\" para tarefas simples.\n\n---\n\n### Fontes:\n- [Fonte: Método Pomodoro](https://en.wikipedia.org/wiki/Pomodoro_Technique)\n- [Fonte: Recomendações de sono para adultos](https://www.sleepfoundation.org)\n- [Fonte: Técnicas de produtividade e estudo](https://www.effortlesslearning.com)",
+      "latencia_s": 75.76,
+      "tokens_resposta": 1080,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q03",
+      "tipo": "multi_fonte",
+      "pergunta": "Eu perco horas montando planilhas e cronogramas que sempre atrasam quando surge um imprevisto. Quais técnicas práticas posso aplicar para evitar o overplanning?",
+      "esperadas": [
+        "artigo_12_perfectionism_flett.txt",
+        "artigo_17_study_cycle_perez.txt"
+      ],
+      "pontos_chave": [
+        "Ciclo de estudos em sequência circular com blocos de 60 a 90 minutos em vez de grade fixa",
+        "Retomar o ciclo de onde parou após um imprevisto, sem refazer o cronograma",
+        "Planejamento excessivo pode ser adiamento disfarçado, ligado ao perfeccionismo"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "### Técnicas Práticas para Evitar o Overplanning\n\n#### 1. **Use o Princípio da Margem de Segurança (Buffer Time)**\n- **O que é**: Reservar tempo extra em seu cronograma para imprevistos.\n- **Como aplicar**: Adicione 10-20% de tempo extra a cada tarefa ou atividade. Isso permite que você absorva atrasos sem comprometer o prazo geral.\n- **Exemplo**: Se uma tarefa leva 5 horas, reserve 6-7 horas no cronograma.\n- **Fonte**: Técnicas de gestão de projetos como o **Agile** e **Scrum** [Fonte: Scrum Guide].\n\n#### 2. **Adote o Método de Estimativa de Tempo Realista (Realistic Time Estimation)**\n- **O que é**: Estimar o tempo com base em experiências passadas e não em otimismo.\n- **Como aplicar**: Pergunte-se: \"Se eu fosse fazer isso pela primeira vez, quanto tempo eu gastaria?\" Em vez de \"Quanto tempo eu acho que vou levar?\"\n- **Fonte**: Princípios de gestão de tempo e planejamento de projetos [Fonte: \"Getting Things Done\" de David Allen].\n\n#### 3. **Priorize Tarefas com a Técnica de Eisenhower**\n- **O que é**: Classificar tarefas em quatro categorias com base em urgência e importância.\n- **Como aplicar**:\n  - **Urgente e Importante**: Faça imediatamente.\n  - **Importante, mas não urgente**: Planeje.\n  - **Urgente, mas não importante**: Delegue.\n  - **Não urgente e não importante**: Elimine ou postergue.\n- **Fonte**: Técnica de gestão de prioridades [Fonte: \"The Eisenhower Matrix\"].\n\n#### 4. **Use Ferramentas de Gestão de Tarefas com Flexibilidade**\n- **O que é**: Ferramentas que permitem ajustes dinâmicos no cronograma.\n- **Como aplicar**: Use softwares como **Trello**, **Notion**, ou **Asana** que permitem reorganizar tarefas e ajustar prazos conforme necessário.\n- **Fonte**: Práticas de gestão de projetos ágeis [Fonte: \"Agile Project Management\" de James Grenning].\n\n#### 5. **Revise e Ajuste Regularmente o Cronograma**\n- **O que é**: Não criar um cronograma fixo, mas revisá-lo periodicamente.\n- **Como aplicar**: Faça revisões diárias ou semanais para ajustar o cronograma com base em progressos reais e imprevistos.\n- **Fonte**: Metodologias de gestão de tempo como **Time Blocking** e **Daily Stand-ups** [Fonte: \"Atomic Habits\" de James Clear].\n\n#### 6. **Evite o \"Overcommitting\"**\n- **O que é**: Comprometer-se com mais tarefas do que pode executar.\n- **Como aplicar**: Use a regra do **80/20** (Pareto): foque em 20% das tarefas que geram 80% dos resultados.\n- **Fonte**: Princípios de produtividade e foco [Fonte: \"The 80/20 Principle\" de Richard Koch].\n\n---\n\n### Conclusão\nEvitar o overplanning exige uma combinação de planejamento realista, flexibilidade e revisão contínua. Ao aplicar essas técnicas, você reduzirá o risco de atrasos e aumentará sua produtividade e eficiência.",
+      "latencia_s": 56.34,
+      "tokens_resposta": 827,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q04",
+      "tipo": "multi_fonte",
+      "pergunta": "Como devo priorizar os tópicos de um edital extenso ou trilha autodidata em vez de estudar tudo de forma linear, e como validar meu aprendizado prático?",
+      "esperadas": [
+        "artigo_16_pareto_engineering_box.txt",
+        "artigo_18_project_based_learning_thomas.txt"
+      ],
+      "pontos_chave": [
+        "Pareto: cerca de 80% das questões vêm de 20% do conteúdo",
+        "Mapear a incidência histórica dos tópicos e alocar mais tempo nos de maior recorrência",
+        "Validar construindo projetos reais e artefatos práticos verificáveis"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "### 1. **Priorização de Tópicos em Edital Extensivo ou Trilha Autodidata**\n\nPara priorizar tópicos em um edital extenso ou em uma trilha autodidata, é essencial adotar uma abordagem estruturada e focada em **objetivos claros**, **necessidades do exame** e **tempo disponível**. Abaixo estão as estratégias mais eficazes:\n\n---\n\n#### **A. Análise do Edital ou Trilha Autodidata**\n- **Leia o edital com atenção** e identifique os **tópicos com maior peso** (geralmente indicados por porcentagem ou pontuação). [Fonte: Guia de Estudo para Concursos - Fundação Cesgranrio]\n- **Priorize tópicos que são mais frequentes em provas anteriores**. Isso pode ser verificado por meio de **análise de provas anteriores** ou **banco de questões**. [Fonte: Estudo Baseado em Provas - Cursos Online de Concursos]\n- **Identifique tópicos que são pré-requisitos para outros**. Por exemplo, em matemática, entender frações é fundamental para resolver problemas de porcentagem. [Fonte: Metodologia de Estudo para Ciências Exatas - Universidade Federal de Minas Gerais]\n\n---\n\n#### **B. Metodologia de Estudo por Prioridade**\n- **Use a técnica de \"Pilhas de Estudo\"**:\n  - **Pilha 1 (Maior Prioridade):** Tópicos com maior peso no edital ou que são mais frequentes.\n  - **Pilha 2 (Média Prioridade):** Tópicos que são importantes, mas não tão frequentes.\n  - **Pilha 3 (Menor Prioridade):** Tópicos que podem ser revisados em etapas finais ou que são mais complexos. [Fonte: Técnicas de Estudo para Concursos - Cursos Online de Concursos]\n- **Aplique a técnica de \"Estudo em Ciclos\"**:\n  - Estude um tópico por ciclo (ex: 2 horas), revise-o e avance para o próximo. [Fonte: Método Pomodoro e Estudo em Ciclos - Cursos Online de Estudos]\n\n---\n\n#### **C. Ferramentas para Priorização**\n- **Matriz de Prioridade (Eisenhower):** Classifique os tópicos em:\n  - **Urgente e Importante**\n  - **Importante, mas não urgente**\n  - **Urgente, mas não importante**\n  - **Nem urgente nem importante** [Fonte: Gestão do Tempo e Priorização - Livros de Produtividade]\n- **Ferramentas digitais:** Use aplicativos como **Notion**, **Trello** ou **Google Sheets** para organizar tópicos e marcar progresso. [Fonte: Gestão de Estudos com Ferramentas Digitais - Cursos Online de Estudos]\n\n---\n\n### 2. **Validação do Aprendizado Prático**\n\nA validação do aprendizado prático é essencial para garantir que você está **aplicando o conhecimento de forma eficaz** e **identificando lacunas**. Abaixo estão as estratégias mais recomendadas:\n\n---\n\n#### **A. Prática com Questões de Concursos**\n- **Resolva questões de provas anteriores** e **simulados**. Isso ajuda a:\n  - Identificar tópicos que você ainda não domina.\n  - Aprender a aplicar teoria em contextos reais.\n  - Melhorar a velocidade de resolução. [Fonte: Estudo Baseado em Provas - Cursos Online de Concursos]\n- **Use plataformas como**:\n  - **Questões Online** (ex: Questões de Concursos, Banca CESPE, etc.)\n  - **Simulados de Concursos** (ex: Simulado de Concursos, Simulado Online)\n\n---\n\n#### **B. Autoavaliação e Revisão**\n- **Faça revisões periódicas** com base em:\n  - **Resumo de tópicos**\n  - **Mapas mentais**\n  - **Resumo em formato de flashcards** (ex: Anki) [Fonte: Técnicas de Estudo com Flashcards - Cursos Online de Estudos]\n- **Use a técnica de \"Teste de Autoavaliação\"**:\n  - Após estudar um tópico, faça uma lista de 5 a 10 perguntas sobre ele.\n  - Responda sem olhar o conteúdo e avalie seu desempenho. [Fonte: Estudo Ativo e Autoavaliação - Livros de Estudos]\n\n---\n\n#### **C. Feedback e Correção**\n- **Busque feedback de colegas ou professores** para:\n  - Identificar erros comuns.\n  - Aprender a corrigir falhas.\n- **Use ferramentas de correção automática** (ex: corretores de texto, corretores de questões) para identificar erros de compreensão. [Fonte: Ferramentas de Correção e Feedback - Cursos Online de Estudos]\n\n---\n\n### 3. **Dicas Finais para Produtividade e Aprendizado**\n\n- **Estabeleça metas diárias e semanais** com base no edital e no tempo disponível.\n- **Use o método Pomodoro** para manter a concentração e evitar a fadiga mental.\n- **Revisite tópicos regularmente** para reforçar a memória a longo prazo.\n- **Mantenha um diário de estudos** para acompanhar o progresso e identificar padrões de dificuldade.\n\n---\n\nSe quiser, posso ajudar a montar um plano de estudo personalizado com base no edital ou trilha que você está estudando.",
+      "latencia_s": 89.55,
+      "tokens_resposta": 1341,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q05",
+      "tipo": "parafraseada",
+      "pergunta": "Por que eu releio o material várias vezes e mesmo assim não consigo lembrar na hora da prova?",
+      "esperadas": [
+        "artigo_01_active_recall_karpicke.txt"
+      ],
+      "pontos_chave": [
+        "A releitura gera ilusão de competência, pois o reconhecimento passivo exige pouco esforço",
+        "A recuperação ativa (testes, questões sem consulta) retém melhor a longo prazo"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "A dificuldade de lembrar o material após relembrá-lo várias vezes pode ser atribuída a uma combinação de fatores relacionados à **aprendizagem ativa**, **retenção de informações** e **estilo de estudo**. Abaixo, explico os principais motivos e sugiro estratégias para melhorar sua memória e retenção:\n\n---\n\n### 1. **Releitura sem compreensão profunda**\nRepetir o mesmo conteúdo sem entender o significado ou a conexão entre as ideias pode levar à **aprendizagem superficial**. Isso é conhecido como **aprendizagem passiva**, que não promove a retenção a longo prazo.\n\n- **Solução**: Use técnicas de **aprendizagem ativa**, como:\n  - **Resumo em suas próprias palavras** ([Fonte: Método de Feynman](https://en.wikipedia.org/wiki/Feynman_Techique)).\n  - **Mapas conceituais** ou **diagramas** para visualizar relações.\n  - **Explicar o conteúdo para si mesmo ou para outro** ([Fonte: Aprendizagem Cooperativa](https://www.education.com/reference/article/learning-theories/)).\n\n---\n\n### 2. **Falta de intervalos entre estudos (spacing effect)**\nRevisar o mesmo conteúdo em intervalos curtos (ex: todos os dias) pode não ser eficaz. O **efeito de espaçamento** sugere que a retenção é melhor quando os estudos estão espaçados no tempo.\n\n- **Solução**: Use o **método de espaçamento**:\n  - Estude o conteúdo, depois revise-o após 1 dia, 3 dias, 1 semana, etc.\n  - Ferramentas como **Anki** ou **Quizlet** podem ajudar a organizar esses intervalos ([Fonte: Estudo Espaçado](https://en.wikipedia.org/wiki/Spacing_effect)).\n\n---\n\n### 3. **Falta de associação e significado**\nSe o conteúdo não for associado a algo que você já conhece ou que tenha significado pessoal, é mais difícil de lembrar.\n\n- **Solução**: \n  - **Associe o conteúdo a exemplos da vida real**.\n  - **Use metáforas ou analogias** para facilitar a compreensão.\n  - **Faça perguntas sobre o conteúdo** para estimular a reflexão ([Fonte: Pergunta e Resposta](https://www.education.com/reference/article/learning-theories/)).\n\n---\n\n### 4. **Estresse e falta de sono**\nFatores como **estresse**, **falta de sono** e **distratores ambientais** podem prejudicar a memória e a concentração.\n\n- **Solução**:\n  - Mantenha uma rotina de **sono adequado** (7-9 horas por noite).\n  - Pratique **técnicas de relaxamento** como meditação ou respiração profunda.\n  - Estude em um ambiente **livre de distrações** ([Fonte: Estudo em Ambiente Adequado](https://www.psychologytoday.com/us/basics/learning)).\n\n---\n\n### 5. **Falta de prática e aplicação**\nA memorização eficaz exige **prática ativa** e **aplicação do conhecimento**. Apenas relembrar o conteúdo não é suficiente.\n\n- **Solução**:\n  - Faça **exercícios de aplicação** ou **simulações de provas**.\n  - Use **questões de múltipla escolha** ou **resumos em tempo limitado** para testar sua memória ([Fonte: Prática Ativa](https://www.education.com/reference/article/learning-theories/)).\n\n---\n\n### 6. **Método de estudo inadequado**\nMuitos estudantes usam métodos como **releitura repetida**, que são ineficazes para a retenção a longo prazo. Métodos mais eficazes incluem **estudo baseado em perguntas**, **mapas mentais** e **estudo em grupo**.\n\n- **Solução**:\n  - Experimente **métodos de estudo baseados em perguntas**.\n  - Use **mapas mentais** para organizar o conteúdo.\n  - Estude em **grupos de estudo** para trocar ideias e reforçar o aprendizado ([Fonte: Estudo em Grupo](https://www.education.com/reference/article/learning-theories/)).\n\n---\n\n### Conclusão\nA retenção de informações não depende apenas da quantidade de vezes que você lê o material, mas da **qualidade do estudo** e da **aplicação do conhecimento**. Para melhorar sua memória e retenção, foque em **aprendizagem ativa**, **estudo espaçado**, **associação de significado** e **prática constante**.\n\nSe quiser, posso ajudar a montar um plano de estudo personalizado com base nas suas dificuldades e objetivos.",
+      "latencia_s": 78.71,
+      "tokens_resposta": 1159,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q06",
+      "tipo": "direta",
+      "pergunta": "Como devo espaçar minhas revisões antes de uma prova?",
+      "esperadas": [
+        "artigo_02_spaced_repetition_cepeda.txt"
+      ],
+      "pontos_chave": [
+        "Quanto mais distante a avaliação, maior o espaçamento entre as revisões",
+        "Priorizar itens com menor taxa de acerto recente"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "Espaçar as revisões de forma eficaz é uma estratégia fundamental para reforçar a memória e melhorar o desempenho em provas. Abaixo estão as principais técnicas recomendadas:\n\n### 1. **Revisão Espaçada (Spaced Repetition)**\nA técnica de revisão espaçada envolve revisitar o conteúdo em intervalos crescentes de tempo. Isso ajuda a consolidar a informação na memória de longo prazo.\n\n- **Exemplo de cronograma:**\n  - **1 dia após a primeira revisão**\n  - **3 dias após a primeira revisão**\n  - **1 semana após a primeira revisão**\n  - **2 semanas após a primeira revisão**\n  - **1 mês antes da prova**\n\n[Fonte: \"Principles of Learning\" por Robert A. Bjork]\n\n### 2. **Revisão em Intervalos Crescentes**\nRevisite o conteúdo em intervalos que aumentam gradualmente. Isso estimula a memória e evita a \"revisão em massa\" (cramming), que é menos eficaz.\n\n- **Exemplo:**\n  - Revisar 1 vez no dia seguinte\n  - Revisar 2 vezes na semana seguinte\n  - Revisar 3 vezes na terceira semana\n  - Revisar 1 vez na semana antes da prova\n\n[Fonte: \"Make It Stick\" por Peter C. Brown, Henry L. Roediger III e Mark A. McDaniel]\n\n### 3. **Revisão em Blocos de Conteúdo**\nDivida o conteúdo em blocos menores e revise cada bloco em intervalos diferentes. Isso ajuda a manter a atenção e a retenção.\n\n### 4. **Revisão Antes da Prova (1-2 Dias Antes)**\nNos dias imediatamente antes da prova, revise apenas o conteúdo mais crítico ou o que você tem mais dificuldade. Evite revisar tudo de uma vez, pois isso pode sobrecarregar a memória.\n\n### 5. **Revisão Ativa**\nEm vez de apenas ler ou relembrar, pratique a revisão ativa, como:\n- Resolver exercícios\n- Fazer resumos\n- Explicar o conteúdo para si mesmo ou para outro\n- Criar mapas mentais ou diagramas\n\n[Fonte: \"How We Learn\" por Benedict Carey]\n\n### 6. **Revisão com Intervalos Aleatórios**\nMisture os tópicos em diferentes sessões de revisão. Isso ajuda a reforçar a memória e a evitar a \"repetição em sequência\", que pode ser monótona.\n\n### 7. **Revisão com Pausas Estratégicas**\nEvite revisar por longos períodos sem pausas. Intervalos curtos de descanso ajudam a manter a concentração e a retenção.\n\n### 8. **Revisão com Feedback**\nApós cada revisão, avalie o que você aprendeu e o que ainda precisa ser revisado. Isso ajuda a identificar lacunas e a priorizar o estudo.\n\n### Resumo:\n- Use a técnica de revisão espaçada com intervalos crescentes.\n- Revisite o conteúdo em blocos menores.\n- Evite revisar tudo no dia da prova.\n- Pratique a revisão ativa e com feedback.\n- Misture os tópicos e inclua pausas estratégicas.\n\nEssas estratégias são baseadas em pesquisas científicas sobre aprendizagem e memória, e são amplamente recomendadas por especialistas em educação e cognição.",
+      "latencia_s": 54.74,
+      "tokens_resposta": 830,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q07",
+      "tipo": "parafraseada",
+      "pergunta": "Adianta resolver 30 exercícios do mesmo tipo de uma vez só?",
+      "esperadas": [
+        "artigo_03_interleaving_rohwer.txt"
+      ],
+      "pontos_chave": [
+        "Prática em blocos dá proficiência ilusória e fraco desempenho futuro",
+        "Alternar problemas de tópicos diferentes desenvolve a discriminação de estratégias"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "Não é recomendado resolver 30 exercícios do mesmo tipo de uma vez só, especialmente se o objetivo é aprender e compreender o conceito por trás dos exercícios. Essa abordagem pode levar a uma **aprendizagem superficial** e **falta de retenção a longo prazo**. Aqui estão os motivos e sugestões para uma abordagem mais eficaz:\n\n### 1. **Aprendizagem por Repetição e Variedade**\n- Resolver exercícios do mesmo tipo em sequência pode tornar o processo monótono e reduzir a atenção e o engajamento. A repetição sem variação pode levar à **falta de profundidade** na compreensão.\n- **Sugestão**: Divida os exercícios em sessões menores (ex.: 5-10 exercícios por sessão) e intercale com outros tipos de exercícios ou tópicos relacionados para manter o interesse e a eficácia do aprendizado.\n\n### 2. **Reforço da Memória e da Compreensão**\n- A **regra de espaçamento** (spacing effect) indica que a retenção de informações é melhor quando as revisões ocorrem em intervalos de tempo. Resolver 30 exercícios de uma vez não permite esse reforço.\n- **Sugestão**: Revise os exercícios em intervalos de tempo (ex.: 1 dia, 3 dias, 1 semana) para reforçar a memória e a compreensão.\n\n### 3. **Identificação de Erros e Pontos Fracos**\n- Ao resolver 30 exercícios de uma vez, é mais difícil identificar padrões de erros ou pontos fracos, pois a atenção pode se dispersar.\n- **Sugestão**: Revise os exercícios após a sessão, identificando quais foram resolvidos corretamente e quais apresentaram dificuldades. Isso ajuda a corrigir erros e aprofundar o entendimento.\n\n### 4. **Produtividade e Sustentabilidade**\n- Resolver 30 exercícios de uma vez pode levar à **falta de produtividade sustentável**. A mente pode se cansar rapidamente, resultando em menor eficiência e maior fadiga.\n- **Sugestão**: Divida o trabalho em sessões curtas e frequentes, com pausas para descanso e reflexão. Isso mantém a produtividade e evita o esgotamento mental.\n\n### 5. **Aprendizagem Ativa e Engajamento**\n- A aprendizagem ativa envolve a interação com o material, o que é mais eficaz quando há variação e desafios.\n- **Sugestão**: Combine a resolução de exercícios com outras formas de aprendizagem, como leitura, explicação em voz alta, ou ensino ao outro (teaching others).\n\n### Conclusão\nResolver 30 exercícios do mesmo tipo de uma vez só pode ser eficaz em alguns contextos específicos (como preparação para uma prova com muitas questões do mesmo tipo), mas, em geral, é melhor adotar uma abordagem mais estruturada e variada para garantir uma **aprendizagem profunda e duradoura**.\n\nSe você tiver um objetivo específico (como preparação para uma prova ou certificação), posso ajudar a planejar uma estratégia de estudo mais eficaz.",
+      "latencia_s": 53.9,
+      "tokens_resposta": 786,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q08",
+      "tipo": "parafraseada",
+      "pergunta": "Estudar com um monte de abas e aplicativos abertos atrapalha o aprendizado?",
+      "esperadas": [
+        "artigo_04_cognitive_load_sweller.txt"
+      ],
+      "pontos_chave": [
+        "A memória de trabalho comporta só cerca de 4 a 7 elementos",
+        "Material e interfaces desorganizados geram carga extrínseca que consome capacidade cognitiva"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "Sim, estudar com um monte de abas e aplicativos abertos **atrapalha significativamente o aprendizado**. Essa situação é conhecida como **multitarefismo cognitivo**, que pode reduzir a capacidade de concentração, aumentar a carga mental e prejudicar a retenção de informações. Abaixo estão os principais motivos e técnicas para melhorar a produtividade:\n\n---\n\n### 1. **Interrupções e Perda de Foco**\n- Ter múltiplas abas e aplicativos abertos pode causar **interrupções frequentes**, mesmo que subconscientes, o que reduz a capacidade de manter o foco em uma tarefa específica.\n- Estudos mostram que a **atenção se fragmenta** quando há múltiplas fontes de estímulo, como notificações, abas abertas e aplicativos em segundo plano ([Fonte: 1](https://www.psychologytoday.com/us/blog/brainwise/201304/why-multitasking-is-bad-for-you)).\n\n---\n\n### 2. **Sobrecarga Cognitiva**\n- A mente humana tem limites de processamento. Ter muitas abas e aplicativos abertos pode **sobrecarregar a memória de trabalho**, dificultando a assimilação e a retenção do conteúdo estudado.\n- Isso é especialmente prejudicial para tarefas que exigem **concentração profunda**, como leitura de textos complexos ou resolução de problemas ([Fonte: 2](https://www.sciencedirect.com/science/article/pii/S001002851300044X)).\n\n---\n\n### 3. **Redução da Produtividade**\n- Pesquisas indicam que a **produtividade cai em até 40%** quando há multitarefismo, pois o cérebro gasta energia para alternar entre tarefas, em vez de focar em uma ([Fonte: 3](https://www.entrepreneur.com/article/319445)).\n\n---\n\n### 4. **Técnicas para Melhorar a Produtividade**\n- **Método Pomodoro**: Trabalhe em blocos de 25 minutos com pausas curtas para manter a concentração.\n- **Foco em uma tarefa por vez**: Feche abas desnecessárias e desative notificações.\n- **Técnicas de limpeza digital**: Use ferramentas como o **Focus@Will** ou **Forest** para bloquear distrações.\n- **Priorize tarefas**: Use listas de tarefas com prioridades (ex: método Eisenhower) para evitar sobrecarga.\n\n---\n\n### Conclusão\nEstudar com muitas abas e aplicativos abertos **não é eficiente**. A concentração e a produtividade são fundamentais para o aprendizado eficaz. Adotar estratégias de foco e organização pode melhorar significativamente o desempenho acadêmico e a retenção de conhecimento.",
+      "latencia_s": 47.24,
+      "tokens_resposta": 683,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q09",
+      "tipo": "parafraseada",
+      "pergunta": "Dá para dormir só 5 horas para ter mais tempo de estudar de madrugada?",
+      "esperadas": [
+        "artigo_05_sleep_consolidation_walker.txt"
+      ],
+      "pontos_chave": [
+        "Dormir menos de 7 horas deteriora foco e consolidação da memória",
+        "As horas de estudo na madrugada tornam-se ineficazes"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "Não recomendo dormir apenas 5 horas para ter mais tempo de estudar de madrugada. Essa prática pode ter impactos negativos na sua saúde física e mental, prejudicando a produtividade a longo prazo. Vamos analisar os riscos e alternativas mais saudáveis:\n\n### 1. **Impactos negativos do sono insuficiente**\n- **Fadiga e redução da concentração**: Dormir menos de 6-7 horas por noite pode levar à fadiga, dificultando a capacidade de foco e retenção de informações ([Fonte: CDC - Centers for Disease Control and Prevention]).\n- **Aumento do risco de erros**: Estudos mostram que a privação do sono pode aumentar o número de erros cometidos em tarefas cognitivas ([Fonte: National Sleep Foundation]).\n- **Problemas de saúde a longo prazo**: A falta de sono crônica está associada a doenças cardiovasculares, diabetes e depressão ([Fonte: American Psychological Association]).\n\n### 2. **Alternativas para otimizar o tempo de estudo**\n- **Estude em intervalos curtos e frequentes**: A técnica do **pomodoro** (25 minutos de estudo + 5 minutos de pausa) pode aumentar a produtividade sem exigir longas sessões ([Fonte: Cram Session vs. Spaced Learning]).\n- **Priorize o conteúdo mais importante**: Foque em tópicos-chave e evite estudar materiais que não são essenciais para o seu objetivo ([Fonte: Prioritization in Learning]).\n- **Use o tempo da madrugada de forma estratégica**: Se for necessário estudar à noite, garanta que o sono seja de qualidade, mesmo que curto. Evite telas e atividades estimulantes antes de dormir ([Fonte: Sleep Hygiene Tips]).\n\n### 3. **Recomendação final**\n- **Sono adequado é fundamental para a aprendizagem**: A maioria dos especialistas recomenda **7-9 horas de sono por noite** para manter a cognição e a saúde ([Fonte: National Sleep Foundation]).\n- **Não sacrifique o sono para estudar**: A produtividade sustentável depende de um equilíbrio entre estudo, descanso e autocuidado.\n\nSe você tem dificuldade em gerenciar o tempo, considere usar ferramentas de planejamento como o **GTD (Getting Things Done)** ou o **Método Eisenhower** para organizar suas tarefas de forma mais eficiente ([Fonte: Productivity Hacks]).",
+      "latencia_s": 39.4,
+      "tokens_resposta": 590,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q10",
+      "tipo": "direta",
+      "pergunta": "O que é trabalho profundo e quantas horas por dia consigo manter esse foco?",
+      "esperadas": [
+        "artigo_06_deep_work_newport.txt"
+      ],
+      "pontos_chave": [
+        "Atividade intelectual em foco ininterrupto, sem distrações",
+        "Capacidade de sustentar de 2 a 4 horas diárias de trabalho profundo"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "**Trabalho profundo** (deep work), conceito popularizado por Cal Newport em seu livro *Deep Work: Rules for Focused Success in a Distracted World*, refere-se a uma forma de trabalho em que você se dedica a tarefas complexas e criativas com total foco, sem distrações externas ou internas. Esse tipo de trabalho é essencial para produzir resultados de alta qualidade, inovação e aprendizado significativo.\n\n### Tópicos principais sobre trabalho profundo:\n\n#### 1. **Definição e características do trabalho profundo**\n- Trabalho profundo envolve tarefas que exigem concentração, pensamento crítico e criatividade.\n- É contrário ao \"trabalho superficial\", que envolve tarefas repetitivas, automação ou interações superficiais.\n- Exemplos: escrever, programar, resolver problemas complexos, planejar estratégias, etc. [Fonte: Newport, 2018]\n\n#### 2. **Quantas horas por dia consigo manter esse foco?**\n- A capacidade de manter foco em trabalho profundo varia de pessoa para pessoa, mas estudos e práticas sugerem que a maioria das pessoas pode manter um nível significativo de foco por **45 a 90 minutos** em blocos consecutivos.\n- A maioria das pessoas precisa de **pausas curtas (5-15 minutos)** a cada 45-90 minutos para recarregar a atenção.\n- A duração total de trabalho profundo por dia depende do tipo de tarefa, da complexidade e da saúde mental do indivíduo. Geralmente, **2 a 4 blocos de trabalho profundo por dia** são recomendados, totalizando **2 a 4 horas** de foco intenso. [Fonte: Newport, 2018; também baseado em estudos de neurociência sobre atenção e produtividade]\n\n#### 3. **Como aumentar a capacidade de foco**\n- **Crie um ambiente de trabalho sem distrações** (ex: silêncio, bloqueio de redes sociais).\n- **Use técnicas como Pomodoro** (25 minutos de foco + 5 minutos de pausa).\n- **Pratique a meditação e o exercício físico** para melhorar a concentração e a saúde mental.\n- **Estabeleça horários fixos para trabalho profundo** e evite multitarefas. [Fonte: Newport, 2018; também baseado em estudos de neurociência e psicologia cognitiva]\n\n#### 4. **Impacto do trabalho profundo na produtividade**\n- Trabalho profundo é mais produtivo do que o trabalho superficial, pois gera resultados de maior valor em menos tempo.\n- Reduz o estresse e a frustração causados por tarefas superficiais.\n- Melhora a qualidade do trabalho e a satisfação pessoal. [Fonte: Newport, 2018]\n\n### Conclusão:\nVocê pode manter foco em trabalho profundo por **45 a 90 minutos** em blocos, com pausas curtas entre eles. A duração total por dia varia, mas **2 a 4 horas de foco intenso** são recomendadas para maximizar a produtividade e o bem-estar. A chave é criar hábitos que favoreçam o foco e minimizem as distrações.",
+      "latencia_s": 52.77,
+      "tokens_resposta": 764,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q11",
+      "tipo": "parafraseada",
+      "pergunta": "Por que, depois de olhar o celular no meio do estudo, eu demoro tanto para voltar a me concentrar?",
+      "esperadas": [
+        "artigo_07_attention_residue_leroy.txt"
+      ],
+      "pontos_chave": [
+        "Resíduo de atenção: parte da atenção fica presa na tarefa anterior",
+        "O efeito é maior quando a tarefa foi interrompida antes de concluir"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "Essa experiência é comum e pode ser explicada por vários fatores relacionados à neurociência, psicologia e hábitos de estudo. Abaixo, organizo as principais razões e técnicas para melhorar a concentração:\n\n---\n\n### 1. **Interrupção da Fluxo de Trabalho (Flow)**\n- Quando você está em **fluxo de trabalho**, seu cérebro entra em um estado de **concentração profunda** e **produtividade elevada**. A interrupção por um celular quebra esse estado, e o cérebro precisa tempo para reconstruir a concentração.\n- **Exemplo**: Se você estava resolvendo um problema complexo e interrompe para olhar o celular, o cérebro precisa \"reiniciar\" o foco, o que leva tempo ([Fonte: *The Art of Focus* – Cal Newport]).\n\n---\n\n### 2. **Efeito da Multitarefa e Carga Cognitiva**\n- O cérebro não é bom em multitarefa. Quando você olha o celular, você está **dividindo sua atenção** entre o estudo e a notificação do celular.\n- Isso aumenta a **carga cognitiva**, deixando você mais cansado e mais difícil de voltar ao foco ([Fonte: *The Myth of Multitasking* – Clifford Nass]).\n\n---\n\n### 3. **Reforço de Hábitos de Distração**\n- Cada vez que você olha o celular durante o estudo, você reforça o hábito de **distração**. O cérebro associa a interrupção com uma **recompensa momentânea** (como uma notificação), o que torna mais difícil voltar ao estudo.\n- **Exemplo**: Se você olha o celular e vê uma mensagem, o cérebro associa isso a uma recompensa, o que torna mais difícil voltar ao foco ([Fonte: *Digital Minimalism* – Cal Newport]).\n\n---\n\n### 4. **Fadiga Mental e Estresse**\n- A interrupção pode causar **estresse** e **fadiga mental**, o que reduz a capacidade de concentração. O cérebro precisa de tempo para se recuperar e voltar ao estado de foco.\n\n---\n\n### 5. **Técnicas para Melhorar a Recuperação da Concentração**\n- **Técnicas de Recuperação**: Após uma interrupção, use técnicas como **respiração profunda**, **pausa curta** ou **método Pomodoro** para recuperação da concentração.\n- **Redução de Distrações**: Use ferramentas como **aplicativos de bloqueio de notificações** ou **modos de foco** em dispositivos móveis.\n- **Hábitos de Estudo Estruturados**: Estabeleça horários específicos para verificar o celular, evitando interrupções aleatórias.\n- **Prática de Meditação e Atividade Física**: Essas atividades ajudam a melhorar a **atenção e a concentração** ([Fonte: *Mindfulness-Based Stress Reduction* – Jon Kabat-Zinn]).\n\n---\n\n### Conclusão\nA demora para voltar a se concentrar após uma interrupção é um efeito natural do cérebro, mas pode ser mitigada com **habitos de estudo estruturados**, **redução de distrações** e **práticas de recuperação mental**.\n\nSe quiser, posso te ajudar a criar um plano de estudo com essas técnicas aplicadas.",
+      "latencia_s": 64.91,
+      "tokens_resposta": 811,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q12",
+      "tipo": "parafraseada",
+      "pergunta": "Como faço para sair do \"vou estudar amanhã\" e realmente começar?",
+      "esperadas": [
+        "artigo_08_implementation_intentions_gollwitzer.txt"
+      ],
+      "pontos_chave": [
+        "Usar intenção de implementação no formato 'Se X ocorrer, então faço Y'",
+        "Definir quando, onde e como a ação será iniciada"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "### 1. **Defina um objetivo claro e específico**  \nComece com um objetivo pequeno e mensurável. Por exemplo, em vez de dizer \"vou estudar amanhã\", diga: \"Vou estudar 30 minutos hoje sobre o tema X\". Isso reduz a sensação de sobrecarga e aumenta a probabilidade de começar.  \n[Fonte: *Atomic Habits* de James Clear]\n\n### 2. **Use a técnica do \"5 minutos\"**  \nA ideia é que você se comprometa a estudar apenas 5 minutos. A maioria das pessoas consegue começar nesse tempo, e muitas vezes se envolvem por mais tempo do que planejado.  \n[Fonte: *The Power of Habit* de Charles Duhigg]\n\n### 3. **Crie um ambiente de estudo propício**  \nOrganize um espaço dedicado ao estudo, livre de distrações. Se possível, use ferramentas como o *Focus@Will* ou *Forest* para manter a concentração.  \n[Font, *Deep Work* de Cal Newport]\n\n### 4. **Estabeleça uma rotina de estudo**  \nEscolha um horário fixo para estudar e tente manter essa rotina. A consistência é mais eficaz do que a intensidade ocasional.  \n[Fonte: *The 80/20 Principle* de Richard Koch]\n\n### 5. **Use a regra do \"primeiro passo\"**  \nO simples ato de começar é o que impulsiona a ação. Não importa se o primeiro passo for pequeno — o importante é que ele aconteça.  \n[Fonte: *Start With Why* de Simon Sinek]\n\n### 6. **Recompense-se após concluir uma tarefa**  \nRecompensas imediatas ajudam a reforçar o comportamento. Por exemplo, após estudar 30 minutos, você pode se permitir assistir a um episódio de uma série ou tomar um café.  \n[Fonte: *Nudge* de Richard Thaler e Cass Sunstein]\n\n### 7. **Evite o \"procrastinação mental\"**  \nMuitas vezes, a procrastinação é causada por medo de falhar ou por achar que o estudo é \"demasiado difícil\". Lembre-se de que o progresso é gradual e que pequenos esforços levam a grandes resultados.  \n[Fonte: *The Procrastination Equation* de Piers Steel]\n\n### 8. **Use a técnica Pomodoro**  \nEstude por 25 minutos, depois faça uma pausa de 5 minutos. Após quatro ciclos, faça uma pausa mais longa (15-30 minutos). Isso ajuda a manter a concentração e a evitar a fadiga.  \n[Fonte: *Pomodoro Technique* – Francesco Cirillo]\n\n### 9. **Reflita sobre o que está te impedindo**  \nSe você está constantemente adiando, pergunte-se: \"O que está me impedindo de estudar agora?\" Pode ser ansiedade, falta de motivação, ou até uma rotina de procrastinação. Identificar a causa ajuda a encontrar uma solução.  \n[Fonte: *Mindset* de Carol Dweck]\n\n### 10. **Mantenha a motivação com metas de curto prazo**  \nMetas diárias ou semanais ajudam a manter o foco e a sensação de progresso. Por exemplo: \"Hoje, vou revisar o capítulo 3 do livro X\".  \n[Fonte: *The 7 Habits of Highly Effective People* de Stephen R. Covey]\n\n---\n\nSe você quiser, posso ajudar a criar um plano de estudo personalizado com base em suas metas e horários.",
+      "latencia_s": 59.45,
+      "tokens_resposta": 857,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q13",
+      "tipo": "direta",
+      "pergunta": "O que é a Lei de Parkinson e como definir um tempo fixo para cada tarefa me ajuda?",
+      "esperadas": [
+        "artigo_09_timeboxing_allen.txt"
+      ],
+      "pontos_chave": [
+        "O trabalho se expande para preencher o tempo disponível",
+        "Timeboxing fixa um bloco com início e fim e elimina a ruminação sobre o que fazer em seguida"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "A **Lei de Parkinson** é um princípio da gestão do tempo e da produtividade, formulado pelo médico e escritor **C. Northcote Parkinson**. A lei afirma que:\n\n> *\"Trabalho que pode ser feito em um dia, tende a ser feito em um dia. Trabalho que pode ser feito em uma semana, tende a ser feito em uma semana.\"*\n\nEm outras palavras, **tarefas tendem a expandir-se para preencher o tempo disponível**. Se você tem um prazo longo para completar uma tarefa, ela tende a levar mais tempo do que se tivesse um prazo curto. Isso acontece porque, sem um limite de tempo, há mais espaço para procrastinação, perfeccionismo e perda de foco.\n\n---\n\n### Como definir um tempo fixo para cada tarefa me ajuda?\n\nDefinir um **tempo fixo** para cada tarefa é uma técnica de produtividade conhecida como **\"Time Blocking\"** ou **\"Bloqueio de Tempo\"**. Essa prática ajuda de várias formas:\n\n1. **Reduz a procrastinação**: Ao atribuir um tempo específico para uma tarefa, você cria uma expectativa de que ela será concluída dentro desse período, o que reduz a tentação de adiar.\n\n2. **Melhora a concentração**: Com um tempo limitado, você tende a focar mais na tarefa, evitando distrações e aumentando a eficiência.\n\n3. **Facilita a gestão do tempo**: Ao planejar o tempo de cada atividade, você evita sobrecarregar seu dia com tarefas que não têm prioridade.\n\n4. **Aumenta a sensação de controle**: Ter um tempo fixo para cada tarefa dá a sensação de que você está em controle do seu tempo, o que reduz o estresse e aumenta a motivação.\n\n5. **Evita a expansão da tarefa**: Segundo a Lei de Parkinson, se você limita o tempo para uma tarefa, ela tende a ser concluída mais rapidamente, evitando que ela se estenda por mais tempo do que necessário.\n\n---\n\n### Exemplo prático:\n\nSe você tem uma tarefa que leva em média 30 minutos, defina **30 minutos** como o tempo máximo para completá-la. Se não terminar nesse período, você pode revisar o que está funcionando e o que precisa ser ajustado.\n\n---\n\n### Fontes:\n- [Fonte: Lei de Parkinson – Wikipedia](https://pt.wikipedia.org/wiki/Lei_de_Parkinson)\n- [Fonte: Time Blocking – Productivity Hacks](https://www.productivityhacks.com/time-blocking/)",
+      "latencia_s": 41.82,
+      "tokens_resposta": 612,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q14",
+      "tipo": "direta",
+      "pergunta": "Como funciona a técnica Pomodoro? Quanto tempo dura cada intervalo?",
+      "esperadas": [
+        "artigo_10_pomodoro_cirillo.txt"
+      ],
+      "pontos_chave": [
+        "Intervalos de esforço de 25 minutos com pausas curtas de 5 minutos",
+        "Registrar os pomodoros dá feedback visual de progresso"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "A técnica Pomodoro é um método de gestão do tempo desenvolvido para melhorar a produtividade e a concentração durante as tarefas de estudo ou trabalho. Ela baseia-se em intervalos de estudo concentrados, seguidos de pausas curtas para recarregar a energia mental.\n\n### Funcionamento da Técnica Pomodoro:\n1. **Intervalo de Estudo (Pomodoro):**  \n   - Dura **25 minutos** de foco intenso em uma tarefa específica.  \n   - Durante esse período, é recomendado desativar notificações e minimizar distrações.  \n   - [Fonte: Pomodoro Technique – Francesco Cirillo]\n\n2. **Intervalo de Pausa:**  \n   - Após cada Pomodoro, é sugerido um intervalo de **5 minutos** para descansar os olhos, relaxar e recarregar a mente.  \n   - Após quatro Pomodoros consecutivos, é comum aumentar o intervalo de pausa para **15-30 minutos**, para evitar a fadiga mental.  \n   - [Fonte: Pomodoro Technique – Francesco Cirillo]\n\n### Benefícios da Técnica:\n- Melhora a concentração e a produtividade.  \n- Ajuda a manter a motivação ao dividir tarefas em etapas menores.  \n- Reduz o estresse e a fadiga mental.  \n\n### Como Implementar:\n- Use um cronômetro ou aplicativo para acompanhar os intervalos.  \n- Escolha uma tarefa clara e específica para cada Pomodoro.  \n- Mantenha o ambiente de estudo organizado e livre de distrações.  \n\nA técnica Pomodoro é flexível e pode ser adaptada conforme as necessidades individuais, como aumentar ou diminuir o tempo dos intervalos de estudo e pausas.",
+      "latencia_s": 28.71,
+      "tokens_resposta": 424,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q15",
+      "tipo": "parafraseada",
+      "pergunta": "Por que eu vou empurrando o estudo quando a prova ainda está longe? Como resolver isso?",
+      "esperadas": [
+        "artigo_11_temporal_motivation_steel.txt"
+      ],
+      "pontos_chave": [
+        "Metas distantes sofrem desconto hiperbólico e perdem apelo motivacional",
+        "Decompor metas longas em marcos semanais com feedback rápido"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "### 1. **Entenda o porquê de você adiar o estudo**  \nA principal razão para adiar o estudo, mesmo quando a prova está longe, é a **procrastinação**. Isso pode ser causado por diversos fatores, como:\n\n- **Ansiedade ou medo de falhar** [Fonte: Psicologia da Aprendizagem].\n- **Falta de motivação** [Fonte: Teorias de Motivação Intrinsic e Extrinsic].\n- **Falta de planejamento** [Fonte: Gestão do Tempo].\n- **Distrações e hábitos de procrastinação** [Fonte: Estudos sobre Comportamento Humano].\n\n### 2. **Como resolver isso?**\n\n#### a) **Estabeleça metas claras e realistas**  \nDefina objetivos específicos, mensuráveis e com prazos. Por exemplo, em vez de dizer \"estudo para a prova\", diga: \"Vou revisar 10 páginas do conteúdo da unidade 3 até sexta-feira\".\n\n#### b) **Use a técnica Pomodoro**  \nEstude em blocos de 25 minutos com pausas curtas (5 minutos). Isso ajuda a manter a concentração e reduz a sensação de sobrecarga [Fonte: Técnicas de Estudo Eficiente].\n\n#### c) **Crie um cronograma de estudos**  \nDivida o conteúdo da prova em partes e distribua o estudo ao longo do tempo. Isso evita a sobrecarga e aumenta a retenção [Fontça: Gestão do Tempo e Aprendizagem].\n\n#### d) **Remova distrações**  \nDesative notificações, use apps de bloqueio de sites e mantenha um ambiente de estudo organizado [Fonte: Produtividade e Autodisciplina].\n\n#### e) **Pratique a autocompaixão**  \nNão se culpe por adiar o estudo. Em vez disso, reconheça o comportamento e reforce a intenção de estudar. Isso ajuda a construir resiliência [Fonte: Psicologia da Aprendizagem].\n\n#### f) **Use a técnica do \"5 minutos\"**  \nSe você está com dificuldade para começar, prometa-se que vai estudar apenas 5 minutos. Muitas vezes, isso é suficiente para entrar no fluxo de estudo [Fonte: Técnicas de Início de Tarefas].\n\n### 3. **Reforce a motivação**  \nLembre-se de por que você está estudando. Seja para passar na prova, para ter uma carreira que você deseja, ou para alcançar um objetivo pessoal. A motivação é um fator-chave para a produtividade [Fonte: Teorias de Motivação].\n\n---\n\nSe quiser, posso ajudar a criar um plano de estudos personalizado para você. Basta me dizer o conteúdo da prova, o tempo que você tem até ela e suas preferências de estudo.",
+      "latencia_s": 46.26,
+      "tokens_resposta": 683,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q16",
+      "tipo": "multi_fonte",
+      "pergunta": "Como criar o hábito de estudar todos os dias sem depender de força de vontade?",
+      "esperadas": [
+        "artigo_13_habit_loop_wood.txt",
+        "artigo_08_implementation_intentions_gollwitzer.txt"
+      ],
+      "pontos_chave": [
+        "Ancorar o estudo em pistas de contexto estáveis (mesmo horário e local)",
+        "Eliminar a fricção do ambiente",
+        "Automatizar o início com um plano 'Se-Então'"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "Criar o hábito de estudar diariamente sem depender apenas da força de vontade envolve estratégias baseadas em neurociência, psicologia e metodologia de estudo. Abaixo estão os tópicos principais para desenvolver esse hábito de forma sustentável:\n\n---\n\n### 1. **Estabeleça uma rotina consistente**\n- **Horário fixo**: Estabeleça um horário específico para estudar todos os dias, preferencialmente em um local tranquilo e com boa iluminação. A consistência ajuda o cérebro a associar esse horário com a atividade de estudo ([Fonte: Harvard Business Review](https://hbr.org/2017/05/how-to-build-a-habit)).\n- **Início simples**: Comece com 15–20 minutos de estudo por dia. A ideia é que a ação se torne automática com o tempo ([Fonte: Charles Duhigg, *The Power of Habit*]).\n\n---\n\n### 2. **Use a técnica do \"2 minutos\"**\n- **Princípio da ação mínima**: Se você está com dificuldade para começar, prometa-se que vai estudar apenas 2 minutos. A maioria das pessoas consegue manter esse compromisso e, ao final dos 2 minutos, muitas continuam estudando ([Fonte: James Clear, *Atomic Habits*]).\n\n---\n\n### 3. **Conecte o estudo a um hábito existente**\n- **Hábito de ligar o computador ou celular**: Se você costuma ligar o computador ou celular ao acordar, conecte o estudo a essa ação. Por exemplo: \"Depois de ligar o celular, vou estudar 15 minutos\" ([Fonte: James Clear, *Atomic Habits*]).\n\n---\n\n### 4. **Aprenda a usar a recompensa**\n- **Recompensa imediata**: Após estudar, recompense-se com algo que você goste, como um pequeno intervalo de descanso, uma música favorita ou um snack. Isso reforça o comportamento de estudo ([Fonte: B.F. Skinner, teoria do reforço positivo]).\n\n---\n\n### 5. **Aprenda a usar a técnica Pomodoro**\n- **Intervalos curtos**: Estude por 25 minutos, depois faça uma pausa de 5 minutos. Após 4 ciclos, faça uma pausa mais longa (15–30 minutos). Isso ajuda a manter a concentração e evita a fadiga mental ([Fonte: Francesco Cirillo, *The Pomodoro Technique*]).\n\n---\n\n### 6. **Use a técnica de \"estudo em microintervalos\"**\n- **Estude em pequenos blocos**: Em vez de tentar estudar por horas, divida o tempo em blocos curtos (10–20 minutos) e estude em diferentes momentos ao longo do dia. Isso reduz a resistência e aumenta a produtividade ([Fonte: Cal Newport, *Digital Minimalism*]).\n\n---\n\n### 7. **Avalie e ajuste**\n- **Reflita diariamente**: Pergunte-se: \"O que funcionou hoje? O que posso melhorar?\" Isso ajuda a ajustar a rotina e a manter o foco no objetivo ([Fonte: Daniel Coyle, *The Talent Code*]).\n\n---\n\n### 8. **Evite a dependência da força de vontade**\n- **Transforme em hábito**: A força de vontade é uma energia limitada. Ao transformar o estudo em um hábito, você reduz a necessidade de depender dela ([Fonte: James Clear, *Atomic Habits*]).\n\n---\n\n### 9. **Use ferramentas de produtividade**\n- **Apps de foco**: Ferramentas como *Focus To-Do*, *Forest* ou *番茄钟 (Pomodoro)* ajudam a manter o foco e a criar a rotina de estudo ([Fonte: diversos estudos sobre produtividade digital]).\n\n---\n\n### 10. **Mantenha a motivação com metas claras**\n- **Metas SMART**: Defina metas específicas, mensuráveis, atingíveis, relevantes e com prazo. Por exemplo: \"Estudar 30 minutos por dia para revisar o conteúdo da aula de matemática\" ([Fonte: SMART Goals, metodologia de gestão de projetos]).\n\n---\n\n### Conclusão\nCriar o hábito de estudar diariamente sem depender apenas da força de vontade requer uma combinação de consistência, reforço positivo, técnicas de produtividade e autoconhecimento. Com a prática constante, o estudo se torna uma ação automática, integrada à sua rotina diária.\n\nSe quiser, posso ajudar a criar um plano personalizado para você.",
+      "latencia_s": 79.72,
+      "tokens_resposta": 1117,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q17",
+      "tipo": "parafraseada",
+      "pergunta": "Como ganho mais confiança de que vou conseguir terminar meus estudos, mesmo quando as coisas ficam difíceis?",
+      "esperadas": [
+        "artigo_15_self_efficacy_bandura.txt"
+      ],
+      "pontos_chave": [
+        "Acumular experiências de domínio em microtarefas",
+        "Registrar a progressão incremental para elevar a percepção de competência"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "**1. Defina metas claras e realistas**  \nEstabeleça objetivos específicos, mensuráveis e alcançáveis. Por exemplo, em vez de dizer \"estudarei mais\", defina \"estudarei 2 horas por dia, 5 dias por semana, para revisar o conteúdo da semana\". Isso cria um caminho claro e aumenta a sensação de controle.  \n[Fonte: \"Como criar metas eficazes\" – Instituto de Gestão de Desempenho Pessoal]\n\n**2. Pratique a automotivação diária**  \nCrie uma rotina que inclua pequenas conquistas diárias. Por exemplo, ao terminar uma tarefa, recompense-se com algo que você gosta. Isso reforça a sensação de progresso e aumenta a confiança.  \n[Fonte: \"A ciência da motivação\" – Daniel Pink]\n\n**3. Use a técnica do \"5 minutos\"**  \nQuando a tarefa parece difícil, comece com apenas 5 minutos. A maioria das pessoas descobre que, ao iniciar, é mais fácil continuar. Isso reduz a resistência e aumenta a produtividade.  \n[Font, \"A ciência da produtividade\" – Cal Newport]\n\n**4. Reforce a mentalidade de crescimento**  \nAcredite que suas habilidades podem ser desenvolvidas com esforço e prática. Em vez de pensar \"não sou bom em matemática\", diga \"ainda não sou bom, mas posso melhorar com estudo\". Isso reduz a ansiedade e aumenta a confiança.  \n[Fonte: \"Mindset: A nova psicologia do sucesso\" – Carol Dweck]\n\n**5. Celebre pequenas vitórias**  \nReconheça e celebre cada progresso, por menor que seja. Isso reforça a sensação de que você está avançando e fortalece a confiança em si mesmo.  \n[Fonte: \"A ciência da motivação\" – Daniel Pink]\n\n**6. Mantenha um ambiente de estudo organizado**  \nUm ambiente limpo e organizado reduz a distração e aumenta a concentração. Isso também contribui para a sensação de controle e produtividade.  \n[Fonte: \"A ciência da produtividade\" – Cal Newport]\n\n**7. Pratique a autocompaixão**  \nQuando enfrentar dificuldades, lembre-se de que é normal. Trate-se com gentileza e evite a autocrítica excessiva. Isso ajuda a manter a motivação e a confiança.  \n[Fonte: \"A ciência da autocompaixão\" – Kristin Neff]\n\n**8. Visualize o sucesso**  \nAntes de iniciar uma tarefa difícil, visualize-se concluindo-a com sucesso. Isso ativa a parte do cérebro associada à motivação e à confiança.  \n[Fonte: \"A ciência da visualização\" – Michael Gervais]\n\n**9. Peça ajuda quando necessário**  \nNão tenha medo de buscar apoio de professores, colegas ou mentores. A confiança também vem da capacidade de reconhecer quando precisamos de ajuda.  \n[Fonte: \"A ciência da colaboração\" – Teresa Amabile]\n\n**10. Revise regularmente**  \nRevisar o que estudou reforça a memória e aumenta a sensação de domínio sobre o conteúdo. Isso também ajuda a identificar lacunas e corrigi-las antes que se tornem obstáculos.  \n[Fonte: \"A ciência da aprendizagem\" – Robert Bjork]\n\nAo aplicar essas técnicas, você desenvolverá uma mentalidade mais confiante e uma abordagem mais eficaz para enfrentar os desafios dos estudos.",
+      "latencia_s": 61.33,
+      "tokens_resposta": 879,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q18",
+      "tipo": "parafraseada",
+      "pergunta": "Como saber se eu realmente entendi um assunto ou só decorei?",
+      "esperadas": [
+        "artigo_20_feynman_technique_gleick.txt"
+      ],
+      "pontos_chave": [
+        "Explicar o conceito em linguagem simples, como para um leigo, sem jargões",
+        "Travar ou usar termos vazios revela a lacuna que exige revisão da fonte"
+      ],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "**1. Explicação em Próprio Palavras**  \nSe você consegue explicar o assunto em suas próprias palavras, sem copiar ou seguir um texto, isso é um sinal forte de que compreendeu o conteúdo. A capacidade de reestruturar a informação em termos próprios demonstra que você não apenas memorizou, mas também processou e internalizou o conhecimento.  \n[Fonte: Método de Ensino de Bloom]\n\n**2. Aplicação Prática**  \nTente aplicar o conceito em um contexto novo ou resolver um problema usando o que aprendeu. Se você consegue usar o conhecimento de forma funcional, isso indica compreensão, não apenas memorização.  \n[Fonte: Aprendizagem Baseada em Problemas (PBL)]\n\n**3. Ensino para Outros**  \nExplicar o assunto para alguém else é uma das melhores formas de verificar sua compreensão. Se você consegue ensinar com clareza e sem confusão, isso significa que entendeu o conteúdo de maneira profunda.  \n[Fonte: Teoria da Aprendizagem de Vygotsky]\n\n**4. Teste de Recuperação**  \nDepois de algum tempo, tente relembrar o conteúdo sem consultar materiais. Se você consegue recuperar as informações com precisão, isso sugere que o aprendizado foi consolidado e não apenas memorizado.  \n[Fonte: Teoria da Forgetting Curve de Ebbinghaus]\n\n**5. Reflexão Crítica**  \nPergunte-se: \"Por que isso é importante?\" e \"Como isso se relaciona com o que já sei?\" A capacidade de fazer conexões e questionar o conteúdo é um sinal de compreensão profunda.  \n[Fonte: Pensamento Crítico]\n\n**6. Testes de Compreensão**  \nResponda a perguntas que exigem análise, síntese e avaliação, e não apenas memória. Se você consegue responder com base em sua compreensão, e não apenas em memorização, isso é um sinal de que entendeu o assunto.  \n[Fonte: Taxonomia de Bloom]\n\n**Conclusão:**  \nA diferença entre compreensão e memorização está na capacidade de aplicar, explicar, ensinar e refletir sobre o conteúdo. Se você consegue fazer isso, é sinal de que entendeu o assunto de verdade. Se não, é provável que tenha apenas decorado.",
+      "latencia_s": 38.37,
+      "tokens_resposta": 564,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q19",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Qual a melhor forma de investir meu dinheiro em ações?",
+      "esperadas": [],
+      "pontos_chave": [],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "Não encontrei informações suficientes na base de conhecimento para responder a essa pergunta.",
+      "latencia_s": 2.2,
+      "tokens_resposta": 20,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q20",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Quanto café posso tomar para me concentrar melhor nos estudos?",
+      "esperadas": [],
+      "pontos_chave": [],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "A ingestão de café pode ajudar a melhorar a concentração e a produtividade, mas é importante equilibrar os benefícios com os possíveis efeitos colaterais. Abaixo estão as diretrizes recomendadas:\n\n### 1. **Quantidade recomendada**\n- **Máximo de 200 mg de cafeína por dia** para a maioria das pessoas, o que equivale a aproximadamente **1-2 xícaras de café padrão** (250 ml cada) [Fonte: American College of Sleep Medicine].\n- Pessoas sensíveis à cafeína podem precisar de menos, como **100-150 mg por dia**.\n\n### 2. **Horário de consumo**\n- Evite tomar café **perto do horário de dormir**, pois a cafeína pode afetar a qualidade do sono, o que prejudica a concentração e a memória [Fonte: National Sleep Foundation].\n- Opte por tomar café **antes do início das atividades de estudo**, mas não muito cedo, para evitar a fadiga.\n\n### 3. **Efeitos colaterais a considerar**\n- **Ansiedade, tremores, aumento da frequência cardíaca** e **insônia** podem ocorrer em doses elevadas ou em pessoas sensíveis [Fonte: Mayo Clinic].\n- A dependência ou o uso excessivo pode levar a uma **redução da eficácia** da cafeína ao longo do tempo.\n\n### 4. **Alternativas saudáveis**\n- Considere **chá verde**, que contém cafeína em menor quantidade e também possui **antioxidantes** que podem auxiliar na concentração [Fonte: Harvard T.H. Chan School of Public Health].\n- **Água, frutas e lanches saudáveis** também são importantes para manter a energia e a concentração ao longo do dia.\n\n### 5. **Personalização**\n- Cada pessoa responde de forma diferente à cafeína. Experimente e observe como seu corpo reage, ajustando a quantidade e o horário de consumo conforme necessário.\n\nSe você tem condições médicas específicas (como hipertensão ou insônia), consulte um profissional antes de aumentar o consumo de cafeína.",
+      "latencia_s": 40.2,
+      "tokens_resposta": 502,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q21",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Qual o melhor remédio para dormir quando estou ansioso antes da prova?",
+      "esperadas": [],
+      "pontos_chave": [],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "Não encontrei informações suficientes na base de conhecimento para responder a essa pergunta.",
+      "latencia_s": 2.14,
+      "tokens_resposta": 20,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q22",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Quanto ganha um engenheiro de software no Brasil?",
+      "esperadas": [],
+      "pontos_chave": [],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "Não encontrei informações suficientes na base de conhecimento para responder a essa pergunta.",
+      "latencia_s": 2.3,
+      "tokens_resposta": 20,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q23",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Qual é a fórmula de Bhaskara?",
+      "esperadas": [],
+      "pontos_chave": [],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "Não encontrei informações suficientes na base de conhecimento para responder a essa pergunta.",
+      "latencia_s": 2.2,
+      "tokens_resposta": 20,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q24",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Me ajuda a escrever um código em Python que ordena uma lista?",
+      "esperadas": [],
+      "pontos_chave": [],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "Não encontrei informações suficientes na base de conhecimento para responder a essa pergunta.",
+      "latencia_s": 2.09,
+      "tokens_resposta": 20,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q25",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Qual a capital da Austrália?",
+      "esperadas": [],
+      "pontos_chave": [],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "Não encontrei informações suficientes na base de conhecimento para responder a essa pergunta.",
+      "latencia_s": 1.91,
+      "tokens_resposta": 20,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q26",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Como faço para emagrecer mesmo passando o dia sentado estudando?",
+      "esperadas": [],
+      "pontos_chave": [],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "Não encontrei informações suficientes na base de conhecimento para responder a essa pergunta.",
+      "latencia_s": 2.61,
+      "tokens_resposta": 20,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q27",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Como pedir aumento para o meu chefe?",
+      "esperadas": [],
+      "pontos_chave": [],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "Não encontrei informações suficientes na base de conhecimento para responder a essa pergunta.",
+      "latencia_s": 2.1,
+      "tokens_resposta": 20,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    },
+    {
+      "id": "q28",
+      "tipo": "fora_de_escopo",
+      "pergunta": "Qual cadeira ergonômica é melhor para estudar muitas horas?",
+      "esperadas": [],
+      "pontos_chave": [],
+      "recuperados": [],
+      "contexto": "",
+      "resposta": "Não encontrei informações suficientes na base de conhecimento para responder a essa pergunta.",
+      "latencia_s": 1.58,
+      "tokens_resposta": 20,
+      "tokens_contexto": 0,
+      "d1": null,
+      "chamou_llm": true
+    }
+  ]
+}
